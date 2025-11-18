@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Coding Assistants - Token Limit Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .tool-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tool-card.winner {
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f5e9 100%);
+        }
+        
+        .tool-card.second {
+            border-color: #2196F3;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+        
+        .tool-card.not-supported {
+            border-color: #f44336;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            opacity: 0.7;
+        }
+        
+        .tool-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .badge.winner {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .badge.second {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .badge.not-supported {
+            background: #f44336;
+            color: white;
+        }
+        
+        .stat {
+            margin: 12px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+        
+        .stat-value.large {
+            color: #4CAF50;
+        }
+        
+        .stat-value.small {
+            color: #ff9800;
+        }
+        
+        .stat-value.none {
+            color: #f44336;
+        }
+        
+        .pros-cons {
+            margin-top: 20px;
+        }
+        
+        .pros-cons h4 {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .pros-cons ul {
+            list-style: none;
+            font-size: 0.85em;
+        }
+        
+        .pros-cons li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .pros-cons li:before {
+            position: absolute;
+            left: 0;
+        }
+        
+        .pros-cons .pros li:before {
+            content: "✅";
+        }
+        
+        .pros-cons .cons li:before {
+            content: "❌";
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .checkmark {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .crossmark {
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        .token-bar {
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .token-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: width 1s ease;
+        }
+        
+        .scenario {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .scenario h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #667eea;
+        }
+        
+        .timeline-item {
+            margin: 10px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: "●";
+            position: absolute;
+            left: -9px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .recommendation {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .recommendation h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .recommendation-card {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .recommendation-card h3 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Coding Assistants Comparison</h1>
+        <p class="subtitle">Claude Sonnet 4.5 - Token Limits & Behavior Analysis</p>
+        
+        <div class="comparison-grid">
+            <!-- Cursor -->
+            <div class="tool-card winner">
+                <div class="badge winner">🏆 WINNER - Context</div>
+                <div class="tool-name">Cursor</div>
+                
+                <div class="stat">
+                    <div class="stat-label">Context Window</div>
+                    <div class="stat-value large">1,000,000 tokens</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Auto-Refresh</div>
+                    <div class="stat-value large">✅ Seamless</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Cost</div>
+                    <div class="stat-value">$20/month</div>
+                </div>
+                
+                <div class="token-bar">
+                    <div class="token-bar-fill" style="width: 100%">1M tokens</div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4>Key Strengths:</h4>
+                    <ul class="pros">
+                        <li>Largest context window</li>
+                        <li>Automatic refresh</li>
+                        <li>Excellent autocomplete</li>
+                        <li>Fast parallel execution</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Windsurf -->
+            <div class="tool-card winner">
+                <div class="badge winner">🏆 WINNER - Value</div>
+                <div class="tool-name">Windsurf</div>
+                
+                <div class="stat">
+                    <div class="stat-label">Context Window</div>
+                    <div class="stat-value large">1,000,000 tokens</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Auto-Refresh</div>
+                    <div class="stat-value large">✅ Seamless</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Cost</div>
+                    <div class="stat-value large">$10/month</div>
+                </div>
+                
+                <div class="token-bar">
+                    <div class="token-bar-fill" style="width: 100%">1M tokens</div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4>Key Strengths:</h4>
+                    <ul class="pros">
+                        <li>Best price/performance</li>
+                        <li>Cascade planning</li>
+                        <li>Agent-like autonomy</li>
+                        <li>Flow mode</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Cline -->
+            <div class="tool-card second">
+                <div class="badge second">GOOD - Control</div>
+                <div class="tool-name">Cline</div>
+                
+                <div class="stat">
+                    <div class="stat-label">Context Window</div>
+                    <div class="stat-value small">200,000 tokens</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Auto-Refresh</div>
+                    <div class="stat-value none">❌ Manual</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Cost</div>
+                    <div class="stat-value">BYOK (~$18/1M)</div>
+                </div>
+                
+                <div class="token-bar">
+                    <div class="token-bar-fill" style="width: 20%">200k tokens</div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4>Key Strengths:</h4>
+                    <ul class="pros">
+                        <li>Full transparency</li>
+                        <li>BYOK pricing</li>
+                        <li>VS Code integration</li>
+                        <li>High control</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- GitHub Copilot -->
+            <div class="tool-card not-supported">
+                <div class="badge not-supported">❌ NO SUPPORT</div>
+                <div class="tool-name">GitHub Copilot</div>
+                
+                <div class="stat">
+                    <div class="stat-label">Claude Sonnet 4.5</div>
+                    <div class="stat-value none">Not Available</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Available Models</div>
+                    <div class="stat-value small">GPT-4 Turbo (128k)</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Cost</div>
+                    <div class="stat-value">$10/month</div>
+                </div>
+                
+                <div class="token-bar">
+                    <div class="token-bar-fill" style="width: 12.8%; background: #ff9800">128k tokens</div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4>Best For:</h4>
+                    <ul class="pros">
+                        <li>Autocomplete only</li>
+                        <li>Quick suggestions</li>
+                        <li>GitHub integration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Claude.ai -->
+            <div class="tool-card second">
+                <div class="badge second">LIMITED - Web Only</div>
+                <div class="tool-name">Claude.ai</div>
+                
+                <div class="stat">
+                    <div class="stat-label">Context Window</div>
+                    <div class="stat-value small">200,000 tokens</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Auto-Refresh</div>
+                    <div class="stat-value none">❌ Manual</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-label">Cost</div>
+                    <div class="stat-value">$20/month</div>
+                </div>
+                
+                <div class="token-bar">
+                    <div class="token-bar-fill" style="width: 20%; background: #ff9800">200k tokens</div>
+                </div>
+                
+                <div class="pros-cons">
+                    <h4>Limitations:</h4>
+                    <ul class="cons">
+                        <li>No file access</li>
+                        <li>No code execution</li>
+                        <li>Manual copy/paste</li>
+                        <li>Not for active dev</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="margin-top: 60px; color: #667eea; text-align: center;">📊 Feature Comparison</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Cursor</th>
+                    <th>Windsurf</th>
+                    <th>Cline</th>
+                    <th>Copilot</th>
+                    <th>Claude.ai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sonnet 4.5 Support</strong></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Context Window</strong></td>
+                    <td>1,000,000</td>
+                    <td>1,000,000</td>
+                    <td>200,000</td>
+                    <td>128,000</td>
+                    <td>200,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Auto-Refresh</strong></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>File System Access</strong></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Terminal Execution</strong></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td>Limited</td>
+                    <td><span class="crossmark">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Autocomplete</strong></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                    <td><span class="checkmark">✅✅✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Agent/Autonomous Mode</strong></td>
+                    <td>Limited</td>
+                    <td><span class="checkmark">✅✅</span></td>
+                    <td><span class="checkmark">✅</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                    <td><span class="crossmark">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Cost</strong></td>
+                    <td>$20</td>
+                    <td>$10</td>
+                    <td>BYOK (~$18)</td>
+                    <td>$10</td>
+                    <td>$20</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 style="margin-top: 60px; color: #667eea; text-align: center;">🎯 Real-World Scenario</h2>
+        
+        <div class="scenario">
+            <h3>Task: Migrate 27 Servlets to Spring Boot (~800k tokens)</h3>
+            
+            <div style="margin-top: 20px;">
+                <h4 style="color: #4CAF50; margin-bottom: 10px;">✅ Cursor / Windsurf</h4>
+                <div class="timeline">
+                    <div class="timeline-item">Start analysis (0k tokens)</div>
+                    <div class="timeline-item">Complete analysis (150k tokens)</div>
+                    <div class="timeline-item">Create migration plan (250k tokens)</div>
+                    <div class="timeline-item">Migrate servlets 1-15 (500k tokens)</div>
+                    <div class="timeline-item">Migrate servlets 16-27 (800k tokens)</div>
+                    <div class="timeline-item">Generate tests (950k tokens)</div>
+                    <div class="timeline-item"><strong>✅ COMPLETE in single conversation</strong></div>
+                </div>
+                
+                <h4 style="color: #ff9800; margin: 20px 0 10px 0;">⚠️ Cline</h4>
+                <div class="timeline">
+                    <div class="timeline-item">Task 1: Analyze & plan (170k/200k) ✅</div>
+                    <div class="timeline-item">Task 2: Migrate servlets 1-3 (150k/200k) ✅</div>
+                    <div class="timeline-item">Task 3: Migrate servlets 4-6 (150k/200k) ✅</div>
+                    <div class="timeline-item">Task 4: Migrate servlets 7-9 (150k/200k) ✅</div>
+                    <div class="timeline-item">... 6 more tasks required ...</div>
+                    <div class="timeline-item"><strong>⚠️ Requires 10+ separate tasks</strong></div>
+                    <div class="timeline-item"><strong>⚠️ Manual context transfer each time</strong></div>
+                </div>
+                
+                <h4 style="color: #f44336; margin: 20px 0 10px 0;">❌ GitHub Copilot</h4>
+                <p style="padding-left: 20px; color: #666;">No Claude Sonnet 4.5 support. Not suitable for large-scale refactoring.</p>
+                
+                <h4 style="color: #f44336; margin: 20px 0 10px 0;">❌ Claude.ai</h4>
+                <p style="padding-left: 20px; color: #666;">No file access. Would require manual copy/paste for each servlet. Not practical.</p>
+            </div>
+        </div>
+        
+        <div class="recommendation">
+            <h2>🏆 Final Recommendations</h2>
+            
+            <div class="recommendation-grid">
+                <div class="recommendation-card">
+                    <h3>🥇 Best Overall</h3>
+                    <p><strong>Windsurf</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>1M token context</li>
+                        <li>Best price ($10/mo)</li>
+                        <li>Cascade planning</li>
+                        <li>Agent autonomy</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendation-card">
+                    <h3>🥈 Best Mature Tool</h3>
+                    <p><strong>Cursor</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>1M token context</li>
+                        <li>Most polished</li>
+                        <li>Great autocomplete</li>
+                        <li>Proven reliability</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendation-card">
+                    <h3>🥉 Best for Control</h3>
+                    <p><strong>Cline</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Full transparency</li>
+                        <li>BYOK pricing</li>
+                        <li>VS Code native</li>
+                        <li>High control</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendation-card">
+                    <h3>⚡ Best Autocomplete</h3>
+                    <p><strong>GitHub Copilot</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Best suggestions</li>
+                        <li>Fast completions</li>
+                        <li>GitHub integration</li>
+                        <li>Not for refactoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                <h3 style="margin-bottom: 15px;">💡 For Your Flight Booking System Migration:</h3>
+                <p style="font-size: 1.1em; line-height: 1.6;">
+                    <strong>Choose Windsurf or Cursor</strong> - The 1M token context means you can analyze the entire codebase, 
+                    create a comprehensive migration plan, and execute it all in 1-2 conversations. No manual context management, 
+                    no task switching, just seamless development.
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.6; margin-top: 15px;">
+                    <strong>Windsurf edges ahead</strong> with better pricing ($10 vs $20) and superior cascade planning 
+                    for multi-step migrations like yours.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 10px;">
+            <p style="color: #666; font-size: 0.9em;">
+                📊 Comparison based on Claude Sonnet 4.5 support and token limit behavior<br>
+                Last updated: January 2025
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
