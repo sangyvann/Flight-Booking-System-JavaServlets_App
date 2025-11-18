@@ -8,13 +8,13 @@ This comparison focuses specifically on how each tool handles **Claude Sonnet 4.
 
 ## 📊 Quick Comparison Table
 
-| Tool | Max Context with Sonnet 4.5 | Auto-Refresh | Context Preservation | Cost Model | What Happens at Limit |
-|------|----------------------------|--------------|---------------------|------------|----------------------|
-| **Cursor** | 1,000,000 tokens | ✅ Yes | Excellent | Subscription | Seamless continuation |
-| **Windsurf** | 1,000,000 tokens | ✅ Yes | Excellent | Subscription | Seamless continuation |
-| **Cline** | 200,000 tokens | ❌ No | Manual | BYOK (API) | Hard stop, new task |
-| **GitHub Copilot** | N/A | N/A | N/A | Subscription | No Sonnet 4.5 support |
-| **Claude.ai** | 200,000 tokens | ❌ No | Manual | Subscription | Hard stop, new chat |
+| Tool | Max Context with Claude | Auto-Refresh | Context Preservation | Cost Model | What Happens at Limit |
+|------|------------------------|--------------|---------------------|------------|----------------------|
+| **Cursor** | 1,000,000 tokens (Sonnet 4.5) | ✅ Yes | Excellent | Subscription | Seamless continuation |
+| **Windsurf** | 1,000,000 tokens (Sonnet 4.5) | ✅ Yes | Excellent | Subscription | Seamless continuation |
+| **Cline** | 200,000 tokens (Sonnet 4.5) | ❌ No | Manual | BYOK (API) | Hard stop, new task |
+| **GitHub Copilot** | 200,000 tokens (Sonnet 4) | ❌ No | Manual | Subscription | Hard stop, new chat |
+| **Claude.ai** | 200,000 tokens (Sonnet 4.5) | ❌ No | Manual | Subscription | Hard stop, new chat |
 
 ---
 
@@ -413,34 +413,35 @@ Task 2: [Cline retrieves relevant context]
 
 ### **Token Limits**
 ```
-Model: Does NOT support Claude Sonnet 4.5 ❌
+Model: Claude Sonnet 4 ✅ (Available)
 
 Available Models:
 - GPT-4 Turbo (128k tokens)
 - GPT-4o (128k tokens)
-- Claude Sonnet 3.5 (200k tokens) - Limited availability
+- Claude Sonnet 4 (200k tokens)
 
-Context Window: 128,000 tokens (GPT-4 Turbo)
+Context Window: 200,000 tokens (Claude Sonnet 4)
 ```
 
-### **Claude Sonnet 4.5 Support**
+### **Claude Sonnet 4 Support**
 ```
-❌ NOT AVAILABLE
+✅ AVAILABLE
 
-GitHub Copilot uses:
-1. OpenAI models (primary)
-2. Claude Sonnet 3.5 (limited, not 4.5)
+GitHub Copilot supports:
+1. OpenAI models (GPT-4, GPT-4o)
+2. Claude Sonnet 4 (200k context)
 
-You CANNOT use Claude Sonnet 4.5 with GitHub Copilot
+Note: Claude Sonnet 4.5 with 1M context is NOT available
+      Only the 200k token version is supported
 ```
 
-### **What Happens at Token Limit (GPT-4 Turbo)**
+### **What Happens at Token Limit (Claude Sonnet 4)**
 
 ```mermaid
 graph TB
     Start[Chat Start<br/>0 tokens] --> Work[Working...<br/>50k tokens]
-    Work --> More[Continue...<br/>100k tokens]
-    More --> Limit{Approaching<br/>128k tokens?}
+    Work --> More[Continue...<br/>150k tokens]
+    More --> Limit{Approaching<br/>200k tokens?}
     Limit -->|Yes| Stop[Conversation Ends]
     Stop --> Manual[Manual Action Required]
     Manual --> NewChat[Start New Chat<br/>0 tokens]
@@ -453,8 +454,8 @@ graph TB
 ### **Behavior**
 ```
 GitHub Copilot Chat
-Model: GPT-4 Turbo
-Token Usage: 120,000 / 128,000
+Model: Claude Sonnet 4
+Token Usage: 190,000 / 200,000
 
 ⚠️ Context limit approaching
 
@@ -469,49 +470,52 @@ You: "Continue with next servlet"
 ### **User Experience**
 ```
 Chat 1: "Analyze this codebase"
-├─ Reads files (60k tokens)
-├─ Provides analysis (40k tokens)
-└─ Status: ✅ Complete (100k/128k used)
+├─ Reads files (80k tokens)
+├─ Provides analysis (50k tokens)
+└─ Status: ✅ Complete (130k/200k used)
 
 Chat 2: "Create migration plan"
-├─ Manual context: "We analyzed 27 servlets..." (10k tokens)
-├─ Creates plan (30k tokens)
-└─ Status: ✅ Complete (40k/128k used)
+├─ Manual context: "We analyzed 27 servlets..." (15k tokens)
+├─ Creates plan (40k tokens)
+└─ Status: ✅ Complete (55k/200k used)
 
-Chat 3: "Migrate LoginManager"
-├─ Manual context (10k tokens)
-├─ Generates code (40k tokens)
-└─ Status: ✅ Complete (50k/128k used)
+Chat 3: "Migrate LoginManager and SearchFlights"
+├─ Manual context (15k tokens)
+├─ Generates code for both (80k tokens)
+└─ Status: ✅ Complete (95k/200k used)
 
-Total: Many separate chats required
-       Smaller context window
-       Frequent context loss
+Total: Multiple chats required (similar to Cline)
+       200k context (same as Cline, Claude.ai)
+       Manual context transfer needed
 ```
 
 ### **Pros & Cons**
 
 ✅ **Pros:**
+- **Supports Claude Sonnet 4** (200k context)
 - Excellent autocomplete (best in class)
 - Deep GitHub integration
 - Good for quick questions
 - Fast inline suggestions
 - Works in multiple IDEs (VS Code, JetBrains, etc.)
 - Affordable ($10/month)
+- Multiple model choices (GPT-4, Claude)
 
 ❌ **Cons:**
-- **No Claude Sonnet 4.5 support**
-- Smaller context (128k vs 1M)
+- **No Claude Sonnet 4.5 (1M context)** - only 200k version
 - No automatic refresh
-- Limited chat capabilities
-- Not great for large refactoring
-- Focused on autocomplete, not chat
+- Manual context management
+- Chat is secondary feature (autocomplete is primary)
+- Not optimized for large refactoring
+- Context limit same as Cline (200k)
 
 ### **Best For:**
-- Code completion while typing
+- Code completion while typing (⭐⭐⭐⭐⭐)
 - Quick inline suggestions
-- Small code snippets
+- Small to medium code snippets
 - GitHub workflow integration
-- NOT for large-scale refactoring
+- Users who want Claude + great autocomplete
+- NOT ideal for large-scale refactoring (use Cursor/Windsurf instead)
 
 ---
 
@@ -622,21 +626,21 @@ Total: Multiple chats required
 ## 📈 Token Limit Comparison Chart
 
 ```
-Context Window Size (Claude Sonnet 4.5):
+Context Window Size (Claude Models):
 
-Cursor      ████████████████████ 1,000,000 tokens
-Windsurf    ████████████████████ 1,000,000 tokens
-Cline       ████ 200,000 tokens
-Claude.ai   ████ 200,000 tokens
-Copilot     N/A (No Sonnet 4.5 support)
+Cursor      ████████████████████ 1,000,000 tokens (Sonnet 4.5)
+Windsurf    ████████████████████ 1,000,000 tokens (Sonnet 4.5)
+Cline       ████ 200,000 tokens (Sonnet 4.5)
+Copilot     ████ 200,000 tokens (Sonnet 4)
+Claude.ai   ████ 200,000 tokens (Sonnet 4.5)
 
 Auto-Refresh Capability:
 
 Cursor      ✅ Seamless automatic refresh
 Windsurf    ✅ Seamless automatic refresh
 Cline       ❌ Hard stop, manual new task
-Claude.ai   ❌ Hard stop, manual new chat
 Copilot     ❌ Hard stop, manual new chat
+Claude.ai   ❌ Hard stop, manual new chat
 ```
 
 ---
@@ -745,18 +749,37 @@ Total: 10+ separate tasks
 
 ### **With GitHub Copilot:**
 ```
-❌ Not Suitable for This Task
+⚠️ Challenging but Possible
 
-Limitations:
-- No Claude Sonnet 4.5
-- Smaller context (128k tokens)
-- Chat is limited
-- Better for autocomplete
+With Claude Sonnet 4 (200k context):
 
-Recommended Workflow:
-- Use Copilot for autocomplete while coding
-- Use another tool (Cursor/Windsurf) for planning
-- Manual migration with Copilot suggestions
+Task 1: "Analyze codebase and plan migration"
+├─ Analyze 27 servlets (100k tokens)
+├─ Create migration plan (50k tokens)
+└─ ✅ Complete (150k/200k)
+
+Task 2: "Migrate authentication servlets"
+├─ Context from Task 1 (manual, 20k tokens)
+├─ Migrate LoginManager (40k tokens)
+├─ Migrate LogoutManager (40k tokens)
+├─ Test both (40k tokens)
+└─ ✅ Complete (140k/200k)
+
+Task 3-8: [Continue pattern for remaining servlets]
+
+Total: 8-10 separate chats required
+       Similar to Cline experience
+       200k context (same as Cline)
+       
+Advantage over Cline:
+✅ Best-in-class autocomplete while coding
+✅ GitHub integration
+✅ Multi-IDE support
+
+Disadvantage vs Cursor/Windsurf:
+❌ 5x smaller context (200k vs 1M)
+❌ No automatic refresh
+❌ Manual context management
 ```
 
 ---
@@ -783,35 +806,188 @@ Not recommended for active development
 
 ---
 
-## 💰 Cost Comparison (Claude Sonnet 4.5)
+## 💰 Cost Comparison (Claude Models)
 
-### **For 1M Tokens of Usage:**
+### **Individual/Pro Plans:**
 
-| Tool | Cost Model | Estimated Cost |
-|------|-----------|----------------|
-| **Cursor Pro** | $20/month subscription | $20/month (500 requests included) |
-| **Windsurf Pro** | $10/month subscription | $10/month (unlimited) |
-| **Cline** | BYOK - Anthropic API | $3 input + $15 output = $18 |
-| **GitHub Copilot** | N/A | No Sonnet 4.5 support |
-| **Claude.ai Pro** | $20/month subscription | $20/month (limited for coding) |
+| Tool | Individual Plan | Context | Monthly Limit | Best For |
+|------|----------------|---------|---------------|----------|
+| **Cursor Pro** | $20/month | 1M tokens | 500 premium requests | Large context needs |
+| **Windsurf Pro** | $10/month | 1M tokens | Unlimited | Best value |
+| **Cline** | BYOK (pay-as-you-go) | 200k tokens | Based on API usage | Variable usage |
+| **GitHub Copilot** | $10/month | 200k tokens | Unlimited | Autocomplete focus |
+| **Claude.ai Pro** | $20/month | 200k tokens | Limited messages | Not for coding |
 
-### **Cost Analysis:**
+### **Enterprise/Team Plans:**
 
-**Light Usage (< 500k tokens/month):**
+| Tool | Enterprise Plan | Per User/Month | Features | Minimum Seats |
+|------|----------------|----------------|----------|---------------|
+| **Cursor Business** | $40/user/month | Billed annually | • Centralized billing<br>• Admin dashboard<br>• Usage analytics<br>• Priority support<br>• Custom models<br>• SSO (coming) | 5+ users |
+| **Windsurf Teams** | $15/user/month | Flexible billing | • Team collaboration<br>• Shared context<br>• Admin controls<br>• Usage tracking<br>• Priority support | 3+ users |
+| **Cline** | Self-hosted BYOK | Variable | • Use own API keys<br>• Full control<br>• No per-seat cost<br>• Pay only API usage<br>• Unlimited users | No minimum |
+| **GitHub Copilot Business** | $19/user/month | Flexible billing | • Organization license<br>• Policy management<br>• Usage insights<br>• IP indemnity<br>• Multi-IDE support | 1+ users |
+| **GitHub Copilot Enterprise** | $39/user/month | Annual contract | • Everything in Business<br>• Fine-tuned models<br>• Custom knowledge base<br>• Advanced security<br>• Dedicated support | 50+ users |
+| **Claude.ai Team** | $30/user/month | Min 5 users | • Higher limits<br>• Shared projects<br>• Admin console<br>• Priority access | 5+ users |
+
+### **Annual Cost Comparison (10-person team):**
+
+| Tool | Annual Cost (10 users) | Cost per User | Context Size | Notes |
+|------|------------------------|---------------|--------------|-------|
+| **Windsurf Teams** | **$1,800/year** | $15/month | 1M tokens | 🏆 Best value for teams |
+| **GitHub Copilot Business** | **$2,280/year** | $19/month | 200k tokens | Good for GitHub orgs |
+| **Cursor Business** | **$4,800/year** | $40/month | 1M tokens | Premium features |
+| **GitHub Copilot Enterprise** | **$4,680/year** | $39/month | 200k tokens | Large orgs only (50+ min) |
+| **Claude.ai Team** | **$3,600/year** | $30/month | 200k tokens | Not for active coding |
+| **Cline (BYOK)** | **~$2,160/year** | ~$18/month | 200k tokens | Variable, API costs only |
+
+### **Cost Analysis by Use Case:**
+
+#### **Startup (5 developers):**
 ```
+Best Option: Windsurf Teams
+Cost: $900/year ($15 × 5 × 12)
+Why: 
+✅ Lowest cost
+✅ 1M context
+✅ Full features
+✅ No minimum seat requirement beyond 3
+
+Alternative: GitHub Copilot Business
+Cost: $1,140/year ($19 × 5 × 12)
+Why:
+✅ Great autocomplete
+✅ GitHub integration
+⚠️ Only 200k context
+```
+
+#### **Mid-size Company (25 developers):**
+```
+Best Option: Windsurf Teams
+Cost: $4,500/year ($15 × 25 × 12)
+Savings vs Cursor: $7,500/year
+
+Alternative: GitHub Copilot Business
+Cost: $5,700/year ($19 × 25 × 12)
+Why:
+✅ Enterprise features
+✅ GitHub integration
+✅ IP indemnity
+```
+
+#### **Enterprise (100+ developers):**
+```
+Option 1: Windsurf Teams
+Cost: $18,000/year ($15 × 100 × 12)
+Best for: Large context, autonomous coding
+
+Option 2: GitHub Copilot Enterprise
+Cost: $46,800/year ($39 × 100 × 12)
+Best for: Custom models, advanced security
+
+Option 3: Cline (BYOK)
+Cost: ~$21,600/year (100 users × ~$18/month API)
+Best for: Cost control, self-hosted needs
+
+Savings (Windsurf vs Copilot Enterprise): $28,800/year
+```
+
+#### **Heavy API Usage (Individual):**
+```
+Light Usage (< 500k tokens/month):
 1. Windsurf: $10/month ⭐ Best value
-2. Cline: ~$9 (BYOK)
-3. Cursor: $20/month
-4. Claude.ai: $20/month (not for coding)
-```
+2. Cline: ~$9/month (BYOK)
+3. GitHub Copilot: $10/month
+4. Cursor: $20/month
 
-**Heavy Usage (2M+ tokens/month):**
-```
+Heavy Usage (2M+ tokens/month):
 1. Windsurf: $10/month ⭐ Best value (unlimited)
 2. Cursor: $20/month (may need Business at $40)
-3. Cline: ~$36 (BYOK)
-4. Claude.ai: $20/month (not practical)
+3. GitHub Copilot: $10/month (unlimited)
+4. Cline: ~$36/month (BYOK)
 ```
+
+### **Hidden Costs to Consider:**
+
+#### **Cursor:**
+```
+Potential Additional Costs:
+- Premium requests limit (500/month on Pro)
+- Need Business plan for unlimited ($40/month)
+- Custom models require Business plan
+- No team collaboration on Pro plan
+
+Real Cost for Heavy Users: $40/month (Business)
+```
+
+#### **Windsurf:**
+```
+Potential Additional Costs:
+- None - truly unlimited on Pro plan
+- Teams plan for collaboration ($15/user)
+
+Real Cost: $10/month (stays consistent)
+```
+
+#### **Cline:**
+```
+Potential Additional Costs:
+- Anthropic API costs (variable)
+- Claude Sonnet 4.5: $3/$15 per 1M tokens
+- Can spike with heavy usage
+- Need to manage API keys
+
+Real Cost: $10-50/month (depends on usage)
+```
+
+#### **GitHub Copilot:**
+```
+Potential Additional Costs:
+- None for individuals ($10/month unlimited)
+- Business features require Business plan ($19/user)
+- Enterprise features require Enterprise ($39/user)
+- Minimum 50 users for Enterprise
+
+Real Cost: $10-39/month (depends on tier)
+```
+
+### **ROI Calculation Example:**
+
+**Scenario: 10-developer team, 40 hours/week each**
+
+Assuming AI coding assistant saves **2 hours/week per developer**:
+
+```
+Time Saved: 2 hours × 10 developers × 52 weeks = 1,040 hours/year
+Average Developer Cost: $75/hour
+Value Created: 1,040 × $75 = $78,000/year
+
+Tool Costs:
+- Windsurf Teams: $1,800/year → ROI: 4,233%
+- GitHub Copilot Business: $2,280/year → ROI: 3,321%
+- Cursor Business: $4,800/year → ROI: 1,525%
+
+Conclusion: Even the most expensive option has massive ROI
+```
+
+### **Free Tiers & Trials:**
+
+| Tool | Free Tier | Trial Period | Limitations |
+|------|-----------|--------------|-------------|
+| **Cursor** | ✅ Yes | 14 days Pro | 2,000 completions/month, 50 premium requests |
+| **Windsurf** | ✅ Yes | 14 days Pro | Limited requests |
+| **Cline** | ✅ Yes | N/A (BYOK) | Pay only for API usage |
+| **GitHub Copilot** | ✅ Yes | 30 days | Full access during trial |
+| **Claude.ai** | ✅ Yes | N/A | Limited messages/day |
+
+### **Payment Flexibility:**
+
+| Tool | Monthly | Annual | BYOK | Cancellation |
+|------|---------|--------|------|--------------|
+| **Cursor** | ✅ | ✅ (save 16%) | ❌ | Anytime |
+| **Windsurf** | ✅ | ✅ | ❌ | Anytime |
+| **Cline** | N/A | N/A | ✅ | Anytime (API) |
+| **GitHub Copilot** | ✅ | ✅ | ❌ | Anytime |
+| **Claude.ai** | ✅ | ✅ | ❌ | Anytime |
 
 ---
 
@@ -861,8 +1037,8 @@ Not recommended for active development
 
 | Feature | Cursor | Windsurf | Cline | Copilot | Claude.ai |
 |---------|--------|----------|-------|---------|-----------|
-| **Sonnet 4.5** | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Context Size** | 1M | 1M | 200k | 128k | 200k |
+| **Claude Model** | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4 | Sonnet 4.5 |
+| **Context Size** | 1M | 1M | 200k | 200k | 200k |
 | **Auto-Refresh** | ✅ | ✅ | ❌ | ❌ | ❌ |
 | **File Access** | ✅ | ✅ | ✅ | ✅ | ❌ |
 | **Terminal Exec** | ✅ | ✅ | ✅ | Limited | ❌ |

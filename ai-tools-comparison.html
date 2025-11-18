@@ -412,18 +412,18 @@
             </div>
             
             <!-- GitHub Copilot -->
-            <div class="tool-card not-supported">
-                <div class="badge not-supported">❌ NO SUPPORT</div>
+            <div class="tool-card second">
+                <div class="badge second">✅ SONNET 4</div>
                 <div class="tool-name">GitHub Copilot</div>
                 
                 <div class="stat">
-                    <div class="stat-label">Claude Sonnet 4.5</div>
-                    <div class="stat-value none">Not Available</div>
+                    <div class="stat-label">Claude Sonnet 4</div>
+                    <div class="stat-value small">200,000 tokens</div>
                 </div>
                 
                 <div class="stat">
-                    <div class="stat-label">Available Models</div>
-                    <div class="stat-value small">GPT-4 Turbo (128k)</div>
+                    <div class="stat-label">Auto-Refresh</div>
+                    <div class="stat-value none">❌ Manual</div>
                 </div>
                 
                 <div class="stat">
@@ -432,15 +432,16 @@
                 </div>
                 
                 <div class="token-bar">
-                    <div class="token-bar-fill" style="width: 12.8%; background: #ff9800">128k tokens</div>
+                    <div class="token-bar-fill" style="width: 20%; background: #2196F3">200k tokens</div>
                 </div>
                 
                 <div class="pros-cons">
-                    <h4>Best For:</h4>
+                    <h4>Key Strengths:</h4>
                     <ul class="pros">
-                        <li>Autocomplete only</li>
-                        <li>Quick suggestions</li>
+                        <li>Best autocomplete</li>
+                        <li>Claude Sonnet 4 support</li>
                         <li>GitHub integration</li>
+                        <li>Multi-IDE support</li>
                     </ul>
                 </div>
             </div>
@@ -496,19 +497,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Sonnet 4.5 Support</strong></td>
-                    <td><span class="checkmark">✅</span></td>
-                    <td><span class="checkmark">✅</span></td>
-                    <td><span class="checkmark">✅</span></td>
-                    <td><span class="crossmark">❌</span></td>
-                    <td><span class="checkmark">✅</span></td>
+                    <td><strong>Claude Model</strong></td>
+                    <td>Sonnet 4.5</td>
+                    <td>Sonnet 4.5</td>
+                    <td>Sonnet 4.5</td>
+                    <td>Sonnet 4</td>
+                    <td>Sonnet 4.5</td>
                 </tr>
                 <tr>
                     <td><strong>Context Window</strong></td>
                     <td>1,000,000</td>
                     <td>1,000,000</td>
                     <td>200,000</td>
-                    <td>128,000</td>
+                    <td>200,000</td>
                     <td>200,000</td>
                 </tr>
                 <tr>
@@ -590,8 +591,15 @@
                     <div class="timeline-item"><strong>⚠️ Manual context transfer each time</strong></div>
                 </div>
                 
-                <h4 style="color: #f44336; margin: 20px 0 10px 0;">❌ GitHub Copilot</h4>
-                <p style="padding-left: 20px; color: #666;">No Claude Sonnet 4.5 support. Not suitable for large-scale refactoring.</p>
+                <h4 style="color: #ff9800; margin: 20px 0 10px 0;">⚠️ GitHub Copilot</h4>
+                <div class="timeline">
+                    <div class="timeline-item">Task 1: Analyze & plan (150k/200k) ✅</div>
+                    <div class="timeline-item">Task 2: Migrate servlets 1-2 (140k/200k) ✅</div>
+                    <div class="timeline-item">Task 3: Migrate servlets 3-4 (140k/200k) ✅</div>
+                    <div class="timeline-item">... 5 more tasks required ...</div>
+                    <div class="timeline-item"><strong>⚠️ Requires 8-10 separate chats (similar to Cline)</strong></div>
+                    <div class="timeline-item"><strong>✅ Best autocomplete while coding</strong></div>
+                </div>
                 
                 <h4 style="color: #f44336; margin: 20px 0 10px 0;">❌ Claude.ai</h4>
                 <p style="padding-left: 20px; color: #666;">No file access. Would require manual copy/paste for each servlet. Not practical.</p>
