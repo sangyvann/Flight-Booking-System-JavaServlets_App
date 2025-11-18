@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking System - Documentation Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+        
+        .card:hover:before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✈️ Flight Booking System</h1>
+        <p class="subtitle">Comprehensive Documentation & Analysis</p>
+        
+        <div class="cards-grid">
+            <a href="view-diagrams.html" class="card">
+                <div class="card-content">
+                    <span class="card-icon">📊</span>
+                    <h2>Architecture Diagrams</h2>
+                    <p>Interactive visualization of the current system architecture with 11 detailed diagrams covering all aspects of the application.</p>
+                    <span class="badge">11 Diagrams</span>
+                </div>
+            </a>
+            
+            <a href="ai-tools-comparison.html" class="card">
+                <div class="card-content">
+                    <span class="card-icon">🤖</span>
+                    <h2>AI Tools Comparison</h2>
+                    <p>Detailed comparison of AI coding assistants (Cursor, Windsurf, Cline, Copilot, Claude.ai) with Claude Sonnet 4.5 token limits.</p>
+                    <span class="badge">5 Tools Compared</span>
+                </div>
+            </a>
+            
+            <a href="architecture-diagrams.md" class="card">
+                <div class="card-content">
+                    <span class="card-icon">📝</span>
+                    <h2>Architecture Documentation</h2>
+                    <p>Complete technical documentation with Mermaid diagrams covering system architecture, workflows, and data models.</p>
+                    <span class="badge">Markdown Format</span>
+                </div>
+            </a>
+            
+            <a href="ai-coding-assistants-comparison.md" class="card">
+                <div class="card-content">
+                    <span class="card-icon">📖</span>
+                    <h2>AI Tools Deep Dive</h2>
+                    <p>In-depth analysis of token limits, context management, and real-world usage scenarios across different AI coding tools.</p>
+                    <span class="badge">Detailed Analysis</span>
+                </div>
+            </a>
+            
+            <a href="https://github.com/sangyvann/Flight-Booking-System-JavaServlets_App" class="card">
+                <div class="card-content">
+                    <span class="card-icon">💻</span>
+                    <h2>Source Code</h2>
+                    <p>View the complete source code repository on GitHub with all servlets, JSPs, and database files.</p>
+                    <span class="badge">GitHub Repo</span>
+                </div>
+            </a>
+            
+            <a href="README.md" class="card">
+                <div class="card-content">
+                    <span class="card-icon">📚</span>
+                    <h2>Project README</h2>
+                    <p>Original project documentation including setup instructions, features, and workflow descriptions.</p>
+                    <span class="badge">Setup Guide</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Flight Booking System for Turkish Airlines</strong></p>
+            <p style="margin-top: 10px;">
+                Built with Java Servlets, JSP, and Microsoft Access<br>
+                <a href="https://github.com/sangyvann/Flight-Booking-System-JavaServlets_App" target="_blank">View on GitHub</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                Documentation generated with AI assistance | Last updated: January 2025
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
