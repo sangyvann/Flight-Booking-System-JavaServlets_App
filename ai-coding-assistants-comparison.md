@@ -1074,7 +1074,7 @@ Conclusion: Even the most expensive option has massive ROI
 | **File Access** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Terminal Exec** | ✅ | ✅ | ✅ | Limited | ❌ |
 | **Autocomplete** | ✅ | ✅ | ❌ | ✅✅✅ | ❌ |
-| **Agent Mode** | Limited | ✅✅ | ✅ | ❌ | ❌ |
+| **Agent Mode** | ✅ | ✅✅ | ✅ | ❌ | ❌ |
 | **IDE** | Cursor | Windsurf/VSC | VS Code | Multiple | VS Code |
 | **Cost** | $20/mo | $10/mo | BYOK | $10/mo | $20/mo |
 | **Best For** | Large context | Autonomous | Control | Autocomplete | Official |
