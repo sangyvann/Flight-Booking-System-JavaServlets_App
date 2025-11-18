@@ -14,7 +14,7 @@ This comparison focuses specifically on how each tool handles **Claude Sonnet 4.
 | **Windsurf** | 1,000,000 tokens (Sonnet 4.5) | ✅ Yes | Excellent | Subscription | Seamless continuation |
 | **Cline** | 200,000 tokens (Sonnet 4.5) | ❌ No | Manual | BYOK (API) | Hard stop, new task |
 | **GitHub Copilot** | 200,000 tokens (Sonnet 4) | ❌ No | Manual | Subscription | Hard stop, new chat |
-| **Claude.ai** | 200,000 tokens (Sonnet 4.5) | ❌ No | Manual | Subscription | Hard stop, new chat |
+| **Claude Code** | 200,000 tokens (Sonnet 4.5) | ❌ No | Manual | Subscription | Hard stop, new conversation |
 
 ---
 
@@ -519,13 +519,14 @@ Total: Multiple chats required (similar to Cline)
 
 ---
 
-## 5️⃣ Claude.ai (Web Interface)
+## 5️⃣ Claude Code (Official Anthropic VS Code Extension)
 
 ### **Token Limits**
 ```
 Model: Claude Sonnet 4.5 ✅
 Context Window: 200,000 tokens
 Effective Usage: ~180,000 tokens
+Platform: VS Code Extension (Official)
 ```
 
 ### **What Happens at Token Limit**
@@ -546,80 +547,94 @@ graph TB
 
 ### **Behavior**
 ```
-Claude.ai Chat
+Claude Code (VS Code Extension)
 Model: Claude Sonnet 4.5
 Token Usage: 195,000 / 200,000
 
-⚠️ This conversation is approaching its limit.
-   Consider starting a new conversation soon.
+⚠️ Context window is 97% full
 
 You: "Continue with the migration"
 
-❌ This conversation has reached its maximum length.
+❌ Context limit reached (200,000 tokens)
    Please start a new conversation.
 
-[New Chat] button
+[New Conversation] button in sidebar
 ```
 
 ### **User Experience**
 ```
-Chat 1: "Analyze my codebase"
-You: [Paste code snippets]
-Claude: [Analyzes] (100k tokens)
-Status: ✅ Complete
+Conversation 1: "Analyze codebase and create plan"
+├─ Claude Code reads files from workspace (80k tokens)
+├─ Analyzes architecture (50k tokens)
+├─ Creates migration plan (40k tokens)
+└─ Status: ✅ Complete (170k/200k)
 
-Chat 2: "Create migration plan"
-You: [Paste context from Chat 1]
-Claude: [Creates plan] (80k tokens)
-Status: ✅ Complete
+Conversation 2: "Migrate LoginManager and SearchFlights"
+├─ Manual context: "Following the plan from Conv 1..." (20k tokens)
+├─ Reads relevant files (40k tokens)
+├─ Generates Spring Boot code (60k tokens)
+├─ Creates tests (40k tokens)
+└─ Status: ✅ Complete (160k/200k)
 
-Chat 3: "Generate Spring Boot code"
-You: [Paste context + plan]
-Claude: [Generates code] (120k tokens)
-Status: ✅ Complete
+Conversation 3: "Migrate BookFlight and ChooseFlight"
+├─ Manual context (20k tokens)
+├─ Reads files (40k tokens)
+├─ Generates code (60k tokens)
+└─ Status: ✅ Complete (120k/200k)
 
-Total: Multiple chats required
-       Manual copy/paste of context
-       No file access
-       No code execution
+Total: Multiple conversations required (similar to Cline)
+       Has file system access
+       Can read/write files
+       VS Code integration
 ```
 
-### **Limitations for Coding**
+### **Features for Coding**
 
-❌ **Major Issues:**
-- No file system access
-- No code execution
-- No terminal commands
-- Must copy/paste code
-- No IDE integration
+✅ **Available:**
+- File system access (read/write)
+- Workspace awareness
+- Multi-file editing
+- Code generation
+- VS Code integration
+- Direct file manipulation
+- Context from open files
+
+❌ **Limitations:**
+- No terminal execution
 - No autocomplete
+- 200k token limit (not 1M)
+- No automatic refresh
 - Manual context management
+- No agent/autonomous mode
 
 ### **Pros & Cons**
 
 ✅ **Pros:**
+- **Official Anthropic extension**
 - Access to Claude Sonnet 4.5
-- Good for code review (paste snippets)
-- Good for explaining concepts
-- Artifacts feature (generates code blocks)
-- No IDE required
-- Works on any device
+- File system access (read/write)
+- VS Code integration
+- Multi-file editing
+- Workspace awareness
+- Free tier available
+- Direct from Anthropic (no middleman)
 
 ❌ **Cons:**
-- **Only 200k tokens** (not 1M like Cursor)
+- **Only 200k tokens** (not 1M like Cursor/Windsurf)
 - No automatic refresh
-- No file access
-- No code execution
-- Manual copy/paste workflow
-- Not designed for actual coding
-- Context loss between chats
+- No terminal execution
+- No autocomplete
+- No agent/autonomous mode
+- Manual context management
+- Requires Claude.ai subscription
 
 ### **Best For:**
-- Code review (paste snippets)
-- Explaining concepts
-- Quick questions
-- Learning/education
-- NOT for active development
+- Users who want official Anthropic experience
+- VS Code users who prefer native Claude
+- Code generation and refactoring
+- Multi-file editing tasks
+- Alternative to Cline with official support
+- NOT for large-scale refactoring (use Cursor/Windsurf)
 
 ---
 
@@ -628,19 +643,19 @@ Total: Multiple chats required
 ```
 Context Window Size (Claude Models):
 
-Cursor      ████████████████████ 1,000,000 tokens (Sonnet 4.5)
-Windsurf    ████████████████████ 1,000,000 tokens (Sonnet 4.5)
-Cline       ████ 200,000 tokens (Sonnet 4.5)
-Copilot     ████ 200,000 tokens (Sonnet 4)
-Claude.ai   ████ 200,000 tokens (Sonnet 4.5)
+Cursor       ████████████████████ 1,000,000 tokens (Sonnet 4.5)
+Windsurf     ████████████████████ 1,000,000 tokens (Sonnet 4.5)
+Cline        ████ 200,000 tokens (Sonnet 4.5)
+Copilot      ████ 200,000 tokens (Sonnet 4)
+Claude Code  ████ 200,000 tokens (Sonnet 4.5)
 
 Auto-Refresh Capability:
 
-Cursor      ✅ Seamless automatic refresh
-Windsurf    ✅ Seamless automatic refresh
-Cline       ❌ Hard stop, manual new task
-Copilot     ❌ Hard stop, manual new chat
-Claude.ai   ❌ Hard stop, manual new chat
+Cursor       ✅ Seamless automatic refresh
+Windsurf     ✅ Seamless automatic refresh
+Cline        ❌ Hard stop, manual new task
+Copilot      ❌ Hard stop, manual new chat
+Claude Code  ❌ Hard stop, manual new conversation
 ```
 
 ---
@@ -784,24 +799,40 @@ Disadvantage vs Cursor/Windsurf:
 
 ---
 
-### **With Claude.ai:**
+### **With Claude Code:**
 ```
-❌ Not Practical for This Task
+⚠️ Challenging but Doable
 
-Limitations:
-- No file system access
-- Must copy/paste code
-- 200k token limit
-- No code execution
-- No IDE integration
+With Claude Sonnet 4.5 (200k context) + VS Code:
 
-Workflow Would Be:
-Chat 1: Paste servlet code, get Spring Boot version
-Chat 2: Paste next servlet, get conversion
-Chat 3: Paste next servlet, get conversion
-... [27 separate chats]
+Conversation 1: "Analyze codebase and create plan"
+├─ Read all 27 servlets (100k tokens)
+├─ Create migration plan (50k tokens)
+└─ ✅ Complete (150k/200k)
 
-Not recommended for active development
+Conversation 2: "Migrate authentication servlets"
+├─ Context from Conv 1 (manual, 20k tokens)
+├─ Migrate LoginManager (40k tokens)
+├─ Migrate LogoutManager (40k tokens)
+├─ Write files directly (40k tokens)
+└─ ✅ Complete (140k/200k)
+
+Conversation 3-8: [Continue pattern for remaining servlets]
+
+Total: 8-10 separate conversations
+       Similar to Cline experience
+       200k context (same as Cline)
+       
+Advantage over Cline:
+✅ Official Anthropic extension
+✅ Direct file read/write
+✅ Integrated with VS Code
+
+Disadvantage vs Cursor/Windsurf:
+❌ 5x smaller context (200k vs 1M)
+❌ No automatic refresh
+❌ No terminal execution
+❌ No autocomplete
 ```
 
 ---
@@ -816,7 +847,7 @@ Not recommended for active development
 | **Windsurf Pro** | $10/month | 1M tokens | Unlimited | Best value |
 | **Cline** | BYOK (pay-as-you-go) | 200k tokens | Based on API usage | Variable usage |
 | **GitHub Copilot** | $10/month | 200k tokens | Unlimited | Autocomplete focus |
-| **Claude.ai Pro** | $20/month | 200k tokens | Limited messages | Not for coding |
+| **Claude Code** | $20/month (via Claude.ai Pro) | 200k tokens | Limited messages | Official Anthropic |
 
 ### **Enterprise/Team Plans:**
 
@@ -827,7 +858,7 @@ Not recommended for active development
 | **Cline** | Self-hosted BYOK | Variable | • Use own API keys<br>• Full control<br>• No per-seat cost<br>• Pay only API usage<br>• Unlimited users | No minimum |
 | **GitHub Copilot Business** | $19/user/month | Flexible billing | • Organization license<br>• Policy management<br>• Usage insights<br>• IP indemnity<br>• Multi-IDE support | 1+ users |
 | **GitHub Copilot Enterprise** | $39/user/month | Annual contract | • Everything in Business<br>• Fine-tuned models<br>• Custom knowledge base<br>• Advanced security<br>• Dedicated support | 50+ users |
-| **Claude.ai Team** | $30/user/month | Min 5 users | • Higher limits<br>• Shared projects<br>• Admin console<br>• Priority access | 5+ users |
+| **Claude Code (Team)** | $30/user/month | Min 5 users | • Higher limits<br>• Shared workspaces<br>• Admin console<br>• Priority access<br>• Official Anthropic | 5+ users |
 
 ### **Annual Cost Comparison (10-person team):**
 
@@ -835,10 +866,10 @@ Not recommended for active development
 |------|------------------------|---------------|--------------|-------|
 | **Windsurf Teams** | **$1,800/year** | $15/month | 1M tokens | 🏆 Best value for teams |
 | **GitHub Copilot Business** | **$2,280/year** | $19/month | 200k tokens | Good for GitHub orgs |
+| **Cline (BYOK)** | **~$2,160/year** | ~$18/month | 200k tokens | Variable, API costs only |
+| **Claude Code (Team)** | **$3,600/year** | $30/month | 200k tokens | Official Anthropic |
 | **Cursor Business** | **$4,800/year** | $40/month | 1M tokens | Premium features |
 | **GitHub Copilot Enterprise** | **$4,680/year** | $39/month | 200k tokens | Large orgs only (50+ min) |
-| **Claude.ai Team** | **$3,600/year** | $30/month | 200k tokens | Not for active coding |
-| **Cline (BYOK)** | **~$2,160/year** | ~$18/month | 200k tokens | Variable, API costs only |
 
 ### **Cost Analysis by Use Case:**
 
@@ -1035,18 +1066,103 @@ Conclusion: Even the most expensive option has massive ROI
 
 ## 📊 Feature Matrix
 
-| Feature | Cursor | Windsurf | Cline | Copilot | Claude.ai |
-|---------|--------|----------|-------|---------|-----------|
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
 | **Claude Model** | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4.5 | Sonnet 4 | Sonnet 4.5 |
 | **Context Size** | 1M | 1M | 200k | 200k | 200k |
 | **Auto-Refresh** | ✅ | ✅ | ❌ | ❌ | ❌ |
-| **File Access** | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **File Access** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Terminal Exec** | ✅ | ✅ | ✅ | Limited | ❌ |
 | **Autocomplete** | ✅ | ✅ | ❌ | ✅✅✅ | ❌ |
 | **Agent Mode** | Limited | ✅✅ | ✅ | ❌ | ❌ |
-| **IDE** | Cursor | Windsurf/VSC | VS Code | Multiple | Web |
+| **IDE** | Cursor | Windsurf/VSC | VS Code | Multiple | VS Code |
 | **Cost** | $20/mo | $10/mo | BYOK | $10/mo | $20/mo |
-| **Best For** | Large context | Autonomous | Control | Autocomplete | Learning |
+| **Best For** | Large context | Autonomous | Control | Autocomplete | Official |
+
+---
+
+## 🏢 Enterprise Features Comparison
+
+### **Security & Compliance**
+
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
+| **SSO (SAML)** | 🔜 Coming | ❌ | Self-hosted | ✅ Business+ | ✅ Team+ |
+| **SOC 2 Certified** | ✅ | 🔜 In progress | N/A (BYOK) | ✅ | ✅ |
+| **GDPR Compliant** | ✅ | ✅ | N/A (BYOK) | ✅ | ✅ |
+| **Data Residency** | US only | US only | Self-controlled | Global | US/EU |
+| **On-Premise** | ❌ | ❌ | ✅ (self-host) | ❌ | ❌ |
+| **Air-Gapped** | ❌ | ❌ | ✅ (local models) | ❌ | ❌ |
+| **IP Indemnity** | ❌ | ❌ | N/A | ✅ Business+ | ❌ |
+| **Code Not Used for Training** | ✅ | ✅ | ✅ | ✅ Business+ | ✅ |
+| **Audit Logs** | ✅ Business | ✅ Teams | Self-managed | ✅ Business+ | ✅ Team+ |
+| **2FA/MFA** | ✅ | ✅ | Via provider | ✅ | ✅ |
+
+### **Administration & Management**
+
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
+| **Admin Dashboard** | ✅ Business | ✅ Teams | N/A | ✅ Business+ | ✅ Team+ |
+| **Usage Analytics** | ✅ Business | ✅ Teams | Self-tracked | ✅ Business+ | ✅ Team+ |
+| **User Management** | ✅ Business | ✅ Teams | N/A | ✅ Business+ | ✅ Team+ |
+| **Role-Based Access** | ✅ Business | ✅ Teams | N/A | ✅ Enterprise | ✅ Team+ |
+| **Policy Controls** | Limited | Limited | N/A | ✅ Business+ | Limited |
+| **Centralized Billing** | ✅ Business | ✅ Teams | Per-user API | ✅ Business+ | ✅ Team+ |
+| **License Management** | ✅ Business | ✅ Teams | N/A | ✅ Business+ | ✅ Team+ |
+| **API Access** | Limited | Limited | Full (BYOK) | ✅ Enterprise | Via Claude API |
+
+### **Support & SLA**
+
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
+| **Priority Support** | ✅ Business | ✅ Teams | Community | ✅ Business+ | ✅ Team+ |
+| **Dedicated Support** | ❌ | ❌ | ❌ | ✅ Enterprise | ✅ Enterprise |
+| **SLA Guarantee** | ❌ | ❌ | N/A | ✅ Enterprise | ✅ Enterprise |
+| **24/7 Support** | ❌ | ❌ | ❌ | ✅ Enterprise | ✅ Enterprise |
+| **Slack Channel** | ❌ | ❌ | Community | ✅ Enterprise | ❌ |
+| **CSM (Customer Success)** | ❌ | ❌ | ❌ | ✅ Enterprise | ✅ Enterprise |
+| **Training Sessions** | ❌ | ❌ | ❌ | ✅ Enterprise | ✅ Enterprise |
+| **Onboarding** | Self-service | Self-service | Self-service | ✅ Enterprise | ✅ Enterprise |
+
+### **Customization & Integration**
+
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
+| **Custom Models** | ✅ Business | ❌ | ✅ (BYOK) | ✅ Enterprise | ❌ |
+| **Fine-Tuning** | ❌ | ❌ | Via API | ✅ Enterprise | ❌ |
+| **Custom Knowledge Base** | ❌ | ❌ | Via prompts | ✅ Enterprise | ❌ |
+| **API Integration** | Limited | Limited | Full | ✅ | Via Claude API |
+| **Webhooks** | ❌ | ❌ | N/A | ✅ Enterprise | ❌ |
+| **CI/CD Integration** | Limited | Limited | ✅ | ✅ | Limited |
+| **IDE Extensions** | Cursor only | Windsurf/VSC | VS Code | Multiple | VS Code |
+| **Custom Prompts** | ✅ | ✅ | ✅ | Limited | ✅ |
+
+### **Collaboration Features**
+
+| Feature | Cursor | Windsurf | Cline | Copilot | Claude Code |
+|---------|--------|----------|-------|---------|-------------|
+| **Shared Workspaces** | ❌ | ✅ Teams | N/A | ❌ | ✅ Team+ |
+| **Team Chat History** | ❌ | ✅ Teams | N/A | ❌ | ✅ Team+ |
+| **Code Snippets Sharing** | ❌ | ✅ Teams | Manual | ❌ | ✅ Team+ |
+| **Shared Context** | ❌ | ✅ Teams | N/A | ❌ | ✅ Team+ |
+| **Team Templates** | ❌ | ✅ Teams | N/A | ❌ | ✅ Team+ |
+| **Collaborative Editing** | ❌ | ❌ | N/A | ❌ | ❌ |
+
+### **Enterprise Scoring (Out of 10)**
+
+| Tool | Security | Admin | Support | Customization | Collaboration | Total | Grade |
+|------|----------|-------|---------|---------------|---------------|-------|-------|
+| **GitHub Copilot Enterprise** | 10/10 | 10/10 | 10/10 | 9/10 | 6/10 | **45/50** | A |
+| **Cursor Business** | 8/10 | 9/10 | 7/10 | 8/10 | 4/10 | **36/50** | B+ |
+| **Claude Code Team** | 9/10 | 8/10 | 8/10 | 5/10 | 7/10 | **37/50** | B+ |
+| **Windsurf Teams** | 7/10 | 8/10 | 6/10 | 5/10 | 8/10 | **34/50** | B |
+| **Cline (BYOK)** | 10/10 | 3/10 | 3/10 | 10/10 | 2/10 | **28/50** | C+ |
+
+**Key Insights:**
+- **GitHub Copilot Enterprise**: Best for large enterprises needing full compliance, SLA, and IP indemnity
+- **Cursor/Claude Code**: Good balance of features and security for mid-size companies
+- **Windsurf**: Best value with decent enterprise features, growing fast
+- **Cline**: Best for companies with strict data control requirements (on-premise, air-gapped)
 
 ---
 
