@@ -1,0 +1,602 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word">
+<meta name=Originator content="Microsoft Word">
+<title>AI Coding Assistants - Token Limit Comparison</title>
+<style>
+body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    margin: 1in;
+}
+h1 {
+    font-size: 24pt;
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 10pt;
+    font-weight: bold;
+}
+h2 {
+    font-size: 18pt;
+    color: #667eea;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+    font-weight: bold;
+}
+h3 {
+    font-size: 14pt;
+    color: #333;
+    margin-top: 15pt;
+    margin-bottom: 8pt;
+    font-weight: bold;
+}
+.subtitle {
+    text-align: center;
+    font-size: 14pt;
+    color: #666;
+    margin-bottom: 20pt;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15pt 0;
+}
+th {
+    background-color: #667eea;
+    color: white;
+    padding: 8pt;
+    text-align: left;
+    font-weight: bold;
+}
+td {
+    border: 1pt solid #ddd;
+    padding: 8pt;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.info-box {
+    background-color: #f0f8ff;
+    border-left: 4pt solid #667eea;
+    padding: 15pt;
+    margin: 15pt 0;
+}
+.pros {
+    color: #28a745;
+}
+.cons {
+    color: #dc3545;
+}
+ul {
+    margin: 10pt 0;
+}
+li {
+    margin: 5pt 0;
+}
+.page-break {
+    page-break-before: always;
+}
+.footer {
+    text-align: center;
+    color: #666;
+    font-size: 9pt;
+    margin-top: 30pt;
+    border-top: 1pt solid #ddd;
+    padding-top: 10pt;
+}
+</style>
+</head>
+
+<body>
+
+<h1>AI Coding Assistants - Token Limit Comparison</h1>
+<p class="subtitle">Claude Sonnet 4.5 - Comprehensive Analysis</p>
+
+<h2>🎯 Overview</h2>
+<p>This comparison focuses specifically on how each AI coding assistant handles <strong>Claude Sonnet 4.5</strong> and what happens when you hit token limits.</p>
+
+<div class="info-box">
+<h3>Tools Compared:</h3>
+<ol>
+<li><strong>Cursor</strong> - AI-powered code editor (fork of VS Code)</li>
+<li><strong>Windsurf</strong> - AI coding assistant by Codeium (VS Code or standalone)</li>
+<li><strong>Cline</strong> - VS Code extension with bring-your-own-key (BYOK) API access</li>
+<li><strong>GitHub Copilot</strong> - Microsoft's AI coding assistant (multi-IDE support)</li>
+<li><strong>Claude Code</strong> - Official Anthropic VS Code extension for AI-assisted coding</li>
+</ol>
+</div>
+
+<div class="page-break"></div>
+
+<h2>📊 Quick Comparison Table</h2>
+
+<table>
+<tr>
+<th>Tool</th>
+<th>Max Context</th>
+<th>Auto-Refresh</th>
+<th>Context Preservation</th>
+<th>Cost Model</th>
+<th>At Limit</th>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>1,000,000 tokens<br/>(Sonnet 4.5)</td>
+<td>✅ Yes</td>
+<td>Excellent</td>
+<td>Subscription<br/>$20/mo</td>
+<td>Seamless continuation</td>
+</tr>
+<tr>
+<td><strong>Windsurf</strong></td>
+<td>1,000,000 tokens<br/>(Sonnet 4.5)</td>
+<td>✅ Yes</td>
+<td>Excellent</td>
+<td>Subscription<br/>$10/mo</td>
+<td>Seamless continuation</td>
+</tr>
+<tr>
+<td><strong>Cline</strong></td>
+<td>200,000 tokens<br/>(Sonnet 4.5)</td>
+<td>❌ No</td>
+<td>Manual</td>
+<td>BYOK (API)<br/>~$18/mo</td>
+<td>Hard stop, new task</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot</strong></td>
+<td>200,000 tokens<br/>(Sonnet 4)</td>
+<td>❌ No</td>
+<td>Manual</td>
+<td>Subscription<br/>$10/mo</td>
+<td>Hard stop, new chat</td>
+</tr>
+<tr>
+<td><strong>Claude Code</strong></td>
+<td>200,000 tokens<br/>(Sonnet 4.5)</td>
+<td>❌ No</td>
+<td>Manual</td>
+<td>Subscription<br/>$20/mo</td>
+<td>Hard stop, new conversation</td>
+</tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>1️⃣ Cursor</h2>
+
+<h3>Token Limits</h3>
+<ul>
+<li><strong>Model:</strong> Claude Sonnet 4.5</li>
+<li><strong>Context Window:</strong> 1,000,000 tokens</li>
+<li><strong>Effective Usage:</strong> ~950,000 tokens (buffer for responses)</li>
+<li><strong>Cost:</strong> $20/month (Individual), $40/user/month (Business)</li>
+</ul>
+
+<h3>What Happens at Token Limit</h3>
+<p>When approaching 1M tokens:</p>
+<ul>
+<li>🔄 <strong>Automatic refresh triggered</strong></li>
+<li>✅ TODO list items preserved</li>
+<li>✅ Current task context maintained</li>
+<li>✅ Key architectural decisions saved</li>
+<li>✅ Files being worked on tracked</li>
+<li>✅ Recent changes summarized</li>
+<li>✅ New context window created seamlessly</li>
+</ul>
+
+<h3>Pros & Cons</h3>
+<p class="pros"><strong>Pros:</strong></p>
+<ul>
+<li>✅ Massive 1M token context</li>
+<li>✅ Automatic refresh - no interruption</li>
+<li>✅ Excellent context preservation</li>
+<li>✅ Great for large refactoring projects</li>
+<li>✅ Built-in IDE with AI integration</li>
+<li>✅ Agent mode capabilities</li>
+</ul>
+
+<p class="cons"><strong>Cons:</strong></p>
+<ul>
+<li>❌ Higher cost ($20/month)</li>
+<li>❌ Locked to Cursor IDE</li>
+<li>❌ Cannot use with existing VS Code setup</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>2️⃣ Windsurf</h2>
+
+<h3>Token Limits</h3>
+<ul>
+<li><strong>Model:</strong> Claude Sonnet 4.5</li>
+<li><strong>Context Window:</strong> 1,000,000 tokens</li>
+<li><strong>Effective Usage:</strong> ~950,000 tokens</li>
+<li><strong>Cost:</strong> $10/month (Individual), $15/user/month (Teams)</li>
+</ul>
+
+<h3>Key Features</h3>
+<ul>
+<li>🔄 <strong>Automatic refresh</strong> like Cursor</li>
+<li>🚀 <strong>Cascade planning</strong> - creates multi-step plans</li>
+<li>🤖 <strong>Advanced agent mode</strong> with autonomous execution</li>
+<li>💬 <strong>Flow mode</strong> for continuous assistance</li>
+<li>💰 <strong>Best price:</strong> $10/month for 1M context</li>
+</ul>
+
+<h3>Pros & Cons</h3>
+<p class="pros"><strong>Pros:</strong></p>
+<ul>
+<li>✅ Best value: $10/month for 1M tokens</li>
+<li>✅ Advanced Cascade planning</li>
+<li>✅ Autonomous agent capabilities</li>
+<li>✅ Works with VS Code or standalone</li>
+<li>✅ Automatic context refresh</li>
+<li>✅ Flow mode for continuous coding</li>
+</ul>
+
+<p class="cons"><strong>Cons:</strong></p>
+<ul>
+<li>❌ Newer tool (less mature)</li>
+<li>❌ Smaller community than Cursor</li>
+<li>❌ Some features still in development</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>3️⃣ Cline</h2>
+
+<h3>Token Limits</h3>
+<ul>
+<li><strong>Model:</strong> Claude Sonnet 4.5</li>
+<li><strong>Context Window:</strong> 200,000 tokens</li>
+<li><strong>Cost Model:</strong> BYOK (Bring Your Own Key) - Pay per usage (~$18/month average)</li>
+</ul>
+
+<h3>What Happens at Token Limit</h3>
+<ul>
+<li>❌ <strong>Hard stop</strong> at 200k tokens</li>
+<li>⚠️ Must start new task/conversation</li>
+<li>📝 Manual context transfer required</li>
+</ul>
+
+<h3>Pros & Cons</h3>
+<p class="pros"><strong>Pros:</strong></p>
+<ul>
+<li>✅ Full control over API usage</li>
+<li>✅ Transparent token counting</li>
+<li>✅ Pay only for what you use</li>
+<li>✅ Works in VS Code</li>
+<li>✅ Agent mode with task-based workflow</li>
+<li>✅ Great for privacy (self-hosted API possible)</li>
+<li>✅ Maximum transparency</li>
+</ul>
+
+<p class="cons"><strong>Cons:</strong></p>
+<ul>
+<li>❌ No automatic refresh</li>
+<li>❌ Smaller context (200k)</li>
+<li>❌ Requires API key management</li>
+<li>❌ Multiple conversations needed for large tasks</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>4️⃣ GitHub Copilot</h2>
+
+<h3>Token Limits</h3>
+<ul>
+<li><strong>Model:</strong> Claude Sonnet 4 (not 4.5)</li>
+<li><strong>Context Window:</strong> 200,000 tokens</li>
+<li><strong>Cost:</strong> $10/month (Individual), $19/user/month (Business), $39/user/month (Enterprise)</li>
+</ul>
+
+<h3>Key Features</h3>
+<ul>
+<li>✅✅✅ <strong>Best-in-class autocomplete</strong></li>
+<li>✅ <strong>Agent mode</strong> via Copilot Chat</li>
+<li>✅ <strong>Multi-IDE support</strong> (VS Code, Visual Studio, JetBrains, etc.)</li>
+<li>✅ <strong>GitHub integration</strong></li>
+<li>✅ <strong>Enterprise features</strong> available</li>
+</ul>
+
+<h3>Pros & Cons</h3>
+<p class="pros"><strong>Pros:</strong></p>
+<ul>
+<li>✅ Industry-leading autocomplete</li>
+<li>✅ Works in multiple IDEs</li>
+<li>✅ Strong GitHub integration</li>
+<li>✅ Excellent enterprise support</li>
+<li>✅ Agent mode capabilities</li>
+<li>✅ Good price ($10/month)</li>
+</ul>
+
+<p class="cons"><strong>Cons:</strong></p>
+<ul>
+<li>❌ Only Claude Sonnet 4 (not 4.5)</li>
+<li>❌ Smaller context (200k)</li>
+<li>❌ No automatic refresh</li>
+<li>❌ Chat is secondary to autocomplete</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>5️⃣ Claude Code (Official Anthropic VS Code Extension)</h2>
+
+<h3>Token Limits</h3>
+<ul>
+<li><strong>Model:</strong> Claude Sonnet 4.5 ✅</li>
+<li><strong>Context Window:</strong> 200,000 tokens</li>
+<li><strong>Platform:</strong> VS Code Extension (Official Anthropic)</li>
+<li><strong>Cost:</strong> $20/month (Individual), $30/user/month (Team)</li>
+</ul>
+
+<h3>Key Features</h3>
+<ul>
+<li>✅ <strong>Official Anthropic extension</strong></li>
+<li>✅ <strong>Agent mode</strong> with multi-file editing</li>
+<li>✅ <strong>File system access</strong> (read/write)</li>
+<li>✅ <strong>Workspace awareness</strong></li>
+<li>✅ <strong>VS Code integration</strong></li>
+<li>✅ <strong>Latest Claude Sonnet 4.5</strong> model</li>
+</ul>
+
+<h3>What Happens at Token Limit</h3>
+<ul>
+<li>❌ <strong>Hard stop</strong> at 200k tokens</li>
+<li>⚠️ Must start new conversation</li>
+<li>📝 Manual context summarization required</li>
+</ul>
+
+<h3>Pros & Cons</h3>
+<p class="pros"><strong>Pros:</strong></p>
+<ul>
+<li>✅ Official Anthropic product</li>
+<li>✅ Latest Claude Sonnet 4.5</li>
+<li>✅ Agent mode capabilities</li>
+<li>✅ File system access</li>
+<li>✅ Multi-file editing</li>
+<li>✅ VS Code integration</li>
+</ul>
+
+<p class="cons"><strong>Cons:</strong></p>
+<ul>
+<li>❌ Smaller context (200k)</li>
+<li>❌ No automatic refresh</li>
+<li>❌ No terminal execution</li>
+<li>❌ Multiple conversations needed for large tasks</li>
+<li>❌ Higher cost for limited context</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>📊 Feature Comparison Matrix</h2>
+
+<table>
+<tr>
+<th>Feature</th>
+<th>Cursor</th>
+<th>Windsurf</th>
+<th>Cline</th>
+<th>GitHub Copilot</th>
+<th>Claude Code</th>
+</tr>
+<tr>
+<td><strong>Claude Model</strong></td>
+<td>Sonnet 4.5</td>
+<td>Sonnet 4.5</td>
+<td>Sonnet 4.5</td>
+<td>Sonnet 4</td>
+<td>Sonnet 4.5</td>
+</tr>
+<tr>
+<td><strong>Context Size</strong></td>
+<td>1M tokens</td>
+<td>1M tokens</td>
+<td>200k tokens</td>
+<td>200k tokens</td>
+<td>200k tokens</td>
+</tr>
+<tr>
+<td><strong>Auto-Refresh</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>File Access</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Terminal Execution</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>Limited</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Autocomplete</strong></td>
+<td>✅ Good</td>
+<td>✅ Good</td>
+<td>❌ No</td>
+<td>✅✅✅ Excellent</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td><strong>Agent Mode</strong></td>
+<td>✅ Yes</td>
+<td>✅✅ Advanced</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>IDE Support</strong></td>
+<td>Cursor only</td>
+<td>Windsurf/VS Code</td>
+<td>VS Code</td>
+<td>Multiple IDEs</td>
+<td>VS Code</td>
+</tr>
+<tr>
+<td><strong>Monthly Cost</strong></td>
+<td>$20</td>
+<td>$10</td>
+<td>~$18 (BYOK)</td>
+<td>$10</td>
+<td>$20</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Large projects</td>
+<td>Best value</td>
+<td>Control</td>
+<td>Autocomplete</td>
+<td>Official support</td>
+</tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>🏆 Recommendations</h2>
+
+<h3>Best for Large Projects & Refactoring:</h3>
+<p><strong>Cursor or Windsurf</strong></p>
+<p>Both offer 1M token context with automatic refresh. Choose <strong>Windsurf</strong> for best value ($10/mo) or <strong>Cursor</strong> for more mature ecosystem ($20/mo).</p>
+
+<h3>Best for Budget-Conscious Teams:</h3>
+<p><strong>Windsurf</strong></p>
+<p>$10/month for 1M tokens is unbeatable value. Includes Cascade planning and advanced agent mode.</p>
+
+<h3>Best for Autocomplete Focus:</h3>
+<p><strong>GitHub Copilot</strong></p>
+<p>Industry-leading autocomplete at $10/month. Now includes agent mode. Works across multiple IDEs.</p>
+
+<h3>Best for Control & Transparency:</h3>
+<p><strong>Cline</strong></p>
+<p>BYOK model gives full control. Great for privacy-conscious teams or those wanting detailed usage tracking.</p>
+
+<h3>Best for Official Anthropic Support:</h3>
+<p><strong>Claude Code</strong></p>
+<p>Direct from Anthropic with latest Sonnet 4.5. Best if you want official support and VS Code integration.</p>
+
+<div class="page-break"></div>
+
+<h2>🏢 Enterprise Features & Pricing</h2>
+
+<table>
+<tr>
+<th>Feature</th>
+<th>Cursor Business</th>
+<th>Windsurf Teams</th>
+<th>Cline</th>
+<th>Copilot Enterprise</th>
+<th>Claude Code Team</th>
+</tr>
+<tr>
+<td><strong>Enterprise Price</strong></td>
+<td>$40/user/mo</td>
+<td>$15/user/mo</td>
+<td>Custom/Self-hosted</td>
+<td>$39/user/mo</td>
+<td>$30/user/mo</td>
+</tr>
+<tr>
+<td><strong>SSO/SAML</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>Self-hosted</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Admin Dashboard</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅✅ Advanced</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>SLA Guarantee</strong></td>
+<td>✅ Yes</td>
+<td>Contact sales</td>
+<td>❌ No</td>
+<td>✅✅ 99.9%</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Priority Support</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>Community</td>
+<td>✅✅ 24/7</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Data Residency</strong></td>
+<td>✅ Yes</td>
+<td>Contact sales</td>
+<td>✅✅ Full control</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+</table>
+
+<h3>Annual Cost Comparison (10 Developers):</h3>
+<ul>
+<li><strong>Windsurf Teams:</strong> $1,800/year (Best value) ⭐</li>
+<li><strong>GitHub Copilot Business:</strong> $2,280/year</li>
+<li><strong>Cline (BYOK):</strong> ~$2,160/year (variable)</li>
+<li><strong>Claude Code Team:</strong> $3,600/year</li>
+<li><strong>Cursor Business:</strong> $4,800/year</li>
+</ul>
+
+<p><strong>Potential Savings:</strong> Up to $3,000/year by choosing Windsurf over Cursor for a 10-person team.</p>
+
+<div class="page-break"></div>
+
+<h2>📝 Conclusion</h2>
+
+<p>All five AI coding assistants now include <strong>agent mode capabilities</strong>, making them powerful tools for software development. The key differentiators are:</p>
+
+<ul>
+<li><strong>Context Size:</strong> Cursor and Windsurf lead with 1M tokens vs 200k for others</li>
+<li><strong>Auto-Refresh:</strong> Only Cursor and Windsurf offer seamless context continuation</li>
+<li><strong>Price/Value:</strong> Windsurf offers best value at $10/mo for 1M context</li>
+<li><strong>Autocomplete:</strong> GitHub Copilot remains the autocomplete champion</li>
+<li><strong>Official Support:</strong> Claude Code is the official Anthropic VS Code extension</li>
+</ul>
+
+<p><strong>Choose based on your priorities:</strong></p>
+<ul>
+<li>Need 1M context? → <strong>Cursor</strong> or <strong>Windsurf</strong></li>
+<li>Best value? → <strong>Windsurf</strong> ($10/mo for 1M)</li>
+<li>Best autocomplete? → <strong>GitHub Copilot</strong></li>
+<li>Maximum control? → <strong>Cline</strong> (BYOK)</li>
+<li>Official Anthropic? → <strong>Claude Code</strong></li>
+</ul>
+
+<div class="footer">
+<p>_______________________________________________</p>
+<p>Generated from Flight Booking System Documentation</p>
+<p><a href="https://github.com/sangyvann/Flight-Booking-System-JavaServlets_App">https://github.com/sangyvann/Flight-Booking-System-JavaServlets_App</a></p>
+<p>Document created: November 19, 2025</p>
+</div>
+
+</body>
+</html>
+

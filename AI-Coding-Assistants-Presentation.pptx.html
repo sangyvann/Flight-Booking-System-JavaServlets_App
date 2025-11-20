@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="PowerPoint.Slide">
+<meta name="Generator" content="Microsoft PowerPoint">
+<title>AI Coding Assistants Comparison</title>
+<style>
+body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.slide {
+    width: 10in;
+    height: 7.5in;
+    page-break-after: always;
+    padding: 40px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+}
+.slide-title {
+    background: white;
+    color: #333;
+}
+.slide-content {
+    background: white;
+    color: #333;
+}
+h1 {
+    font-size: 48pt;
+    text-align: center;
+    margin-top: 150px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+h2 {
+    font-size: 36pt;
+    color: #667eea;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+h3 {
+    font-size: 28pt;
+    color: #667eea;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.subtitle {
+    font-size: 24pt;
+    text-align: center;
+    margin-top: 20px;
+}
+.content {
+    font-size: 18pt;
+    line-height: 1.6;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14pt;
+}
+th {
+    background-color: #667eea;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+ul {
+    font-size: 18pt;
+    line-height: 1.8;
+}
+li {
+    margin: 10px 0;
+}
+.highlight {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-left: 5px solid #ffc107;
+    margin: 20px 0;
+    font-size: 16pt;
+}
+.two-column {
+    display: table;
+    width: 100%;
+}
+.column {
+    display: table-cell;
+    width: 48%;
+    padding: 10px;
+    vertical-align: top;
+}
+.pros {
+    color: #28a745;
+    font-weight: bold;
+}
+.cons {
+    color: #dc3545;
+    font-weight: bold;
+}
+.footer {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-size: 12pt;
+    color: #666;
+}
+.slide-number {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    font-size: 12pt;
+    color: #666;
+}
+</style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide">
+    <h1>AI Coding Assistants</h1>
+    <p class="subtitle">Comprehensive Comparison & Analysis</p>
+    <p class="subtitle" style="font-size: 20pt; margin-top: 80px;">Claude Sonnet 4.5 Token Limits, Features & Pricing</p>
+    <p style="text-align: center; margin-top: 60px; font-size: 16pt;">Including Windsurf IDE & Plugin Deep Dive</p>
+</div>
+
+<!-- Slide 2: Agenda -->
+<div class="slide slide-content">
+    <h2>Agenda</h2>
+    <div class="content">
+        <ul>
+            <li>Overview of 5 AI Coding Assistants</li>
+            <li>Token Limits & Context Management</li>
+            <li>Windsurf: IDE vs Plugin Comparison</li>
+            <li>Feature Comparison Matrix</li>
+            <li>Agent Mode Capabilities</li>
+            <li>Pricing & ROI Analysis</li>
+            <li>Enterprise Features</li>
+            <li>Recommendations</li>
+        </ul>
+    </div>
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: Tools Overview -->
+<div class="slide slide-content">
+    <h2>5 AI Coding Assistants Compared</h2>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>IDE</td>
+                <td>AI-powered code editor (fork of VS Code)</td>
+            </tr>
+            <tr>
+                <td><strong>Windsurf</strong></td>
+                <td>IDE + Plugin</td>
+                <td>Standalone IDE or VS Code extension by Codeium</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>Extension</td>
+                <td>VS Code extension with BYOK API access</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>Extension</td>
+                <td>Microsoft's multi-IDE AI assistant</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>Extension</td>
+                <td>Official Anthropic VS Code extension</td>
+            </tr>
+        </table>
+    </div>
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: Token Limits Comparison -->
+<div class="slide slide-content">
+    <h2>Token Limits & Context Windows</h2>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Claude Model</th>
+                <th>Context Size</th>
+                <th>Auto-Refresh</th>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td><strong>Cursor</strong></td>
+                <td>Sonnet 4.5</td>
+                <td><strong>1,000,000 tokens</strong></td>
+                <td>✅ Yes</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td><strong>Windsurf</strong></td>
+                <td>Sonnet 4.5</td>
+                <td><strong>1,000,000 tokens</strong></td>
+                <td>✅ Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>Sonnet 4.5</td>
+                <td>200,000 tokens</td>
+                <td>❌ No</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>Sonnet 4</td>
+                <td>200,000 tokens</td>
+                <td>❌ No</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>Sonnet 4.5</td>
+                <td>200,000 tokens</td>
+                <td>❌ No</td>
+            </tr>
+        </table>
+        <div class="highlight">
+            <strong>Key Insight:</strong> Cursor and Windsurf offer 5x larger context windows with automatic refresh - ideal for large refactoring projects.
+        </div>
+    </div>
+    <div class="slide-number">4</div>
+</div>
+
+<!-- Slide 5: Windsurf Deep Dive - Overview -->
+<div class="slide slide-content">
+    <h2>Windsurf: Two Deployment Options</h2>
+    <div class="content">
+        <h3>1. Windsurf IDE (Standalone)</h3>
+        <ul>
+            <li>Complete AI-powered IDE (like Cursor)</li>
+            <li>Built on VS Code foundation</li>
+            <li>Optimized for AI workflows</li>
+            <li>No additional setup required</li>
+        </ul>
+        
+        <h3>2. Windsurf Plugin (VS Code Extension)</h3>
+        <ul>
+            <li>Install in existing VS Code setup</li>
+            <li>Keep your current extensions & settings</li>
+            <li>Same AI capabilities as standalone IDE</li>
+            <li>Seamless integration with VS Code</li>
+        </ul>
+        
+        <div class="highlight">
+            <strong>Both options:</strong> Same 1M token context, same Cascade planning, same pricing!
+        </div>
+    </div>
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: Windsurf IDE vs Plugin -->
+<div class="slide slide-content">
+    <h2>Windsurf: IDE vs Plugin Comparison</h2>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Windsurf IDE</th>
+                <th>Windsurf Plugin</th>
+            </tr>
+            <tr>
+                <td><strong>Installation</strong></td>
+                <td>Download standalone app</td>
+                <td>Install in VS Code marketplace</td>
+            </tr>
+            <tr>
+                <td><strong>Existing Setup</strong></td>
+                <td>New IDE environment</td>
+                <td>Keep current VS Code setup</td>
+            </tr>
+            <tr>
+                <td><strong>Extensions</strong></td>
+                <td>Start fresh (VS Code compatible)</td>
+                <td>All existing extensions work</td>
+            </tr>
+            <tr>
+                <td><strong>AI Features</strong></td>
+                <td>✅ Full (1M context, Cascade)</td>
+                <td>✅ Full (1M context, Cascade)</td>
+            </tr>
+            <tr>
+                <td><strong>Agent Mode</strong></td>
+                <td>✅ Advanced</td>
+                <td>✅ Advanced</td>
+            </tr>
+            <tr>
+                <td><strong>Flow Mode</strong></td>
+                <td>✅ Yes</td>
+                <td>✅ Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Pricing</strong></td>
+                <td>$10/month</td>
+                <td>$10/month</td>
+            </tr>
+            <tr>
+                <td><strong>Best For</strong></td>
+                <td>Clean start, AI-first workflow</td>
+                <td>Existing VS Code users</td>
+            </tr>
+        </table>
+    </div>
+    <div class="slide-number">6</div>
+</div>
+
+<!-- Slide 7: Windsurf Key Features -->
+<div class="slide slide-content">
+    <h2>Windsurf: Unique Features</h2>
+    <div class="content">
+        <h3>🚀 Cascade Planning</h3>
+        <ul>
+            <li>AI creates multi-step execution plans</li>
+            <li>Breaks complex tasks into manageable steps</li>
+            <li>Shows progress through each phase</li>
+            <li>Autonomous execution with checkpoints</li>
+        </ul>
+        
+        <h3>💬 Flow Mode</h3>
+        <ul>
+            <li>Continuous AI assistance while coding</li>
+            <li>Context-aware suggestions</li>
+            <li>Proactive help without interrupting workflow</li>
+        </ul>
+        
+        <h3>🤖 Advanced Agent Mode</h3>
+        <ul>
+            <li>Autonomous code generation</li>
+            <li>Multi-file refactoring</li>
+            <li>Terminal command execution</li>
+            <li>Self-correcting on errors</li>
+        </ul>
+    </div>
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: Windsurf Cascade Example -->
+<div class="slide slide-content">
+    <h2>Windsurf Cascade Planning in Action</h2>
+    <div class="content">
+        <h3>Example: "Migrate 27 servlets to Spring Boot"</h3>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; font-size: 16pt; font-family: monospace;">
+            <p><strong>📋 CASCADE PLAN CREATED:</strong></p>
+            <p>├─ Step 1: Analyze current architecture ✅</p>
+            <p>├─ Step 2: Create Spring Boot project structure ✅</p>
+            <p>├─ Step 3: Migrate LoginManager servlet ✅</p>
+            <p>├─ Step 4: Migrate SearchFlights servlet ✅</p>
+            <p>├─ Step 5: Migrate BookFlight servlet ⏳</p>
+            <p>├─ Step 6: Create REST controllers [pending]</p>
+            <p>├─ Step 7: Implement security [pending]</p>
+            <p>└─ Step 8: Write tests [pending]</p>
+            <p style="margin-top: 20px; color: #28a745;"><strong>Status: Executing autonomously...</strong></p>
+        </div>
+        <div class="highlight" style="margin-top: 20px;">
+            <strong>Result:</strong> Completes entire migration with minimal user intervention!
+        </div>
+    </div>
+    <div class="slide-number">8</div>
+</div>
+
+<!-- Slide 9: Complete Feature Matrix -->
+<div class="slide slide-content">
+    <h2>Complete Feature Comparison</h2>
+    <div class="content">
+        <table style="font-size: 13pt;">
+            <tr>
+                <th>Feature</th>
+                <th>Cursor</th>
+                <th>Windsurf</th>
+                <th>Cline</th>
+                <th>Copilot</th>
+                <th>Claude Code</th>
+            </tr>
+            <tr>
+                <td><strong>Context Size</strong></td>
+                <td>1M</td>
+                <td>1M</td>
+                <td>200k</td>
+                <td>200k</td>
+                <td>200k</td>
+            </tr>
+            <tr>
+                <td><strong>Auto-Refresh</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><strong>Agent Mode</strong></td>
+                <td>✅</td>
+                <td>✅✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Autocomplete</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>✅✅✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><strong>Terminal Exec</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Limited</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><strong>File Access</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Cascade Planning</strong></td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><strong>IDE Options</strong></td>
+                <td>Cursor only</td>
+                <td>IDE + Plugin</td>
+                <td>VS Code</td>
+                <td>Multiple</td>
+                <td>VS Code</td>
+            </tr>
+        </table>
+    </div>
+    <div class="slide-number">9</div>
+</div>
+
+<!-- Slide 10: Pricing Comparison -->
+<div class="slide slide-content">
+    <h2>Pricing Comparison</h2>
+    <div class="content">
+        <h3>Individual Plans (Monthly)</h3>
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Price</th>
+                <th>Context</th>
+                <th>Value Rating</th>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td><strong>Windsurf</strong></td>
+                <td>$10/month</td>
+                <td>1M tokens</td>
+                <td>⭐⭐⭐⭐⭐ Best Value</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>$10/month</td>
+                <td>200k tokens</td>
+                <td>⭐⭐⭐⭐ Good</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>~$18/month (BYOK)</td>
+                <td>200k tokens</td>
+                <td>⭐⭐⭐ Fair</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>$20/month</td>
+                <td>1M tokens</td>
+                <td>⭐⭐⭐⭐ Good</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>$20/month</td>
+                <td>200k tokens</td>
+                <td>⭐⭐⭐ Fair</td>
+            </tr>
+        </table>
+        <div class="highlight">
+            <strong>Winner:</strong> Windsurf offers 1M context for $10/month - unbeatable value!
+        </div>
+    </div>
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Team Pricing -->
+<div class="slide slide-content">
+    <h2>Team/Enterprise Pricing (Annual)</h2>
+    <div class="content">
+        <h3>Cost for 10 Developers (Per Year)</h3>
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Per User/Month</th>
+                <th>Annual Cost (10 devs)</th>
+                <th>Savings vs Most Expensive</th>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td><strong>Windsurf Teams</strong></td>
+                <td>$15</td>
+                <td><strong>$1,800</strong></td>
+                <td>Save $3,000</td>
+            </tr>
+            <tr>
+                <td><strong>Cline (BYOK)</strong></td>
+                <td>~$18</td>
+                <td>$2,160</td>
+                <td>Save $2,640</td>
+            </tr>
+            <tr>
+                <td><strong>Copilot Business</strong></td>
+                <td>$19</td>
+                <td>$2,280</td>
+                <td>Save $2,520</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code Team</strong></td>
+                <td>$30</td>
+                <td>$3,600</td>
+                <td>Save $1,200</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor Business</strong></td>
+                <td>$40</td>
+                <td>$4,800</td>
+                <td>-</td>
+            </tr>
+        </table>
+        <div class="highlight">
+            <strong>ROI Impact:</strong> Choosing Windsurf saves up to $3,000/year for a 10-person team!
+        </div>
+    </div>
+    <div class="slide-number">11</div>
+</div>
+
+<!-- Slide 12: Agent Mode Comparison -->
+<div class="slide slide-content">
+    <h2>Agent Mode Capabilities</h2>
+    <div class="content">
+        <p style="font-size: 16pt; margin-bottom: 20px;"><strong>All tools now support agent mode, but with different maturity levels:</strong></p>
+        
+        <div class="two-column">
+            <div class="column">
+                <h3 style="font-size: 20pt;">✅✅ Advanced</h3>
+                <ul style="font-size: 16pt;">
+                    <li><strong>Windsurf</strong>
+                        <ul>
+                            <li>Cascade planning</li>
+                            <li>Autonomous execution</li>
+                            <li>Multi-step workflows</li>
+                            <li>Self-correction</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3 style="font-size: 20pt;">✅ Standard</h3>
+                <ul style="font-size: 16pt;">
+                    <li><strong>Cursor</strong> - Multi-file editing</li>
+                    <li><strong>Cline</strong> - Task-based workflow</li>
+                    <li><strong>Copilot</strong> - Chat agent mode</li>
+                    <li><strong>Claude Code</strong> - File operations</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="highlight" style="margin-top: 30px;">
+            <strong>Key Differentiator:</strong> Windsurf's Cascade planning enables true autonomous development workflows.
+        </div>
+    </div>
+    <div class="slide-number">12</div>
+</div>
+
+<!-- Slide 13: Enterprise Features -->
+<div class="slide slide-content">
+    <h2>Enterprise Features Comparison</h2>
+    <div class="content">
+        <table style="font-size: 13pt;">
+            <tr>
+                <th>Feature</th>
+                <th>Cursor</th>
+                <th>Windsurf</th>
+                <th>Cline</th>
+                <th>Copilot</th>
+                <th>Claude Code</th>
+            </tr>
+            <tr>
+                <td><strong>SSO/SAML</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Self-hosted</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Admin Dashboard</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>✅✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Usage Analytics</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Limited</td>
+                <td>✅✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>SLA Guarantee</strong></td>
+                <td>✅</td>
+                <td>Contact</td>
+                <td>❌</td>
+                <td>✅✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Priority Support</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Community</td>
+                <td>✅✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Data Residency</strong></td>
+                <td>✅</td>
+                <td>Contact</td>
+                <td>✅✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td><strong>Enterprise Score</strong></td>
+                <td>37/50</td>
+                <td>35/50</td>
+                <td>28/50</td>
+                <td>45/50</td>
+                <td>36/50</td>
+            </tr>
+        </table>
+        <p style="margin-top: 20px; font-size: 16pt;"><strong>Best for Enterprise:</strong> GitHub Copilot leads in enterprise features, but Windsurf offers best value for mid-size teams.</p>
+    </div>
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: Use Case Scenarios -->
+<div class="slide slide-content">
+    <h2>Which Tool for Which Scenario?</h2>
+    <div class="content">
+        <table style="font-size: 15pt;">
+            <tr>
+                <th>Scenario</th>
+                <th>Best Tool</th>
+                <th>Why?</th>
+            </tr>
+            <tr>
+                <td><strong>Large refactoring project</strong></td>
+                <td>Windsurf or Cursor</td>
+                <td>1M context + auto-refresh</td>
+            </tr>
+            <tr>
+                <td><strong>Budget-conscious team</strong></td>
+                <td>Windsurf</td>
+                <td>$10/mo for 1M context</td>
+            </tr>
+            <tr>
+                <td><strong>Autocomplete focus</strong></td>
+                <td>GitHub Copilot</td>
+                <td>Best-in-class suggestions</td>
+            </tr>
+            <tr>
+                <td><strong>Privacy/on-premise</strong></td>
+                <td>Cline</td>
+                <td>BYOK, self-hosted option</td>
+            </tr>
+            <tr>
+                <td><strong>Existing VS Code setup</strong></td>
+                <td>Windsurf Plugin</td>
+                <td>Keep all extensions</td>
+            </tr>
+            <tr>
+                <td><strong>Official Anthropic</strong></td>
+                <td>Claude Code</td>
+                <td>Direct from Anthropic</td>
+            </tr>
+            <tr>
+                <td><strong>Large enterprise</strong></td>
+                <td>GitHub Copilot</td>
+                <td>Best enterprise features</td>
+            </tr>
+            <tr>
+                <td><strong>Autonomous workflows</strong></td>
+                <td>Windsurf</td>
+                <td>Cascade planning</td>
+            </tr>
+        </table>
+    </div>
+    <div class="slide-number">14</div>
+</div>
+
+<!-- Slide 15: Windsurf Installation Guide -->
+<div class="slide slide-content">
+    <h2>Getting Started with Windsurf</h2>
+    <div class="content">
+        <div class="two-column">
+            <div class="column">
+                <h3 style="font-size: 20pt;">Option 1: Windsurf IDE</h3>
+                <ol style="font-size: 16pt;">
+                    <li>Visit codeium.com/windsurf</li>
+                    <li>Download for Windows/Mac/Linux</li>
+                    <li>Install like any application</li>
+                    <li>Sign up for account</li>
+                    <li>Start coding with AI!</li>
+                </ol>
+                <p style="margin-top: 20px; font-size: 14pt;"><strong>Best for:</strong> Clean start, AI-first development</p>
+            </div>
+            <div class="column">
+                <h3 style="font-size: 20pt;">Option 2: VS Code Plugin</h3>
+                <ol style="font-size: 16pt;">
+                    <li>Open VS Code</li>
+                    <li>Go to Extensions (Ctrl+Shift+X)</li>
+                    <li>Search "Windsurf"</li>
+                    <li>Click Install</li>
+                    <li>Sign in to activate</li>
+                </ol>
+                <p style="margin-top: 20px; font-size: 14pt;"><strong>Best for:</strong> Existing VS Code users</p>
+            </div>
+        </div>
+        <div class="highlight" style="margin-top: 30px;">
+            <strong>Free Trial:</strong> Both options include a free trial to test all features!
+        </div>
+    </div>
+    <div class="slide-number">15</div>
+</div>
+
+<!-- Slide 16: ROI Analysis -->
+<div class="slide slide-content">
+    <h2>Return on Investment (ROI)</h2>
+    <div class="content">
+        <h3>Assumptions: 10 developers, 2 hours saved/week, $75/hour cost</h3>
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Annual Cost</th>
+                <th>Time Saved Value</th>
+                <th>Net Benefit</th>
+                <th>ROI %</th>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td><strong>Windsurf</strong></td>
+                <td>$1,800</td>
+                <td>$78,000</td>
+                <td>$76,200</td>
+                <td><strong>4,233%</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Copilot</strong></td>
+                <td>$2,280</td>
+                <td>$78,000</td>
+                <td>$75,720</td>
+                <td>3,321%</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>$2,160</td>
+                <td>$78,000</td>
+                <td>$75,840</td>
+                <td>3,511%</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>$3,600</td>
+                <td>$78,000</td>
+                <td>$74,400</td>
+                <td>2,067%</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>$4,800</td>
+                <td>$78,000</td>
+                <td>$73,200</td>
+                <td>1,525%</td>
+            </tr>
+        </table>
+        <div class="highlight">
+            <strong>Bottom Line:</strong> All tools provide massive ROI, but Windsurf maximizes value with lowest cost!
+        </div>
+    </div>
+    <div class="slide-number">16</div>
+</div>
+
+<!-- Slide 17: Recommendations Summary -->
+<div class="slide slide-content">
+    <h2>Final Recommendations</h2>
+    <div class="content" style="font-size: 17pt;">
+        <div style="background: #d4edda; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>🏆 Best Overall Value:</strong> Windsurf ($10/mo, 1M context, Cascade planning)
+        </div>
+        
+        <div style="background: #cce5ff; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>🚀 Best for Large Projects:</strong> Windsurf or Cursor (1M context + auto-refresh)
+        </div>
+        
+        <div style="background: #fff3cd; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>⌨️ Best Autocomplete:</strong> GitHub Copilot (industry-leading suggestions)
+        </div>
+        
+        <div style="background: #f8d7da; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>🔒 Best for Privacy:</strong> Cline (BYOK, self-hosted option)
+        </div>
+        
+        <div style="background: #e7e7e7; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>🏢 Best for Enterprise:</strong> GitHub Copilot Enterprise (45/50 enterprise score)
+        </div>
+        
+        <div style="background: #d1ecf1; padding: 15px; margin: 10px 0; border-radius: 8px;">
+            <strong>✅ Official Anthropic:</strong> Claude Code (direct from Anthropic, Sonnet 4.5)
+        </div>
+    </div>
+    <div class="slide-number">17</div>
+</div>
+
+<!-- Slide 18: Key Takeaways -->
+<div class="slide slide-content">
+    <h2>Key Takeaways</h2>
+    <div class="content">
+        <ul style="font-size: 20pt; line-height: 2;">
+            <li>✅ <strong>All 5 tools now have agent mode</strong> - but maturity varies</li>
+            <li>✅ <strong>Context size matters</strong> - 1M tokens = 5x fewer interruptions</li>
+            <li>✅ <strong>Windsurf offers unbeatable value</strong> - $10/mo for 1M context</li>
+            <li>✅ <strong>Windsurf IDE vs Plugin</strong> - same features, choose your preference</li>
+            <li>✅ <strong>Cascade planning is unique</strong> - only Windsurf has it</li>
+            <li>✅ <strong>ROI is massive</strong> - all tools pay for themselves many times over</li>
+            <li>✅ <strong>Choose based on needs</strong> - context size, budget, or features</li>
+        </ul>
+    </div>
+    <div class="slide-number">18</div>
+</div>
+
+<!-- Slide 19: Q&A -->
+<div class="slide">
+    <h1 style="margin-top: 200px;">Questions?</h1>
+    <p class="subtitle">Thank you for your attention!</p>
+    <p style="text-align: center; margin-top: 80px; font-size: 18pt;">
+        Full documentation available at:<br/>
+        <strong>github.com/sangyvann/Flight-Booking-System-JavaServlets_App</strong>
+    </p>
+</div>
+
+<!-- Slide 20: Contact/Resources -->
+<div class="slide slide-content">
+    <h2>Resources & Links</h2>
+    <div class="content" style="font-size: 18pt;">
+        <h3>Official Websites:</h3>
+        <ul>
+            <li><strong>Cursor:</strong> cursor.com</li>
+            <li><strong>Windsurf:</strong> codeium.com/windsurf</li>
+            <li><strong>Cline:</strong> VS Code Marketplace</li>
+            <li><strong>GitHub Copilot:</strong> github.com/features/copilot</li>
+            <li><strong>Claude Code:</strong> VS Code Marketplace (search "Anthropic")</li>
+        </ul>
+        
+        <h3 style="margin-top: 30px;">Documentation:</h3>
+        <ul>
+            <li>Complete comparison: <strong>github.com/sangyvann/Flight-Booking-System-JavaServlets_App</strong></li>
+            <li>Interactive charts & pricing calculator available</li>
+            <li>Word document with full analysis</li>
+        </ul>
+        
+        <div class="highlight" style="margin-top: 30px;">
+            <strong>Try them all!</strong> Most tools offer free trials - test before committing.
+        </div>
+    </div>
+    <div class="slide-number">20</div>
+</div>
+
+</body>
+</html>
+
