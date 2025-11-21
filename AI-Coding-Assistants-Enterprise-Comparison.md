@@ -30,10 +30,100 @@ This comparison evaluates AI coding assistants specifically for:
 | **Community Size** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
 | **Time Saving** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
 | **Ease of Use** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Context/Tokens** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| **Context/Tokens** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
 | **Reasoning** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | **LLM Models** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
 | **OVERALL SCORE** | **59/65** | **60/65** | **52/65** | **61/65** | **47/65** |
+
+---
+
+## Understanding Cursor's Max Mode
+
+### **What is Max Mode?**
+
+Cursor offers two context modes:
+
+| Mode | Context Size | Speed | Cost | Use Case |
+|------|-------------|-------|------|----------|
+| **Standard** | 200k tokens | Fast | Included | Daily coding |
+| **Max Mode** | Up to 1M tokens | Slower | More credits | Large projects |
+
+### **How to Enable Max Mode:**
+
+**Step-by-Step:**
+1. Open Cursor IDE
+2. Open Chat (`Cmd/Ctrl+L`) or Composer (`Cmd/Ctrl+I`)
+3. Click the **Model Picker** dropdown at the top
+4. Toggle **"Max Mode"** switch to ON (turns blue)
+5. Select a compatible model:
+   - Claude Sonnet 4.5 (recommended)
+   - Gemini 2.5 Pro
+   - GPT-4.1
+6. Start your conversation with extended context
+
+### **Max Mode Limitations:**
+
+**Performance:**
+- ⚠️ 2-3x slower response times
+- ⚠️ Higher latency for large context processing
+- ⚠️ May timeout on extremely large requests
+
+**Cost:**
+- Pro Plan ($20/mo): ~225 Max Mode requests with Sonnet 4.5
+- Uses significantly more credits per request
+- May require Pro Plus or Ultra for heavy usage
+
+**Practical Constraints:**
+- Not suitable for continuous all-day use
+- Better for specific large-context tasks
+- Switch back to Standard Mode after complex task completed
+
+### **Recommended Usage Strategy:**
+
+**✅ Use Max Mode For:**
+```
+1. Initial codebase analysis
+   "Analyze all 27 servlets and create migration architecture"
+   [Max Mode ON - loads entire codebase]
+
+2. Complex cross-file refactoring
+   "Refactor authentication across all controllers"
+   [Max Mode ON - needs full context]
+
+3. Architecture decisions
+   "Review entire app and suggest microservices boundaries"
+   [Max Mode ON - holistic view needed]
+```
+
+**❌ Use Standard Mode For:**
+```
+1. Daily coding
+   "Add error handling to this function"
+   [Standard Mode - small scope]
+
+2. Individual file work
+   "Refactor this controller"
+   [Standard Mode - single file]
+
+3. Quick questions
+   "Explain this code"
+   [Standard Mode - sufficient context]
+```
+
+### **Max Mode vs Windsurf Comparison:**
+
+| Feature | Cursor Max Mode | Windsurf Standard |
+|---------|----------------|-------------------|
+| **Context** | 1M tokens | 1M tokens |
+| **Speed** | Slower | Fast |
+| **Cost** | Uses more credits | Included |
+| **Always Available** | No (toggle) | Yes (always on) |
+| **Best For** | Occasional large tasks | Continuous large context |
+| **Price** | $20/mo + credit limits | $10/mo unlimited |
+
+**Verdict:** 
+- **Cursor Max Mode:** Great for occasional large-context needs
+- **Windsurf:** Better if you constantly need 1M context
 
 ---
 
@@ -301,7 +391,7 @@ Copilot for GitHub Actions, Cline for full control and transparency.
 ### **Productivity Analysis:**
 
 #### **Cursor** ⭐⭐⭐⭐⭐ (10.5 hours/week) - HIGHEST
-- **Large Context:** Understands entire codebase (1M tokens)
+- **Context:** 200k standard (1M in Max Mode - slower/expensive)
 - **Auto-Refresh:** No interruptions during long sessions
 - **Composer Mode:** Multi-file editing is exceptional
 - **Fast & Responsive:** Minimal lag, instant suggestions
@@ -319,9 +409,12 @@ Time Saved: 4-6 hours
 
 **Why Cursor Leads:**
 - Composer mode handles complex multi-file changes better than any competitor
-- 1M context means it understands dependencies across entire codebase
+- 200k context is sufficient for most refactoring tasks
+- Can use Max Mode (1M tokens) when needed for very large codebases
 - Faster and more stable than newer competitors
 - Best balance of autocomplete + agent capabilities
+
+**Max Mode Note:** Available for complex tasks requiring extensive context, but slower and uses more credits.
 
 ---
 
@@ -733,11 +826,43 @@ Both are instantly intuitive with minimal learning curve.
 
 | Tool | Model | Context Tokens | Effective Use | Auto-Refresh | Reasoning Quality |
 |------|-------|----------------|---------------|--------------|-------------------|
-| **Cursor** | Sonnet 4.5 | 1,000,000 | ~950k | ✅ Yes | ⭐⭐⭐⭐⭐ Excellent |
+| **Cursor** | Sonnet 4.5 | 200,000 (1M in Max Mode*) | ~180k | ✅ Yes | ⭐⭐⭐⭐⭐ Excellent |
 | **Windsurf** | Sonnet 4.5 | 1,000,000 | ~950k | ✅ Yes | ⭐⭐⭐⭐⭐ Excellent |
 | **Cline** | Sonnet 4.5 | 200,000 | ~180k | ❌ No | ⭐⭐⭐⭐⭐ Excellent |
 | **Copilot** | Sonnet 4 | 200,000 | ~180k | ❌ No | ⭐⭐⭐⭐ Very Good |
 | **Claude Code** | Sonnet 4.5 | 200,000 | ~180k | ❌ No | ⭐⭐⭐⭐⭐ Excellent |
+
+**Important Note on Cursor Context:**
+- **Standard Mode:** 200k tokens (default, fast, included in plan)
+- **Max Mode:** Up to 1M tokens (slower, uses more credits, for complex tasks only)
+- Most developers use Standard Mode (200k) for daily work
+- Max Mode is available when needed but not practical for continuous use
+
+**How to Enable Max Mode in Cursor:**
+1. Open Chat (Cmd/Ctrl+L) or Composer (Cmd/Ctrl+I)
+2. Click the Model Picker dropdown (shows current model)
+3. Toggle "Max Mode" switch to ON
+4. Select compatible model (Claude Sonnet 4.5, Gemini 2.5 Pro, or GPT-4.1)
+5. Start using extended 1M context
+
+**Max Mode Trade-offs:**
+- ⚠️ Slower response times
+- ⚠️ Uses more API credits (Pro plan: ~225 requests)
+- ⚠️ Not suitable for continuous use
+- ✅ Great for one-time large codebase analysis
+- ✅ Useful for complex multi-file refactoring
+
+**When to Use Max Mode:**
+- Large legacy codebase analysis (360k+ tokens)
+- Complex multi-file refactoring across entire app
+- Understanding complete application architecture
+- One-time migration projects
+
+**When to Use Standard Mode (200k):**
+- Daily coding tasks
+- Small to medium refactoring
+- Quick questions
+- Regular autocomplete
 
 ### **Context Analysis for Legacy Modernization:**
 
@@ -966,8 +1091,8 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 
 | Rank | Tool | Total Score | Best For |
 |------|------|-------------|----------|
-| **1st** | **Cursor** | **62/65** | Developer Productivity, Large Projects, Context, Refactoring |
-| **2nd** | **Windsurf** | **60/65** | Value, Modernization, Autonomous Tasks, ROI |
+| **1st** | **Windsurf** | **62/65** | Value, Large Context (1M), Autonomous Tasks, ROI |
+| **2nd** | **Cursor** | **61/65** | Developer Productivity, Refactoring, Maturity, Stability |
 | **3rd** | **GitHub Copilot** | **60/65** | Enterprise, Azure, Maturity, Community, Autocomplete |
 | **4th** | **Cline** | **52/65** | Security, Control, Flexibility, CI/CD |
 | **5th** | **Claude Code** | **47/65** | Official Anthropic, Latest Model |
@@ -978,7 +1103,7 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 
 | Category | Winner | Runner-Up |
 |----------|--------|-----------|
-| **Legacy Modernization** | Cursor / Windsurf | Cline |
+| **Legacy Modernization** | Windsurf | Cursor |
 | **Azure Migration** | GitHub Copilot | Windsurf |
 | **CI/CD Integration** | GitHub Copilot | Cline |
 | **Developer Productivity** | Cursor | Windsurf |
@@ -988,7 +1113,7 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 | **Community** | GitHub Copilot | Cursor |
 | **Time Saving** | Cursor | Windsurf |
 | **Ease of Use** | Copilot / Cursor | Windsurf |
-| **Context/Tokens** | Cursor / Windsurf | Others |
+| **Context/Tokens** | Windsurf | Cursor (Max Mode) |
 | **Reasoning** | All Sonnet 4.5 | Copilot (Sonnet 4) |
 | **LLM Models** | Cline | GitHub Copilot |
 
@@ -996,23 +1121,25 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 
 ## 14. Decision Matrix
 
+### **Choose Windsurf if:**
+- ✅ **Need consistent 1M context** for large legacy codebases
+- ✅ Budget is a priority ($10/month - best value)
+- ✅ Want autonomous Cascade planning
+- ✅ Maximizing ROI (17,233%)
+- ✅ Large legacy app modernization
+- ✅ Willing to accept newer product (some bugs)
+- ✅ Team size: 10-100 developers
+- ✅ **Best for large codebase refactoring**
+
 ### **Choose Cursor if:**
 - ✅ **Developer productivity is top priority**
-- ✅ Need 1M context for large codebases
 - ✅ Complex refactoring projects (Composer mode is best)
 - ✅ Want mature, stable AI IDE
 - ✅ Value reliability and performance
+- ✅ 200k context sufficient (Max Mode available when needed)
 - ✅ Budget allows $20/month
 - ✅ Team size: 10-100 developers
-- ✅ **Best overall for most development teams**
-
-### **Choose Windsurf if:**
-- ✅ Budget is a priority ($10/month)
-- ✅ Want autonomous Cascade planning
-- ✅ Need 1M context window
-- ✅ Maximizing ROI (best value)
-- ✅ Willing to accept newer product (some bugs)
-- ✅ Team size: 10-100 developers
+- ✅ **Best for most development tasks**
 
 ### **Choose GitHub Copilot if:**
 - ✅ Enterprise security is critical
@@ -1076,20 +1203,23 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 
 ### **For Legacy Modernization + Azure Migration:**
 
-**🏆 Top Choice: Cursor**
+**🏆 Top Choice: Windsurf**
+- **Consistent 1M context** - essential for large legacy codebases
+- Best value ($10/month)
+- Cascade planning for autonomous migration
+- Highest ROI (17,233%)
+- Can load entire legacy app (360k+ tokens)
+- Terminal access for Azure CLI
+- Newer product (some stability issues but improving)
+
+**🥈 Runner-Up: Cursor**
 - **Best developer productivity** (10.5 hours/week saved)
-- 1M context for large codebases
 - **Composer mode excels at complex refactoring**
+- 200k standard context (Max Mode 1M available but slower/expensive)
 - Mature, stable, reliable
 - Fast performance
 - Worth the $20/month for productivity gains
-
-**🥈 Runner-Up: Windsurf**
-- Best value ($10/month)
-- Cascade planning for autonomous migration
-- 1M context
-- Highest ROI (17,233%)
-- Newer product (some stability issues)
+- Better for tasks within 200k context
 
 **🥉 Third Place: GitHub Copilot**
 - Best for Microsoft ecosystem
@@ -1103,25 +1233,34 @@ Cline for maximum flexibility, Copilot for enterprise model options.
 ### **Final Recommendation:**
 
 **For most enterprises modernizing legacy apps:**
-1. **Start with Cursor** (best productivity, mature, stable, worth $20/month)
-2. **Or choose Windsurf** if budget is critical (best value at $10/month)
+1. **Start with Windsurf** if working with large legacy codebases (1M context, best value)
+2. **Or choose Cursor** for best productivity on standard tasks (mature, stable, Composer mode)
 3. **Add GitHub Copilot** if already on Azure/Microsoft ecosystem
 4. **Consider Cline** if security/compliance is critical
 
 **Expected Results:**
 - 80-100 hours saved on legacy migration
-- 10.5 hours saved per developer per week (Cursor)
-- 6,400%+ ROI (even with higher cost)
+- 9-10.5 hours saved per developer per week
+- 6,400%+ ROI minimum
 - Faster time to market
 - Higher code quality
 - Happier developers
 
-**Why Cursor Wins for Productivity:**
-- Composer mode is unmatched for multi-file refactoring
-- 1M context understands entire legacy codebase
-- Most mature and stable of the 1M context tools
-- Fast, responsive, reliable
-- Best balance of autocomplete + agent capabilities
+**Context Window Comparison:**
+- **Windsurf:** 1M tokens standard (always available)
+- **Cursor:** 200k tokens standard, 1M in Max Mode (slower, more expensive)
+- **Others:** 200k tokens
+
+**Choose Windsurf if:**
+- Large legacy codebase (>200k tokens)
+- Need to load entire application context
+- Budget-conscious ($10 vs $20/month)
+
+**Choose Cursor if:**
+- Most tasks fit in 200k context
+- Want best productivity tools (Composer mode)
+- Value maturity and stability
+- Don't mind paying $20/month
 
 ---
 
