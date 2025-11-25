@@ -201,11 +201,11 @@ add_table_slide(prs, "Legacy-to-Modern Architecture Migration",
 add_table_slide(prs, "LLM Models for Modernization",
     ["Tool", "Available Models", "Model Strengths"],
     [
-        ["Claude Code", "Claude 3 Sonnet, Opus", "Excellent reasoning, strong code understanding"],
-        ["Cline", "BYOK - Any model", "Complete flexibility, open source models"],
-        ["GitHub Copilot", "GPT-4o, Fine-tuned", "Optimized for code completion"],
-        ["Cursor", "Claude 3 Opus, GPT-4o, GPT-4 Turbo", "Model switching, large contexts"],
-        ["Windsurf IDE", "Claude 3 Opus, GPT-4o, Custom", "Model switching, large contexts"]
+        ["Claude Code", "Claude 3.5 Sonnet, 3 Opus, 3 Sonnet, 3 Haiku", "Excellent reasoning, strong code understanding, fast responses"],
+        ["Cline", "BYOK: Claude 3.5 Sonnet, GPT-4o, o1-preview/mini, Gemini, DeepSeek, Local", "Complete flexibility, open source models, cost control"],
+        ["GitHub Copilot", "GPT-4o, o1-preview/mini, Claude 3.5 Sonnet, Gemini 1.5 Pro", "Multi-model support, optimized for code completion"],
+        ["Cursor", "Claude 3.5 Sonnet, Sonnet 4, GPT-4o, o1-preview/mini, Gemini 1.5 Pro/Flash", "Wide model selection, model switching, large contexts"],
+        ["Windsurf IDE", "Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro, DeepSeek Coder, Custom", "Model switching, large contexts, cost-effective"]
     ])
 
 # Slide 14: Enterprise Requirements
