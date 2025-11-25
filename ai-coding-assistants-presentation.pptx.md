@@ -127,15 +127,36 @@
 
 ## Interactive Modernization Experience
 
-| Tool | Real-time Interaction | Clarification During Processing | Feedback Loop |
-|------|---------------------|-------------------------------|---------------|
-| GitHub Copilot | Limited (inline suggestions) | No (requires new prompt after completion) | Fast but one-way interaction |
-| Cursor | Excellent (continuous dialogue) | Yes (can add clarifications while processing) | Interactive and iterative |
-| Windsurf IDE | Excellent (flow mode) | Yes (can add clarifications while processing) | Interactive and iterative |
-| Claude Code | Good (conversational) | No (must wait for complete response) | Conversational but sequential |
-| Cline | Good (task-based) | No (requires task completion first) | Transparent but sequential |
+| Tool | Real-time Interaction | Clarification During Processing | Voice Input | User Experience |
+|------|---------------------|-------------------------------|-------------|-----------------|
+| GitHub Copilot | Limited (inline suggestions) | No (requires new prompt after completion) | ❌ No | Good (familiar IDE integration) |
+| Cursor | Excellent (continuous dialogue) | Yes (can add clarifications while processing) | ✅ Yes | ⭐⭐⭐⭐⭐ Excellent (voice input, intuitive UI, smooth workflow) |
+| Windsurf IDE | Excellent (flow mode) | Yes (can add clarifications while processing) | ❌ No | ⭐⭐⭐⭐ Very Good (flow mode, structured) |
+| Claude Code | Good (conversational) | No (must wait for complete response) | ❌ No | ⭐⭐⭐⭐ Very Good (conversational, clean) |
+| Cline | Good (task-based) | No (requires task completion first) | ❌ No | ⭐⭐⭐ Good (transparent but complex) |
 
-**Key Insight**: Only Cursor and Windsurf IDE allow adding clarifications while processing, giving them a significant advantage for complex legacy modernization tasks that require ongoing refinement and evolving context
+**Key Insight**: Cursor offers the best user experience with voice input support, allowing hands-free code discussion and natural language interaction. Only Cursor and Windsurf IDE allow adding clarifications while processing, giving them a significant advantage for complex legacy modernization tasks.
+
+---
+
+## Token Limit Behavior
+
+### What Happens When You Hit the Token Limit
+
+| Tool | Context Window | Token Limit Behavior | Continuation Method | Impact on Large Projects |
+|------|---------------|---------------------|---------------------|-------------------------|
+| **GitHub Copilot** | 200K tokens | ⚠️ **Hard stop** - conversation ends | Must start new chat, loses context | ⚠️ High impact - frequent restarts needed for large apps |
+| **Cursor** | 200K (Standard)<br>1M (Max Mode) | ✅ **Soft refresh** - can continue with context summary | Auto-summarizes previous context, seamless continuation | ✅ Low impact - Max Mode handles most large apps |
+| **Windsurf IDE** | 1M tokens | ✅ **Soft refresh** - maintains conversation flow | Intelligent context management, continues naturally | ✅ Low impact - rarely hits limit with 1M context |
+| **Claude Code** | 200K tokens | ⚠️ **Hard stop** - must start new conversation | Start fresh chat, manual context transfer | ⚠️ High impact - loses architectural understanding |
+| **Cline** | 200K tokens | ⚠️ **Hard stop** - task-based restart | Must create new task, loses previous context | ⚠️ Medium impact - task isolation helps but context lost |
+
+**Key Insight**: For large legacy app modernization, Cursor and Windsurf IDE's larger context (1M tokens) and soft refresh capabilities are critical. Hard stops with 200K context tools (GitHub Copilot, Claude Code, Cline) force frequent restarts, losing architectural understanding and requiring manual context rebuilding.
+
+**Best Practices When Hitting Token Limits:**
+- **With 200K tools**: Break large apps into modules, document context between sessions
+- **With 1M tools**: Use Max Mode (Cursor) or default 1M (Windsurf) for uninterrupted analysis
+- **All tools**: Export important context (architecture diagrams, key decisions) before hitting limits
 
 ---
 
