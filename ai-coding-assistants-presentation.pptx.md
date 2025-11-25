@@ -44,16 +44,6 @@
 
 ---
 
-## Tools Evaluated for Modernization
-
-- **Claude Code**: Anthropic's assistant with 200K context (Claude 3 Sonnet/Opus)
-- **Cline**: Open-source tool with self-hosted security (BYOK - any model)
-- **GitHub Copilot**: Fast code generation with 200K context (GPT-4o)
-- **Cursor**: 1M context with Composer mode for refactoring (Claude 3 Opus/GPT-4o)
-- **Windsurf IDE**: 1M context with Cascade planning for migration (Claude 3 Opus/GPT-4o)
-
----
-
 ## Context Window for Legacy Codebases
 
 | Tool | Context Window | What It Means for Legacy Apps |
