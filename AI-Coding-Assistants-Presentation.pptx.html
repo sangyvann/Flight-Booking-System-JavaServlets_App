@@ -1,912 +1,859 @@
 <!DOCTYPE html>
-<html xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
-xmlns="http://www.w3.org/TR/REC-html40">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="ProgId" content="PowerPoint.Slide">
-<meta name="Generator" content="Microsoft PowerPoint">
-<title>AI Coding Assistants Comparison</title>
-<style>
-body {
-    font-family: 'Calibri', 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-.slide {
-    width: 10in;
-    height: 7.5in;
-    page-break-after: always;
-    padding: 40px;
-    box-sizing: border-box;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    position: relative;
-}
-.slide-title {
-    background: white;
-    color: #333;
-}
-.slide-content {
-    background: white;
-    color: #333;
-}
-h1 {
-    font-size: 48pt;
-    text-align: center;
-    margin-top: 150px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-h2 {
-    font-size: 36pt;
-    color: #667eea;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #667eea;
-    padding-bottom: 10px;
-}
-h3 {
-    font-size: 28pt;
-    color: #667eea;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-.subtitle {
-    font-size: 24pt;
-    text-align: center;
-    margin-top: 20px;
-}
-.content {
-    font-size: 18pt;
-    line-height: 1.6;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 14pt;
-}
-th {
-    background-color: #667eea;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    font-weight: bold;
-}
-td {
-    border: 1px solid #ddd;
-    padding: 10px;
-}
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-ul {
-    font-size: 18pt;
-    line-height: 1.8;
-}
-li {
-    margin: 10px 0;
-}
-.highlight {
-    background-color: #fff3cd;
-    padding: 15px;
-    border-left: 5px solid #ffc107;
-    margin: 20px 0;
-    font-size: 16pt;
-}
-.two-column {
-    display: table;
-    width: 100%;
-}
-.column {
-    display: table-cell;
-    width: 48%;
-    padding: 10px;
-    vertical-align: top;
-}
-.pros {
-    color: #28a745;
-    font-weight: bold;
-}
-.cons {
-    color: #dc3545;
-    font-weight: bold;
-}
-.footer {
-    position: absolute;
-    bottom: 20px;
-    right: 40px;
-    font-size: 12pt;
-    color: #666;
-}
-.slide-number {
-    position: absolute;
-    bottom: 20px;
-    left: 40px;
-    font-size: 12pt;
-    color: #666;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>AI Coding Assistants Comparison - PowerPoint Presentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .instructions h2 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .instructions ol {
+            margin: 10px 0;
+        }
+        .instructions li {
+            margin: 8px 0;
+        }
+        .instructions code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .slide {
+            background: white;
+            width: 960px;
+            height: 720px;
+            margin: 20px auto;
+            padding: 40px 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .slide h1 {
+            color: #2c3e50;
+            font-size: 44px;
+            margin: 0 0 20px 0;
+            border-bottom: 4px solid #4472c4;
+            padding-bottom: 15px;
+        }
+        .slide h2 {
+            color: #4472c4;
+            font-size: 32px;
+            margin: 0 0 15px 0;
+        }
+        .slide.title {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide.title h1 {
+            font-size: 56px;
+            border: none;
+            margin-bottom: 30px;
+        }
+        .slide.title h2 {
+            font-size: 36px;
+            color: #7f7f7f;
+            font-weight: normal;
+        }
+        .slide ul {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .slide li {
+            margin: 10px 0;
+        }
+        .slide table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .slide th {
+            background: #4472c4;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #2c5aa0;
+        }
+        .slide td {
+            padding: 10px 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .slide tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .key-insight {
+            background: #e7f3ff;
+            border-left: 4px solid #4472c4;
+            padding: 15px;
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 18px;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #7f7f7f;
+            font-size: 16px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .instructions {
+                display: none;
+            }
+            .slide {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Slide 1: Title -->
-<div class="slide">
-    <h1>AI Coding Assistants</h1>
-    <p class="subtitle">Comprehensive Comparison & Analysis</p>
-    <p class="subtitle" style="font-size: 20pt; margin-top: 80px;">Claude Sonnet 4.5 Token Limits, Features & Pricing</p>
-    <p style="text-align: center; margin-top: 60px; font-size: 16pt;">Including Windsurf IDE & Plugin Deep Dive</p>
+<div class="instructions">
+    <h2>📊 How to Convert This to PowerPoint (.pptx)</h2>
+    <p><strong>Option 1: Print to PDF, then convert to PPTX</strong></p>
+    <ol>
+        <li>Open this HTML file in your browser</li>
+        <li>Press <code>Ctrl+P</code> (Windows) or <code>Cmd+P</code> (Mac)</li>
+        <li>Select "Save as PDF" or "Microsoft Print to PDF"</li>
+        <li>Save as <code>AI-Coding-Assistants-Presentation.pdf</code></li>
+        <li>Use an online converter (e.g., <strong>Adobe Acrobat</strong>, <strong>Smallpdf.com</strong>, or <strong>ilovepdf.com</strong>) to convert PDF to PPTX</li>
+    </ol>
+    
+    <p><strong>Option 2: Use PowerPoint Online (Recommended)</strong></p>
+    <ol>
+        <li>Go to <a href="https://www.office.com/launch/powerpoint" target="_blank">PowerPoint Online</a></li>
+        <li>Create a new blank presentation</li>
+        <li>Copy content from each slide below and paste into PowerPoint slides</li>
+        <li>PowerPoint will preserve formatting</li>
+    </ol>
+    
+    <p><strong>Option 3: Install Python and use python-pptx</strong></p>
+    <ol>
+        <li>Install Python from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></li>
+        <li>Run: <code>pip install python-pptx</code></li>
+        <li>Run: <code>python create_pptx.py</code> (script is already in your directory)</li>
+    </ol>
 </div>
 
-<!-- Slide 2: Agenda -->
-<div class="slide slide-content">
-    <h2>Agenda</h2>
-    <div class="content">
-        <ul>
-            <li>Overview of 5 AI Coding Assistants</li>
-            <li>Token Limits & Context Management</li>
-            <li>Windsurf: IDE vs Plugin Comparison</li>
-            <li>Feature Comparison Matrix</li>
-            <li>Agent Mode Capabilities</li>
-            <li>Pricing & ROI Analysis</li>
-            <li>Enterprise Features</li>
-            <li>Recommendations</li>
-        </ul>
-    </div>
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <h1>AI Coding Assistants Comparison</h1>
+    <h2>For Large Legacy Application Modernization</h2>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: Executive Summary -->
+<div class="slide">
+    <h1>Executive Summary</h1>
+    <ul>
+        <li>Compared five leading AI coding assistants specifically for large legacy application modernization</li>
+        <li>Key modernization factors: context handling, refactoring capabilities, code understanding</li>
+        <li>Best for monolith analysis: <strong>Cursor and Windsurf IDE</strong> (1M token context)</li>
+        <li>Best for complex refactoring: <strong>Cursor</strong> (Composer mode) and <strong>Windsurf</strong> (Cascade planning)</li>
+        <li>Best for incremental modernization: <strong>GitHub Copilot</strong> (fast code generation)</li>
+        <li>Best for secure modernization: <strong>Cline</strong> (air-gapped deployment)</li>
+        <li>Best value for large projects: <strong>Windsurf IDE</strong> (1M tokens at $15/user/month)</li>
+    </ul>
     <div class="slide-number">2</div>
 </div>
 
-<!-- Slide 3: Tools Overview -->
-<div class="slide slide-content">
-    <h2>5 AI Coding Assistants Compared</h2>
-    <div class="content">
-        <table>
-            <tr>
-                <th>Tool</th>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><strong>Cursor</strong></td>
-                <td>IDE</td>
-                <td>AI-powered code editor (fork of VS Code)</td>
-            </tr>
-            <tr>
-                <td><strong>Windsurf</strong></td>
-                <td>IDE + Plugin</td>
-                <td>Standalone IDE or VS Code extension by Codeium</td>
-            </tr>
-            <tr>
-                <td><strong>Cline</strong></td>
-                <td>Extension</td>
-                <td>VS Code extension with BYOK API access</td>
-            </tr>
-            <tr>
-                <td><strong>GitHub Copilot</strong></td>
-                <td>Extension</td>
-                <td>Microsoft's multi-IDE AI assistant</td>
-            </tr>
-            <tr>
-                <td><strong>Claude Code</strong></td>
-                <td>Extension</td>
-                <td>Official Anthropic VS Code extension</td>
-            </tr>
-        </table>
-    </div>
+<!-- Slide 3: Legacy Modernization Challenges -->
+<div class="slide">
+    <h1>Legacy Modernization Challenges</h1>
+    <ul>
+        <li><strong>Understanding large codebases:</strong> Most legacy apps exceed standard context windows</li>
+        <li><strong>Complex refactoring needs:</strong> Moving from monoliths to microservices</li>
+        <li><strong>Technical debt:</strong> Outdated patterns, missing documentation</li>
+        <li><strong>Cross-file dependencies:</strong> Changes affect multiple components</li>
+        <li><strong>Maintaining business logic:</strong> Preserving critical functionality</li>
+    </ul>
     <div class="slide-number">3</div>
 </div>
 
-<!-- Slide 4: Token Limits Comparison -->
-<div class="slide slide-content">
-    <h2>Token Limits & Context Windows</h2>
-    <div class="content">
-        <table>
-            <tr>
-                <th>Tool</th>
-                <th>Claude Model</th>
-                <th>Context Size</th>
-                <th>Auto-Refresh</th>
-            </tr>
-            <tr style="background-color: #d4edda;">
-                <td><strong>Cursor</strong></td>
-                <td>Sonnet 4.5</td>
-                <td><strong>1,000,000 tokens</strong></td>
-                <td>✅ Yes</td>
-            </tr>
-            <tr style="background-color: #d4edda;">
-                <td><strong>Windsurf</strong></td>
-                <td>Sonnet 4.5</td>
-                <td><strong>1,000,000 tokens</strong></td>
-                <td>✅ Yes</td>
-            </tr>
-            <tr>
-                <td><strong>Cline</strong></td>
-                <td>Sonnet 4.5</td>
-                <td>200,000 tokens</td>
-                <td>❌ No</td>
-            </tr>
-            <tr>
-                <td><strong>GitHub Copilot</strong></td>
-                <td>Sonnet 4</td>
-                <td>200,000 tokens</td>
-                <td>❌ No</td>
-            </tr>
-            <tr>
-                <td><strong>Claude Code</strong></td>
-                <td>Sonnet 4.5</td>
-                <td>200,000 tokens</td>
-                <td>❌ No</td>
-            </tr>
-        </table>
-        <div class="highlight">
-            <strong>Key Insight:</strong> Cursor and Windsurf offer 5x larger context windows with automatic refresh - ideal for large refactoring projects.
-        </div>
-    </div>
+<!-- Slide 4: Tools Evaluated -->
+<div class="slide">
+    <h1>Tools Evaluated for Modernization</h1>
+    <ul>
+        <li><strong>Claude Code:</strong> Anthropic's assistant with 200K context (Claude 3 Sonnet/Opus)</li>
+        <li><strong>Cline:</strong> Open-source tool with self-hosted security (BYOK - any model)</li>
+        <li><strong>GitHub Copilot:</strong> Fast code generation with 200K context (GPT-4o)</li>
+        <li><strong>Cursor:</strong> 1M context with Composer mode for refactoring (Claude 3 Opus/GPT-4o)</li>
+        <li><strong>Windsurf IDE:</strong> 1M context with Cascade planning for migration (Claude 3 Opus/GPT-4o)</li>
+    </ul>
     <div class="slide-number">4</div>
 </div>
 
-<!-- Slide 5: Windsurf Deep Dive - Overview -->
-<div class="slide slide-content">
-    <h2>Windsurf: Two Deployment Options</h2>
-    <div class="content">
-        <h3>1. Windsurf IDE (Standalone)</h3>
-        <ul>
-            <li>Complete AI-powered IDE (like Cursor)</li>
-            <li>Built on VS Code foundation</li>
-            <li>Optimized for AI workflows</li>
-            <li>No additional setup required</li>
-        </ul>
-        
-        <h3>2. Windsurf Plugin (VS Code Extension)</h3>
-        <ul>
-            <li>Install in existing VS Code setup</li>
-            <li>Keep your current extensions & settings</li>
-            <li>Same AI capabilities as standalone IDE</li>
-            <li>Seamless integration with VS Code</li>
-        </ul>
-        
-        <div class="highlight">
-            <strong>Both options:</strong> Same 1M token context, same Cascade planning, same pricing!
-        </div>
-    </div>
+<!-- Slide 5: Context Window -->
+<div class="slide">
+    <h1>Context Window for Legacy Codebases</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Context Window</th>
+                <th>What It Means for Legacy Apps</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude Code</td>
+                <td>200K tokens</td>
+                <td>Can analyze ~10K LOC at once</td>
+            </tr>
+            <tr>
+                <td>Cline</td>
+                <td>200K tokens</td>
+                <td>Requires breaking large apps into modules</td>
+            </tr>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>200K tokens</td>
+                <td>Limited understanding of full system architecture</td>
+            </tr>
+            <tr>
+                <td>Cursor</td>
+                <td>1M tokens (Max Mode)</td>
+                <td>Can analyze ~50K LOC simultaneously</td>
+            </tr>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>1M tokens</td>
+                <td>Can process entire monoliths at once</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Legacy monoliths often exceed 200K tokens, making Cursor and Windsurf's 1M context essential for holistic understanding</div>
     <div class="slide-number">5</div>
 </div>
 
-<!-- Slide 6: Windsurf IDE vs Plugin -->
-<div class="slide slide-content">
-    <h2>Windsurf: IDE vs Plugin Comparison</h2>
-    <div class="content">
-        <table>
+<!-- Slide 6: Modernization Capabilities -->
+<div class="slide">
+    <h1>Modernization Capabilities</h1>
+    <table>
+        <thead>
             <tr>
-                <th>Feature</th>
-                <th>Windsurf IDE</th>
-                <th>Windsurf Plugin</th>
+                <th>Tool</th>
+                <th>Key Modernization Features</th>
+                <th>Modernization Approach</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude Code</td>
+                <td>File system navigation, multi-file editing</td>
+                <td>Conversational guidance through changes</td>
             </tr>
             <tr>
-                <td><strong>Installation</strong></td>
-                <td>Download standalone app</td>
-                <td>Install in VS Code marketplace</td>
+                <td>Cline</td>
+                <td>Terminal access, transparency</td>
+                <td>Task-based refactoring with control</td>
             </tr>
             <tr>
-                <td><strong>Existing Setup</strong></td>
-                <td>New IDE environment</td>
-                <td>Keep current VS Code setup</td>
+                <td>GitHub Copilot</td>
+                <td>Fast code generation, pattern recognition</td>
+                <td>Incremental modernization with quick rewrites</td>
             </tr>
             <tr>
-                <td><strong>Extensions</strong></td>
-                <td>Start fresh (VS Code compatible)</td>
-                <td>All existing extensions work</td>
+                <td>Cursor</td>
+                <td>Composer mode for multi-file refactoring</td>
+                <td>Holistic codebase transformation</td>
             </tr>
             <tr>
-                <td><strong>AI Features</strong></td>
-                <td>✅ Full (1M context, Cascade)</td>
-                <td>✅ Full (1M context, Cascade)</td>
+                <td>Windsurf IDE</td>
+                <td>Cascade planning for migration roadmaps</td>
+                <td>Structured modernization with clear steps</td>
             </tr>
-            <tr>
-                <td><strong>Agent Mode</strong></td>
-                <td>✅ Advanced</td>
-                <td>✅ Advanced</td>
-            </tr>
-            <tr>
-                <td><strong>Flow Mode</strong></td>
-                <td>✅ Yes</td>
-                <td>✅ Yes</td>
-            </tr>
-            <tr>
-                <td><strong>Pricing</strong></td>
-                <td>$10/month</td>
-                <td>$10/month</td>
-            </tr>
-            <tr>
-                <td><strong>Best For</strong></td>
-                <td>Clean start, AI-first workflow</td>
-                <td>Existing VS Code users</td>
-            </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Legacy modernization requires different approaches based on codebase size and complexity</div>
     <div class="slide-number">6</div>
 </div>
 
-<!-- Slide 7: Windsurf Key Features -->
-<div class="slide slide-content">
-    <h2>Windsurf: Unique Features</h2>
-    <div class="content">
-        <h3>🚀 Cascade Planning</h3>
-        <ul>
-            <li>AI creates multi-step execution plans</li>
-            <li>Breaks complex tasks into manageable steps</li>
-            <li>Shows progress through each phase</li>
-            <li>Autonomous execution with checkpoints</li>
-        </ul>
-        
-        <h3>💬 Flow Mode</h3>
-        <ul>
-            <li>Continuous AI assistance while coding</li>
-            <li>Context-aware suggestions</li>
-            <li>Proactive help without interrupting workflow</li>
-        </ul>
-        
-        <h3>🤖 Advanced Agent Mode</h3>
-        <ul>
-            <li>Autonomous code generation</li>
-            <li>Multi-file refactoring</li>
-            <li>Terminal command execution</li>
-            <li>Self-correcting on errors</li>
-        </ul>
-    </div>
+<!-- Slide 7: Code Understanding -->
+<div class="slide">
+    <h1>Legacy Code Understanding</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Code Analysis</th>
+                <th>Dependency Mapping</th>
+                <th>Documentation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Good pattern recognition</td>
+                <td>Limited cross-file analysis</td>
+                <td>Good inline documentation</td>
+            </tr>
+            <tr>
+                <td>Cursor</td>
+                <td>Excellent with 1M context</td>
+                <td>Strong cross-file dependency tracking</td>
+                <td>Comprehensive documentation</td>
+            </tr>
+            <tr>
+                <td>Claude Code</td>
+                <td>Good reasoning within 200K</td>
+                <td>Manual dependency tracking</td>
+                <td>Excellent explanations</td>
+            </tr>
+            <tr>
+                <td>Cline</td>
+                <td>Good reasoning within 200K</td>
+                <td>Manual dependency tracking</td>
+                <td>Good explanations</td>
+            </tr>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>Excellent with 1M context</td>
+                <td>Automated dependency mapping</td>
+                <td>Structured documentation</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Understanding legacy code requires both context capacity and strong reasoning capabilities</div>
     <div class="slide-number">7</div>
 </div>
 
-<!-- Slide 8: Windsurf Cascade Example -->
-<div class="slide slide-content">
-    <h2>Windsurf Cascade Planning in Action</h2>
-    <div class="content">
-        <h3>Example: "Migrate 27 servlets to Spring Boot"</h3>
-        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; font-size: 16pt; font-family: monospace;">
-            <p><strong>📋 CASCADE PLAN CREATED:</strong></p>
-            <p>├─ Step 1: Analyze current architecture ✅</p>
-            <p>├─ Step 2: Create Spring Boot project structure ✅</p>
-            <p>├─ Step 3: Migrate LoginManager servlet ✅</p>
-            <p>├─ Step 4: Migrate SearchFlights servlet ✅</p>
-            <p>├─ Step 5: Migrate BookFlight servlet ⏳</p>
-            <p>├─ Step 6: Create REST controllers [pending]</p>
-            <p>├─ Step 7: Implement security [pending]</p>
-            <p>└─ Step 8: Write tests [pending]</p>
-            <p style="margin-top: 20px; color: #28a745;"><strong>Status: Executing autonomously...</strong></p>
-        </div>
-        <div class="highlight" style="margin-top: 20px;">
-            <strong>Result:</strong> Completes entire migration with minimal user intervention!
-        </div>
-    </div>
+<!-- Slide 8: Architecture & Tech Specs -->
+<div class="slide">
+    <h1>Architecture Diagram & Tech Spec Generation</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Architecture Diagrams</th>
+                <th>Technical Specs</th>
+                <th>Accuracy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Limited (requires manual guidance)</td>
+                <td>Good for component-level specs</td>
+                <td>Moderate (limited by context)</td>
+            </tr>
+            <tr>
+                <td>Cursor</td>
+                <td>Excellent with Max Mode</td>
+                <td>Comprehensive system-wide specs</td>
+                <td>Very good (with full codebase context)</td>
+            </tr>
+            <tr>
+                <td>Claude Code</td>
+                <td>Good with guidance</td>
+                <td>Detailed but limited by context</td>
+                <td>Good for documented systems</td>
+            </tr>
+            <tr>
+                <td>Cline</td>
+                <td>Good with guidance</td>
+                <td>Detailed with transparency</td>
+                <td>Good with developer input</td>
+            </tr>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>Excellent with Cascade planning</td>
+                <td>End-to-end modernization specs</td>
+                <td>Very good (with automated analysis)</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Large context tools can generate more accurate architecture diagrams and specifications by understanding the entire legacy system</div>
     <div class="slide-number">8</div>
 </div>
 
-<!-- Slide 9: Complete Feature Matrix -->
-<div class="slide slide-content">
-    <h2>Complete Feature Comparison</h2>
-    <div class="content">
-        <table style="font-size: 13pt;">
+<!-- Slide 9: Performance Factors -->
+<div class="slide">
+    <h1>Modernization Performance Factors</h1>
+    <table>
+        <thead>
             <tr>
-                <th>Feature</th>
-                <th>Cursor</th>
-                <th>Windsurf</th>
-                <th>Cline</th>
-                <th>Copilot</th>
-                <th>Claude Code</th>
+                <th>Tool</th>
+                <th>Refactoring Speed</th>
+                <th>Multi-File Changes</th>
+                <th>Large Codebase Handling</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Very Fast for small changes</td>
+                <td>Limited coordination</td>
+                <td>Struggles with large monoliths</td>
             </tr>
             <tr>
-                <td><strong>Context Size</strong></td>
-                <td>1M</td>
-                <td>1M</td>
-                <td>200k</td>
-                <td>200k</td>
-                <td>200k</td>
+                <td>Cursor</td>
+                <td>Moderate but thorough</td>
+                <td>Excellent with Composer mode</td>
+                <td>Handles entire systems in Max Mode</td>
             </tr>
             <tr>
-                <td><strong>Auto-Refresh</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>❌</td>
-                <td>❌</td>
+                <td>Windsurf IDE</td>
+                <td>Fast with structured approach</td>
+                <td>Good with Cascade planning</td>
+                <td>Excellent with 1M context</td>
             </tr>
             <tr>
-                <td><strong>Agent Mode</strong></td>
-                <td>✅</td>
-                <td>✅✅</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
+                <td>Claude Code</td>
+                <td>Moderate</td>
+                <td>Good with manual guidance</td>
+                <td>Limited by 200K context</td>
             </tr>
             <tr>
-                <td><strong>Autocomplete</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅✅✅</td>
-                <td>❌</td>
+                <td>Cline</td>
+                <td>Moderate</td>
+                <td>Good with manual control</td>
+                <td>Limited by 200K context</td>
             </tr>
-            <tr>
-                <td><strong>Terminal Exec</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>Limited</td>
-                <td>❌</td>
-            </tr>
-            <tr>
-                <td><strong>File Access</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td><strong>Cascade Planning</strong></td>
-                <td>❌</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>❌</td>
-                <td>❌</td>
-            </tr>
-            <tr>
-                <td><strong>IDE Options</strong></td>
-                <td>Cursor only</td>
-                <td>IDE + Plugin</td>
-                <td>VS Code</td>
-                <td>Multiple</td>
-                <td>VS Code</td>
-            </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Legacy modernization often requires trading speed for comprehensive understanding of large codebases</div>
     <div class="slide-number">9</div>
 </div>
 
-<!-- Slide 10: Pricing Comparison -->
-<div class="slide slide-content">
-    <h2>Pricing Comparison</h2>
-    <div class="content">
-        <h3>Individual Plans (Monthly)</h3>
-        <table>
+<!-- Slide 10: Interactive Experience -->
+<div class="slide">
+    <h1>Interactive Modernization Experience</h1>
+    <table>
+        <thead>
             <tr>
                 <th>Tool</th>
-                <th>Price</th>
-                <th>Context</th>
-                <th>Value Rating</th>
+                <th>Real-time Interaction</th>
+                <th>Clarification During Processing</th>
             </tr>
-            <tr style="background-color: #d4edda;">
-                <td><strong>Windsurf</strong></td>
-                <td>$10/month</td>
-                <td>1M tokens</td>
-                <td>⭐⭐⭐⭐⭐ Best Value</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Limited (inline suggestions)</td>
+                <td>No (requires new prompt after completion)</td>
             </tr>
             <tr>
-                <td><strong>GitHub Copilot</strong></td>
-                <td>$10/month</td>
-                <td>200k tokens</td>
-                <td>⭐⭐⭐⭐ Good</td>
+                <td>Cursor</td>
+                <td>Excellent (continuous dialogue)</td>
+                <td>Yes (can add clarifications while processing)</td>
             </tr>
             <tr>
-                <td><strong>Cline</strong></td>
-                <td>~$18/month (BYOK)</td>
-                <td>200k tokens</td>
-                <td>⭐⭐⭐ Fair</td>
+                <td>Windsurf IDE</td>
+                <td>Excellent (flow mode)</td>
+                <td>Yes (can add clarifications while processing)</td>
             </tr>
             <tr>
-                <td><strong>Cursor</strong></td>
-                <td>$20/month</td>
-                <td>1M tokens</td>
-                <td>⭐⭐⭐⭐ Good</td>
+                <td>Claude Code</td>
+                <td>Good (conversational)</td>
+                <td>No (must wait for complete response)</td>
             </tr>
             <tr>
-                <td><strong>Claude Code</strong></td>
-                <td>$20/month</td>
-                <td>200k tokens</td>
-                <td>⭐⭐⭐ Fair</td>
+                <td>Cline</td>
+                <td>Good (task-based)</td>
+                <td>No (requires task completion first)</td>
             </tr>
-        </table>
-        <div class="highlight">
-            <strong>Winner:</strong> Windsurf offers 1M context for $10/month - unbeatable value!
-        </div>
-    </div>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Only Cursor and Windsurf IDE allow adding clarifications while processing, giving them a significant advantage for complex legacy modernization tasks that require ongoing refinement and evolving context</div>
     <div class="slide-number">10</div>
 </div>
 
-<!-- Slide 11: Team Pricing -->
-<div class="slide slide-content">
-    <h2>Team/Enterprise Pricing (Annual)</h2>
-    <div class="content">
-        <h3>Cost for 10 Developers (Per Year)</h3>
-        <table>
+<!-- Slide 11: Planning Capabilities -->
+<div class="slide">
+    <h1>Modernization Planning Capabilities</h1>
+    <table>
+        <thead>
             <tr>
                 <th>Tool</th>
-                <th>Per User/Month</th>
-                <th>Annual Cost (10 devs)</th>
-                <th>Savings vs Most Expensive</th>
+                <th>Plan Generation</th>
+                <th>Plan Detail Level</th>
+                <th>Plan Execution Support</th>
             </tr>
-            <tr style="background-color: #d4edda;">
-                <td><strong>Windsurf Teams</strong></td>
-                <td>$15</td>
-                <td><strong>$1,800</strong></td>
-                <td>Save $3,000</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Limited (component-focused)</td>
+                <td>Moderate (lacks system-wide view)</td>
+                <td>Good code implementation</td>
             </tr>
             <tr>
-                <td><strong>Cline (BYOK)</strong></td>
-                <td>~$18</td>
-                <td>$2,160</td>
-                <td>Save $2,640</td>
+                <td>Cursor</td>
+                <td>Excellent (system-wide)</td>
+                <td>Very detailed with 1M context</td>
+                <td>Excellent with execution guidance</td>
             </tr>
             <tr>
-                <td><strong>Copilot Business</strong></td>
-                <td>$19</td>
-                <td>$2,280</td>
-                <td>Save $2,520</td>
+                <td>Windsurf IDE</td>
+                <td>Excellent (structured roadmaps)</td>
+                <td>Very detailed with migration steps</td>
+                <td>Excellent with Cascade planning</td>
             </tr>
             <tr>
-                <td><strong>Claude Code Team</strong></td>
-                <td>$30</td>
-                <td>$3,600</td>
-                <td>Save $1,200</td>
+                <td>Claude Code</td>
+                <td>Good (conversational planning)</td>
+                <td>Good but limited by context</td>
+                <td>Good implementation guidance</td>
             </tr>
             <tr>
-                <td><strong>Cursor Business</strong></td>
-                <td>$40</td>
-                <td>$4,800</td>
-                <td>-</td>
+                <td>Cline</td>
+                <td>Good (transparent planning)</td>
+                <td>Good with developer control</td>
+                <td>Good with developer oversight</td>
             </tr>
-        </table>
-        <div class="highlight">
-            <strong>ROI Impact:</strong> Choosing Windsurf saves up to $3,000/year for a 10-person team!
-        </div>
-    </div>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Cursor and Windsurf IDE excel at generating comprehensive modernization plans due to their ability to understand entire systems</div>
     <div class="slide-number">11</div>
 </div>
 
-<!-- Slide 12: Agent Mode Comparison -->
-<div class="slide slide-content">
-    <h2>Agent Mode Capabilities</h2>
-    <div class="content">
-        <p style="font-size: 16pt; margin-bottom: 20px;"><strong>All tools now support agent mode, but with different maturity levels:</strong></p>
-        
-        <div class="two-column">
-            <div class="column">
-                <h3 style="font-size: 20pt;">✅✅ Advanced</h3>
-                <ul style="font-size: 16pt;">
-                    <li><strong>Windsurf</strong>
-                        <ul>
-                            <li>Cascade planning</li>
-                            <li>Autonomous execution</li>
-                            <li>Multi-step workflows</li>
-                            <li>Self-correction</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="column">
-                <h3 style="font-size: 20pt;">✅ Standard</h3>
-                <ul style="font-size: 16pt;">
-                    <li><strong>Cursor</strong> - Multi-file editing</li>
-                    <li><strong>Cline</strong> - Task-based workflow</li>
-                    <li><strong>Copilot</strong> - Chat agent mode</li>
-                    <li><strong>Claude Code</strong> - File operations</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="highlight" style="margin-top: 30px;">
-            <strong>Key Differentiator:</strong> Windsurf's Cascade planning enables true autonomous development workflows.
-        </div>
-    </div>
+<!-- Slide 12: Architecture Migration -->
+<div class="slide">
+    <h1>Legacy-to-Modern Architecture Migration</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Monolith to Microservices</th>
+                <th>Database Modernization</th>
+                <th>Cloud Migration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>Good for individual services</td>
+                <td>Good for schema updates</td>
+                <td>Excellent for Azure/GitHub</td>
+            </tr>
+            <tr>
+                <td>Cursor</td>
+                <td>Excellent system-wide planning</td>
+                <td>Very good with large schemas</td>
+                <td>Good with any cloud platform</td>
+            </tr>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>Excellent with migration roadmaps</td>
+                <td>Very good with data modeling</td>
+                <td>Good with any cloud platform</td>
+            </tr>
+            <tr>
+                <td>Claude Code</td>
+                <td>Good with guided approach</td>
+                <td>Good within context limits</td>
+                <td>Good with any cloud platform</td>
+            </tr>
+            <tr>
+                <td>Cline</td>
+                <td>Good with controlled approach</td>
+                <td>Good within context limits</td>
+                <td>Good with any cloud platform</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Modernizing legacy applications often requires coordinated architectural changes across multiple systems</div>
     <div class="slide-number">12</div>
 </div>
 
-<!-- Slide 13: Enterprise Features -->
-<div class="slide slide-content">
-    <h2>Enterprise Features Comparison</h2>
-    <div class="content">
-        <table style="font-size: 13pt;">
+<!-- Slide 13: LLM Models -->
+<div class="slide">
+    <h1>LLM Models for Modernization</h1>
+    <table>
+        <thead>
             <tr>
-                <th>Feature</th>
-                <th>Cursor</th>
-                <th>Windsurf</th>
-                <th>Cline</th>
-                <th>Copilot</th>
-                <th>Claude Code</th>
+                <th>Tool</th>
+                <th>Available Models</th>
+                <th>Model Strengths</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude Code</td>
+                <td>Claude 3 Sonnet<br>Claude 3 Opus</td>
+                <td>Excellent reasoning<br>Strong code understanding</td>
             </tr>
             <tr>
-                <td><strong>SSO/SAML</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>Self-hosted</td>
-                <td>✅</td>
-                <td>✅</td>
+                <td>Cline</td>
+                <td>BYOK - Any model<br>(Claude, GPT-4, local models)</td>
+                <td>Complete flexibility<br>Can use open source models</td>
             </tr>
             <tr>
-                <td><strong>Admin Dashboard</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>❌</td>
-                <td>✅✅</td>
-                <td>✅</td>
+                <td>GitHub Copilot</td>
+                <td>GPT-4o<br>Fine-tuned models</td>
+                <td>Optimized for code completion<br>GitHub-specific training</td>
             </tr>
             <tr>
-                <td><strong>Usage Analytics</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>Limited</td>
-                <td>✅✅</td>
-                <td>✅</td>
+                <td>Cursor</td>
+                <td>Claude 3 Opus<br>GPT-4o<br>GPT-4 Turbo</td>
+                <td>Model switching<br>Optimized for large contexts</td>
             </tr>
             <tr>
-                <td><strong>SLA Guarantee</strong></td>
-                <td>✅</td>
-                <td>Contact</td>
-                <td>❌</td>
-                <td>✅✅</td>
-                <td>✅</td>
+                <td>Windsurf IDE</td>
+                <td>Claude 3 Opus<br>GPT-4o<br>Custom models</td>
+                <td>Model switching<br>Optimized for large contexts</td>
             </tr>
-            <tr>
-                <td><strong>Priority Support</strong></td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>Community</td>
-                <td>✅✅</td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td><strong>Data Residency</strong></td>
-                <td>✅</td>
-                <td>Contact</td>
-                <td>✅✅</td>
-                <td>✅</td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td><strong>Enterprise Score</strong></td>
-                <td>37/50</td>
-                <td>35/50</td>
-                <td>28/50</td>
-                <td>45/50</td>
-                <td>36/50</td>
-            </tr>
-        </table>
-        <p style="margin-top: 20px; font-size: 16pt;"><strong>Best for Enterprise:</strong> GitHub Copilot leads in enterprise features, but Windsurf offers best value for mid-size teams.</p>
-    </div>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Model selection impacts reasoning quality, context handling, and cost-effectiveness for legacy modernization</div>
     <div class="slide-number">13</div>
 </div>
 
-<!-- Slide 14: Use Case Scenarios -->
-<div class="slide slide-content">
-    <h2>Which Tool for Which Scenario?</h2>
-    <div class="content">
-        <table style="font-size: 15pt;">
+<!-- Slide 14: Enterprise Requirements -->
+<div class="slide">
+    <h1>Enterprise Modernization Requirements</h1>
+    <table>
+        <thead>
             <tr>
-                <th>Scenario</th>
-                <th>Best Tool</th>
-                <th>Why?</th>
+                <th>Tool</th>
+                <th>Legacy Code Security</th>
+                <th>Compliance</th>
+                <th>Team Collaboration</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
-                <td><strong>Large refactoring project</strong></td>
-                <td>Windsurf or Cursor</td>
-                <td>1M context + auto-refresh</td>
-            </tr>
-            <tr>
-                <td><strong>Budget-conscious team</strong></td>
-                <td>Windsurf</td>
-                <td>$10/mo for 1M context</td>
-            </tr>
-            <tr>
-                <td><strong>Autocomplete focus</strong></td>
-                <td>GitHub Copilot</td>
-                <td>Best-in-class suggestions</td>
-            </tr>
-            <tr>
-                <td><strong>Privacy/on-premise</strong></td>
-                <td>Cline</td>
-                <td>BYOK, self-hosted option</td>
-            </tr>
-            <tr>
-                <td><strong>Existing VS Code setup</strong></td>
-                <td>Windsurf Plugin</td>
-                <td>Keep all extensions</td>
-            </tr>
-            <tr>
-                <td><strong>Official Anthropic</strong></td>
                 <td>Claude Code</td>
-                <td>Direct from Anthropic</td>
+                <td>Good data handling</td>
+                <td>Good audit trail</td>
+                <td>Limited sharing</td>
             </tr>
             <tr>
-                <td><strong>Large enterprise</strong></td>
+                <td>Cline</td>
+                <td>Excellent (air-gapped option)</td>
+                <td>Excellent control</td>
+                <td>Good with self-hosting</td>
+            </tr>
+            <tr>
                 <td>GitHub Copilot</td>
-                <td>Best enterprise features</td>
+                <td>Good with Enterprise tier</td>
+                <td>Good with policy controls</td>
+                <td>Excellent with GitHub</td>
             </tr>
             <tr>
-                <td><strong>Autonomous workflows</strong></td>
-                <td>Windsurf</td>
-                <td>Cascade planning</td>
+                <td>Cursor</td>
+                <td>Very good data policies</td>
+                <td>Good audit capabilities</td>
+                <td>Good with Business tier</td>
             </tr>
-        </table>
-    </div>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>Good data handling</td>
+                <td>Good tracking</td>
+                <td>Good with Teams tier</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> Only Cline offers air-gapped deployment for maximum security</div>
     <div class="slide-number">14</div>
 </div>
 
-<!-- Slide 15: Windsurf Installation Guide -->
-<div class="slide slide-content">
-    <h2>Getting Started with Windsurf</h2>
-    <div class="content">
-        <div class="two-column">
-            <div class="column">
-                <h3 style="font-size: 20pt;">Option 1: Windsurf IDE</h3>
-                <ol style="font-size: 16pt;">
-                    <li>Visit codeium.com/windsurf</li>
-                    <li>Download for Windows/Mac/Linux</li>
-                    <li>Install like any application</li>
-                    <li>Sign up for account</li>
-                    <li>Start coding with AI!</li>
-                </ol>
-                <p style="margin-top: 20px; font-size: 14pt;"><strong>Best for:</strong> Clean start, AI-first development</p>
-            </div>
-            <div class="column">
-                <h3 style="font-size: 20pt;">Option 2: VS Code Plugin</h3>
-                <ol style="font-size: 16pt;">
-                    <li>Open VS Code</li>
-                    <li>Go to Extensions (Ctrl+Shift+X)</li>
-                    <li>Search "Windsurf"</li>
-                    <li>Click Install</li>
-                    <li>Sign in to activate</li>
-                </ol>
-                <p style="margin-top: 20px; font-size: 14pt;"><strong>Best for:</strong> Existing VS Code users</p>
-            </div>
-        </div>
-        <div class="highlight" style="margin-top: 30px;">
-            <strong>Free Trial:</strong> Both options include a free trial to test all features!
-        </div>
-    </div>
+<!-- Slide 15: ROI -->
+<div class="slide">
+    <h1>Modernization ROI Considerations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>License Cost (10 devs/year)</th>
+                <th>Additional Costs</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude Code</td>
+                <td>$3,600</td>
+                <td>API usage limits</td>
+                <td>Good for medium projects</td>
+            </tr>
+            <tr>
+                <td>Cline</td>
+                <td>~$2,160 (API costs)</td>
+                <td>Self-hosting infrastructure</td>
+                <td>Excellent for secure projects</td>
+            </tr>
+            <tr>
+                <td>GitHub Copilot</td>
+                <td>$2,280</td>
+                <td>None significant</td>
+                <td>Good for incremental modernization</td>
+            </tr>
+            <tr>
+                <td>Cursor</td>
+                <td>$4,800</td>
+                <td>Max Mode credits</td>
+                <td>Excellent for large monoliths</td>
+            </tr>
+            <tr>
+                <td>Windsurf IDE</td>
+                <td>$1,800</td>
+                <td>None significant</td>
+                <td>Best value for large projects</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="key-insight"><strong>Key Insight:</strong> For large legacy modernization projects, the higher context tools provide better ROI despite higher costs</div>
     <div class="slide-number">15</div>
 </div>
 
-<!-- Slide 16: ROI Analysis -->
-<div class="slide slide-content">
-    <h2>Return on Investment (ROI)</h2>
-    <div class="content">
-        <h3>Assumptions: 10 developers, 2 hours saved/week, $75/hour cost</h3>
-        <table>
-            <tr>
-                <th>Tool</th>
-                <th>Annual Cost</th>
-                <th>Time Saved Value</th>
-                <th>Net Benefit</th>
-                <th>ROI %</th>
-            </tr>
-            <tr style="background-color: #d4edda;">
-                <td><strong>Windsurf</strong></td>
-                <td>$1,800</td>
-                <td>$78,000</td>
-                <td>$76,200</td>
-                <td><strong>4,233%</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Copilot</strong></td>
-                <td>$2,280</td>
-                <td>$78,000</td>
-                <td>$75,720</td>
-                <td>3,321%</td>
-            </tr>
-            <tr>
-                <td><strong>Cline</strong></td>
-                <td>$2,160</td>
-                <td>$78,000</td>
-                <td>$75,840</td>
-                <td>3,511%</td>
-            </tr>
-            <tr>
-                <td><strong>Claude Code</strong></td>
-                <td>$3,600</td>
-                <td>$78,000</td>
-                <td>$74,400</td>
-                <td>2,067%</td>
-            </tr>
-            <tr>
-                <td><strong>Cursor</strong></td>
-                <td>$4,800</td>
-                <td>$78,000</td>
-                <td>$73,200</td>
-                <td>1,525%</td>
-            </tr>
-        </table>
-        <div class="highlight">
-            <strong>Bottom Line:</strong> All tools provide massive ROI, but Windsurf maximizes value with lowest cost!
-        </div>
+<!-- Slide 16: Recommendations -->
+<div class="slide">
+    <h1>Legacy Modernization Recommendations</h1>
+    <div style="font-size: 18px; line-height: 1.8;">
+        <p><strong>For Large Monolithic Applications (&gt;300K LOC):</strong></p>
+        <ul style="margin-top: 5px;">
+            <li><strong>Best Choice:</strong> Cursor or Windsurf IDE</li>
+            <li>1M token context essential for understanding entire system</li>
+            <li>Multi-file refactoring capabilities critical for coordinated changes</li>
+        </ul>
+        
+        <p style="margin-top: 20px;"><strong>For Incremental Modernization:</strong></p>
+        <ul style="margin-top: 5px;">
+            <li><strong>Best Choice:</strong> GitHub Copilot</li>
+            <li>Faster for smaller, targeted improvements</li>
+            <li>Excellent for gradual code quality improvements</li>
+        </ul>
+        
+        <p style="margin-top: 20px;"><strong>For Regulated Industries:</strong></p>
+        <ul style="margin-top: 5px;">
+            <li><strong>Best Choice:</strong> Cline</li>
+            <li>Air-gapped deployment for sensitive codebases</li>
+            <li>Complete control over data and models</li>
+        </ul>
+        
+        <p style="margin-top: 20px;"><strong>For Cost-Effective Large Projects:</strong></p>
+        <ul style="margin-top: 5px;">
+            <li><strong>Best Choice:</strong> Windsurf IDE</li>
+            <li>Lowest cost with 1M token capability</li>
+        </ul>
     </div>
     <div class="slide-number">16</div>
 </div>
 
-<!-- Slide 17: Recommendations Summary -->
-<div class="slide slide-content">
-    <h2>Final Recommendations</h2>
-    <div class="content" style="font-size: 17pt;">
-        <div style="background: #d4edda; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>🏆 Best Overall Value:</strong> Windsurf ($10/mo, 1M context, Cascade planning)
-        </div>
+<!-- Slide 17: Implementation Plan -->
+<div class="slide">
+    <h1>Legacy Modernization Implementation Plan</h1>
+    <div style="font-size: 19px; line-height: 1.7;">
+        <p><strong>1. Assessment Phase (2-4 weeks)</strong></p>
+        <ul style="margin-top: 5px; margin-bottom: 15px;">
+            <li>Analyze legacy codebase size and complexity</li>
+            <li>Identify modernization goals (microservices, cloud migration, etc.)</li>
+            <li>Select appropriate AI tool based on codebase characteristics</li>
+        </ul>
         
-        <div style="background: #cce5ff; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>🚀 Best for Large Projects:</strong> Windsurf or Cursor (1M context + auto-refresh)
-        </div>
+        <p><strong>2. Pilot Modernization (4-8 weeks)</strong></p>
+        <ul style="margin-top: 5px; margin-bottom: 15px;">
+            <li>Select isolated component for initial modernization</li>
+            <li>Use AI tool to analyze, document, and refactor</li>
+            <li>Measure effectiveness against manual approaches</li>
+        </ul>
         
-        <div style="background: #fff3cd; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>⌨️ Best Autocomplete:</strong> GitHub Copilot (industry-leading suggestions)
-        </div>
+        <p><strong>3. Scaled Modernization (3-6 months)</strong></p>
+        <ul style="margin-top: 5px; margin-bottom: 15px;">
+            <li>Develop modernization patterns with AI assistance</li>
+            <li>Create reusable templates for common transformations</li>
+            <li>Train team on effective AI collaboration</li>
+        </ul>
         
-        <div style="background: #f8d7da; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>🔒 Best for Privacy:</strong> Cline (BYOK, self-hosted option)
-        </div>
-        
-        <div style="background: #e7e7e7; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>🏢 Best for Enterprise:</strong> GitHub Copilot Enterprise (45/50 enterprise score)
-        </div>
-        
-        <div style="background: #d1ecf1; padding: 15px; margin: 10px 0; border-radius: 8px;">
-            <strong>✅ Official Anthropic:</strong> Claude Code (direct from Anthropic, Sonnet 4.5)
-        </div>
+        <p><strong>4. Continuous Modernization</strong></p>
+        <ul style="margin-top: 5px;">
+            <li>Integrate AI tools into ongoing development</li>
+            <li>Gradually modernize remaining components</li>
+            <li>Measure business impact of modernized systems</li>
+        </ul>
     </div>
     <div class="slide-number">17</div>
 </div>
 
-<!-- Slide 18: Key Takeaways -->
-<div class="slide slide-content">
-    <h2>Key Takeaways</h2>
-    <div class="content">
-        <ul style="font-size: 20pt; line-height: 2;">
-            <li>✅ <strong>All 5 tools now have agent mode</strong> - but maturity varies</li>
-            <li>✅ <strong>Context size matters</strong> - 1M tokens = 5x fewer interruptions</li>
-            <li>✅ <strong>Windsurf offers unbeatable value</strong> - $10/mo for 1M context</li>
-            <li>✅ <strong>Windsurf IDE vs Plugin</strong> - same features, choose your preference</li>
-            <li>✅ <strong>Cascade planning is unique</strong> - only Windsurf has it</li>
-            <li>✅ <strong>ROI is massive</strong> - all tools pay for themselves many times over</li>
-            <li>✅ <strong>Choose based on needs</strong> - context size, budget, or features</li>
-        </ul>
-    </div>
-    <div class="slide-number">18</div>
-</div>
-
-<!-- Slide 19: Q&A -->
+<!-- Slide 18: Tool Selection Matrix -->
 <div class="slide">
-    <h1 style="margin-top: 200px;">Questions?</h1>
-    <p class="subtitle">Thank you for your attention!</p>
-    <p style="text-align: center; margin-top: 80px; font-size: 18pt;">
-        Full documentation available at:<br/>
-        <strong>github.com/sangyvann/Flight-Booking-System-JavaServlets_App</strong>
-    </p>
-</div>
-
-<!-- Slide 20: Contact/Resources -->
-<div class="slide slide-content">
-    <h2>Resources & Links</h2>
-    <div class="content" style="font-size: 18pt;">
-        <h3>Official Websites:</h3>
-        <ul>
-            <li><strong>Cursor:</strong> cursor.com</li>
-            <li><strong>Windsurf:</strong> codeium.com/windsurf</li>
-            <li><strong>Cline:</strong> VS Code Marketplace</li>
-            <li><strong>GitHub Copilot:</strong> github.com/features/copilot</li>
-            <li><strong>Claude Code:</strong> VS Code Marketplace (search "Anthropic")</li>
-        </ul>
-        
-        <h3 style="margin-top: 30px;">Documentation:</h3>
-        <ul>
-            <li>Complete comparison: <strong>github.com/sangyvann/Flight-Booking-System-JavaServlets_App</strong></li>
-            <li>Interactive charts & pricing calculator available</li>
-            <li>Word document with full analysis</li>
-        </ul>
-        
-        <div class="highlight" style="margin-top: 30px;">
-            <strong>Try them all!</strong> Most tools offer free trials - test before committing.
-        </div>
-    </div>
-    <div class="slide-number">20</div>
+    <h1>Tool Selection Matrix</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Modernization Scenario</th>
+                <th>Best Tool</th>
+                <th>Second Choice</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Large monolith (&gt;300K LOC)</td>
+                <td>Cursor</td>
+                <td>Windsurf IDE</td>
+            </tr>
+            <tr>
+                <td>Security-critical systems</td>
+                <td>Cline</td>
+                <td>GitHub Copilot Enterprise</td>
+            </tr>
+            <tr>
+                <td>Rapid incremental updates</td>
+                <td>GitHub Copilot</td>
+                <td>Claude Code</td>
+            </tr>
+            <tr>
+                <td>Microservices migration</td>
+                <td>Windsurf IDE</td>
+                <td>Cursor</td>
+            </tr>
+            <tr>
+                <td>Limited modernization budget</td>
+                <td>Windsurf IDE</td>
+                <td>GitHub Copilot</td>
+            </tr>
+            <tr>
+                <td>Database modernization</td>
+                <td>Cursor</td>
+                <td>Windsurf IDE</td>
+            </tr>
+            <tr>
+                <td>Cloud migration (Azure)</td>
+                <td>GitHub Copilot</td>
+                <td>Cursor</td>
+            </tr>
+            <tr>
+                <td>Legacy code documentation</td>
+                <td>Claude Code</td>
+                <td>Cursor</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="slide-number">18</div>
 </div>
 
 </body>
 </html>
-
