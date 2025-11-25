@@ -215,18 +215,6 @@
 
 ---
 
-## Modernization ROI Considerations
-
-| Tool | License Cost (10 devs/year) | Additional Costs | Value for Modernization |
-|------|----------------------------|-----------------|---------------------------|
-| Claude Code | $3,600 | API usage limits | Good for medium projects |
-| Cline | ~$2,160 (API costs) | Self-hosting infrastructure | Excellent for secure projects |
-| GitHub Copilot | $2,280 | None significant | Good for incremental modernization |
-| Cursor | $4,800 | Max Mode credits | Excellent for large monoliths |
-| Windsurf IDE | $1,800 | None significant | Best value for large projects |
-
-**Key Insight**: For large legacy modernization projects, the higher context tools provide better ROI despite higher costs
-
 ---
 
 ## Legacy Modernization Recommendations
@@ -281,6 +269,155 @@
 
 ---
 
+## Real-World Legacy App Scenarios
+
+### Scenario 1: 500K LOC Java Monolith (15+ years old)
+- **Challenges**: No documentation, multiple deprecated frameworks, spaghetti code
+- **Best Tool**: **Cursor** or **Windsurf IDE**
+- **Why**: 1M context can hold ~50K LOC, allowing analysis of major modules in single session
+- **Approach**: Start with architecture discovery, then module-by-module refactoring
+- **Timeline**: 12 months manual → 6-7 months with AI (42% faster)
+
+### Scenario 2: 200K LOC .NET Legacy App (10 years old)
+- **Challenges**: Tightly coupled components, stored procedures in database, Windows-only
+- **Best Tool**: **GitHub Copilot** (if Azure migration) or **Cursor**
+- **Why**: Copilot excels with Microsoft stack; Cursor better for complex refactoring
+- **Approach**: Incremental modernization, one component at a time
+- **Timeline**: 8 months manual → 4-5 months with AI (50% faster)
+
+### Scenario 3: 100K LOC Python Legacy App (5 years old)
+- **Challenges**: Minimal tests, inconsistent coding standards, monolithic structure
+- **Best Tool**: **GitHub Copilot** or **Claude Code**
+- **Why**: 200K context sufficient, Copilot fast for test generation
+- **Approach**: Add tests first, then refactor with confidence
+- **Timeline**: 4 months manual → 2 months with AI (50% faster)
+
+---
+
+## Large Legacy App: Tool Performance Comparison
+
+### 500K+ LOC Monolith Modernization
+
+| Capability | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|------------|---------------|--------|-------------|------------|-------|
+| **Can analyze entire app at once** | ❌ No (200K limit) | ✅ Yes (1M context) | ✅ Yes (1M context) | ❌ No (200K limit) | ❌ No (200K limit) |
+| **Understands cross-module dependencies** | ⭐⭐ Limited | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+| **Generates migration roadmap** | ⭐⭐ Basic | ⭐⭐⭐⭐⭐ Comprehensive | ⭐⭐⭐⭐⭐ Structured | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Detailed |
+| **Multi-file coordinated refactoring** | ⭐⭐ Limited | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Good |
+| **Preserves business logic accuracy** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Time to complete modernization** | 10-12 months | 6-7 months | 6-7 months | 9-10 months | 8-9 months |
+
+**Key Insight**: For 500K+ LOC apps, only Cursor and Windsurf IDE can provide holistic understanding, cutting modernization time nearly in half.
+
+---
+
+## Medium Legacy App: Tool Performance Comparison
+
+### 100K-300K LOC Application Modernization
+
+| Capability | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|------------|---------------|--------|-------------|------------|-------|
+| **Can analyze entire app at once** | ⚠️ Partial (need chunking) | ✅ Yes (1M context) | ✅ Yes (1M context) | ⚠️ Partial | ⚠️ Partial |
+| **Understands cross-module dependencies** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **Generates migration roadmap** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Comprehensive | ⭐⭐⭐⭐⭐ Structured | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Multi-file coordinated refactoring** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Speed of code generation** | ⭐⭐⭐⭐⭐ Fastest | ⭐⭐⭐⭐ Fast | ⭐⭐⭐⭐ Fast | ⭐⭐⭐ Moderate | ⭐⭐⭐ Moderate |
+| **Time to complete modernization** | 5-6 months | 4-5 months | 4-5 months | 6-7 months | 5-6 months |
+
+**Key Insight**: For medium-sized apps, all tools perform well, but Cursor and Windsurf still lead with comprehensive understanding.
+
+---
+
+## Small Legacy App: Tool Performance Comparison
+
+### <100K LOC Application Modernization
+
+| Capability | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|------------|---------------|--------|-------------|------------|-------|
+| **Can analyze entire app at once** | ✅ Yes (200K sufficient) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Speed of code generation** | ⭐⭐⭐⭐⭐ Fastest | ⭐⭐⭐⭐ Fast | ⭐⭐⭐⭐ Fast | ⭐⭐⭐ Moderate | ⭐⭐⭐ Moderate |
+| **Ease of use** | ⭐⭐⭐⭐⭐ Easiest | ⭐⭐⭐⭐ Easy | ⭐⭐⭐⭐ Easy | ⭐⭐⭐⭐⭐ Very Easy | ⭐⭐⭐ Moderate |
+| **Time to complete modernization** | 2 months | 2 months | 2 months | 2.5 months | 2.5 months |
+| **Best use case** | Fast incremental updates | Comprehensive refactoring | Structured approach | Documentation heavy | Secure environments |
+
+**Key Insight**: For small apps, GitHub Copilot's speed and ease of use make it the best choice unless you need comprehensive refactoring.
+
+---
+
+## Legacy Tech Stack: Tool Compatibility
+
+### How Each Tool Handles Different Legacy Technologies
+
+| Technology Stack | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|-----------------|---------------|--------|-------------|------------|-------|
+| **Java (Spring, Struts, JSP)** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **.NET Framework (3.5-4.8)** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+| **Python 2.x (legacy)** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good |
+| **PHP (5.x, early 7.x)** | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **COBOL** | ⭐⭐ Limited | ⭐⭐⭐ Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+| **Ruby on Rails (3.x-4.x)** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Node.js (early versions)** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent |
+| **Angular.js (1.x)** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Oracle Forms/PL-SQL** | ⭐⭐ Limited | ⭐⭐⭐ Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+| **Mainframe (z/OS, JCL)** | ⭐ Poor | ⭐⭐ Limited | ⭐⭐ Limited | ⭐⭐ Limited | ⭐⭐ Limited |
+
+**Key Insight**: All tools handle modern legacy stacks (Java, .NET, Python, PHP) well. For very old tech (COBOL, mainframes), all tools struggle but Cursor/Windsurf perform slightly better due to larger context.
+
+---
+
+## Common Legacy Modernization Patterns
+
+### How Each Tool Handles Specific Refactoring Patterns
+
+| Refactoring Pattern | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|---------------------|---------------|--------|-------------|------------|-------|
+| **Monolith → Microservices** | ⭐⭐⭐ Good (service by service) | ⭐⭐⭐⭐⭐ Excellent (system-wide plan) | ⭐⭐⭐⭐⭐ Excellent (structured roadmap) | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **Stored Procedures → ORM** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Spaghetti Code → Clean Architecture** | ⭐⭐ Limited | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **Global State → Dependency Injection** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Synchronous → Async/Event-Driven** | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+| **Tightly Coupled → Loosely Coupled** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **Legacy Auth → OAuth2/JWT** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **XML Config → Code/Annotations** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+
+**Key Insight**: Cursor and Windsurf IDE excel at system-wide architectural refactoring. GitHub Copilot better for localized pattern transformations.
+
+---
+
+## Legacy Database Modernization
+
+### Tool Capabilities for Database Migration
+
+| Database Task | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|---------------|---------------|--------|-------------|------------|-------|
+| **Schema analysis & documentation** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Generate migration scripts** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Stored procedure → application code** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Understand complex joins & queries** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Data model refactoring** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **NoSQL migration planning** | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐ Good |
+
+**Key Insight**: Cursor and Windsurf IDE's large context allows them to understand entire database schemas and their relationships, critical for complex database modernization.
+
+---
+
+## Legacy API Modernization
+
+### Tool Capabilities for API Transformation
+
+| API Modernization Task | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|------------------------|---------------|--------|-------------|------------|-------|
+| **SOAP → REST conversion** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **REST → GraphQL** | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Generate OpenAPI specs** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good |
+| **API versioning strategy** | ⭐⭐⭐ Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐ Very Good |
+| **Backward compatibility checks** | ⭐⭐ Limited | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐ Good | ⭐⭐⭐⭐ Very Good |
+| **API documentation generation** | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good | ⭐⭐⭐⭐⭐ Excellent | ⭐⭐⭐⭐ Very Good |
+
+**Key Insight**: All tools handle API modernization well. Cursor excels at maintaining backward compatibility across large codebases.
+
+---
+
 ## Tools vs. Legacy Modernization Challenges
 
 | Challenge | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
@@ -326,3 +463,61 @@ The optimal choice depends primarily on your legacy codebase size, security requ
 | **Team collaboration focus** | GitHub Copilot | Windsurf IDE | Strong enterprise collaboration features |
 
 **How to use this matrix**: Identify your primary modernization scenario and select the recommended tool. Consider the second choice if the primary recommendation has limitations that impact your specific use case.
+
+---
+
+## Modernization Risk Assessment by Tool
+
+### Risk Factors for Large Legacy Application Modernization
+
+| Risk Factor | GitHub Copilot | Cursor | Windsurf IDE | Claude Code | Cline |
+|-------------|---------------|--------|-------------|------------|-------|
+| **Missing critical dependencies** | ⚠️ High (limited context) | ✅ Low (1M context sees all) | ✅ Low (1M context) | ⚠️ Medium | ⚠️ Medium |
+| **Breaking business logic** | ⚠️ Medium (limited coordination) | ✅ Low (excellent preservation) | ✅ Low (excellent preservation) | ⚠️ Medium | ✅ Low (transparent) |
+| **Incomplete refactoring** | ⚠️ Medium (manual coordination) | ✅ Low (multi-file aware) | ✅ Low (structured approach) | ⚠️ Medium | ✅ Low (task-based) |
+| **Security vulnerabilities** | ✅ Low (good patterns) | ✅ Low (context-aware) | ✅ Low (good patterns) | ✅ Low (good reasoning) | ✅ Very Low (air-gapped) |
+| **Vendor lock-in** | ⚠️ Medium (Microsoft) | ⚠️ Medium (startup) | ⚠️ Medium (startup) | ⚠️ Medium (Anthropic) | ✅ Low (open source) |
+| **Data privacy concerns** | ✅ Low (Enterprise tier) | ✅ Low (good policies) | ✅ Low (good policies) | ✅ Low (good policies) | ✅ Very Low (self-hosted) |
+| **Tool learning curve** | ✅ Low (easy) | ⚠️ Medium | ⚠️ Medium | ✅ Low (easy) | ⚠️ High |
+| **Overall Risk Level** | **Medium** | **Low** | **Low** | **Medium** | **Low** |
+
+**Key Insight**: Cursor and Windsurf IDE have lowest technical risk for large legacy apps due to comprehensive context. Cline has lowest security/privacy risk.
+
+---
+
+## When NOT to Use AI Tools for Legacy Modernization
+
+### High-Risk Scenarios Where AI May Not Help
+
+| Scenario | Risk Level | Recommendation |
+|----------|-----------|----------------|
+| **Zero tests, zero documentation, no SMEs available** | 🔴 Very High | Don't use AI alone. Hire consultants who understand the domain first. |
+| **Mission-critical system with zero downtime tolerance** | 🔴 Very High | Use AI for planning only. Manual execution with extensive testing required. |
+| **Proprietary/obscure language not in training data** | 🟡 High | AI will struggle. Consider rewrite instead of modernization. |
+| **Highly regulated with strict audit requirements** | 🟡 Medium | Use Cline (air-gapped) with human review of all AI suggestions. |
+| **Complex business rules in undocumented stored procedures** | 🟡 Medium | Use AI to document first, then modernize with domain expert validation. |
+| **Real-time system with microsecond latency requirements** | 🟡 Medium | AI can help with architecture, but performance tuning needs manual work. |
+| **Legacy system with known security vulnerabilities** | 🟢 Low | AI can actually help identify and fix security issues during modernization. |
+| **Well-documented legacy app with good test coverage** | 🟢 Very Low | Perfect scenario for AI-assisted modernization. High success rate. |
+
+**Key Insight**: AI tools work best when there's SOME documentation and tests. For completely undocumented systems, use AI to document first before modernizing.
+
+---
+
+## Success Metrics for AI-Assisted Legacy Modernization
+
+### How to Measure Effectiveness
+
+| Metric | Target (AI-Assisted) | Typical Manual | How to Measure |
+|--------|---------------------|----------------|----------------|
+| **Time to understand codebase** | 50-70% faster | 4-8 weeks | Track hours spent in code discovery phase |
+| **Documentation completeness** | >90% coverage | 40-60% coverage | % of modules with architecture docs |
+| **Refactoring defect rate** | <5% | 10-15% | Bugs found in QA per 1000 LOC refactored |
+| **Developer productivity** | 40-60% increase | Baseline | Story points completed per sprint |
+| **Code quality improvement** | 30-50% better | Baseline | SonarQube/CodeClimate scores |
+| **Test coverage increase** | 60-80% | 30-50% | % of code covered by automated tests |
+| **Technical debt reduction** | 40-60% | 10-20% | Technical debt ratio (SonarQube) |
+| **Time to production** | 40-50% faster | Baseline | Weeks from start to first production release |
+| **Team satisfaction** | >4/5 rating | 3/5 rating | Developer survey on tool effectiveness |
+
+**Key Insight**: Track both quantitative metrics (time, defects, coverage) and qualitative metrics (team satisfaction, code quality) to measure AI tool effectiveness.
