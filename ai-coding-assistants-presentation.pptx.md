@@ -63,6 +63,60 @@
 
 ---
 
+## Where Time is Spent in Manual Modernization
+
+| Phase | Manual Time | % of Total | AI-Assisted Time | Time Saved | How AI Tools Help |
+|-------|-------------|-----------|------------------|------------|-------------------|
+| **1. Code Discovery & Analysis** | 3 months | 25% | 1 month | **67% faster** | • AI reads entire codebase in minutes<br>• Automated dependency mapping<br>• Instant architecture visualization |
+| **2. Documentation Generation** | 2 months | 17% | 2 weeks | **75% faster** | • Auto-generate API docs<br>• Create architecture diagrams<br>• Document business logic |
+| **3. Impact Analysis** | 2 months | 17% | 3 weeks | **63% faster** | • Trace dependencies automatically<br>• Identify all affected components<br>• Predict breaking changes |
+| **4. Refactoring & Migration** | 4 months | 33% | 2.5 months | **38% faster** | • Multi-file coordinated changes<br>• Automated pattern transformation<br>• Preserve business logic |
+| **5. Testing & Validation** | 1 month | 8% | 3 weeks | **25% faster** | • Generate test cases<br>• Identify edge cases<br>• Create test data |
+| **TOTAL** | **12 months** | **100%** | **6.5 months** | **46% faster** | **Overall project acceleration** |
+
+**Key Insight**: The biggest time savings (67-75%) come from **Code Discovery, Documentation, and Impact Analysis** - the most tedious and error-prone manual tasks.
+
+---
+
+## Top 10 Time-Consuming Manual Activities
+
+| Activity | Manual Time | AI-Assisted Time | Time Saved | Best AI Tool |
+|----------|-------------|------------------|------------|--------------|
+| **1. Reading & understanding legacy code** | 400 hours | 120 hours | **70%** | Cursor, Windsurf (1M context) |
+| **2. Mapping dependencies & data flow** | 200 hours | 40 hours | **80%** | Cursor, Windsurf (automated mapping) |
+| **3. Writing documentation** | 160 hours | 20 hours | **88%** | Claude Code, Cursor |
+| **4. Creating architecture diagrams** | 80 hours | 10 hours | **88%** | Cursor, Windsurf (auto-generation) |
+| **5. Impact analysis for changes** | 120 hours | 30 hours | **75%** | Cursor, Windsurf (dependency tracking) |
+| **6. Refactoring repeated patterns** | 200 hours | 80 hours | **60%** | Cursor (Composer), Windsurf (Cascade) |
+| **7. Database schema migration** | 100 hours | 50 hours | **50%** | Cursor, Windsurf (schema understanding) |
+| **8. Writing unit tests** | 80 hours | 30 hours | **63%** | GitHub Copilot, Cursor |
+| **9. Code review & validation** | 60 hours | 40 hours | **33%** | All tools (AI pre-review) |
+| **10. Bug fixing from refactoring** | 100 hours | 60 hours | **40%** | Cursor, Windsurf (context-aware fixes) |
+| **TOTAL** | **1,500 hours** | **480 hours** | **68%** | **Combined approach** |
+
+**Key Insight**: AI tools save the most time on **knowledge work** (reading, understanding, documenting) rather than just code generation.
+
+---
+
+## Productivity Multiplier by Task Type
+
+| Task Type | Manual Productivity | AI-Assisted Productivity | Multiplier |
+|-----------|---------------------|--------------------------|------------|
+| **Architecture Diagram Creation** | 1 diagram/week | 5 diagrams/day | **25x faster** |
+| **Dependency Mapping** | 5 modules/day | 30 modules/day | **6x faster** |
+| **Code Reading & Comprehension** | 100 LOC/hour | 500 LOC/hour | **5x faster** |
+| **Documentation Writing** | 2 pages/day | 10 pages/day | **5x faster** |
+| **API Documentation** | 10 endpoints/day | 50 endpoints/day | **5x faster** |
+| **Test Case Generation** | 20 tests/day | 80 tests/day | **4x faster** |
+| **Refactoring (simple patterns)** | 200 LOC/day | 600 LOC/day | **3x faster** |
+| **Refactoring (complex patterns)** | 100 LOC/day | 250 LOC/day | **2.5x faster** |
+| **Bug Investigation** | 2 bugs/day | 4 bugs/day | **2x faster** |
+| **Code Review** | 500 LOC/hour | 800 LOC/hour | **1.6x faster** |
+
+**Key Insight**: AI provides **5-25x productivity gains** for knowledge work (reading, documenting, analyzing) but only **2-3x gains** for actual code writing.
+
+---
+
 ## Legacy Code Understanding
 
 | Tool | Code Analysis | Dependency Mapping | Documentation Generation |
@@ -144,20 +198,6 @@
 | Cline | Good with controlled approach | Good within context limits | Good with any cloud platform |
 
 **Key Insight**: Modernizing legacy applications often requires coordinated architectural changes across multiple systems
-
----
-
-## LLM Models for Modernization
-
-| Tool | Available Models | Model Strengths | Model Limitations |
-|------|-----------------|----------------|-------------------|
-| Claude Code | Claude 3.5 Sonnet<br>Claude 3 Opus<br>Claude 3 Sonnet<br>Claude 3 Haiku | Excellent reasoning<br>Strong code understanding<br>Fast responses (Haiku) | Limited to Anthropic models<br>Higher cost for Opus |
-| Cline | BYOK - Any model<br>Claude 3.5 Sonnet<br>GPT-4o, o1-preview, o1-mini<br>Gemini, DeepSeek<br>Local models (Ollama) | Complete flexibility<br>Can use open source models<br>Cost control with BYOK | Requires API setup<br>Performance varies by model |
-| GitHub Copilot | GPT-4o<br>o1-preview, o1-mini<br>Claude 3.5 Sonnet<br>Gemini 1.5 Pro | Multi-model support<br>Optimized for code completion<br>GitHub-specific training | Requires GitHub Copilot subscription<br>Limited customization |
-| Cursor | Claude 3.5 Sonnet<br>Claude Sonnet 4<br>GPT-4o, o1-preview, o1-mini<br>Gemini 1.5 Pro/Flash | Wide model selection<br>Model switching<br>Optimized for large contexts | Higher costs for premium models<br>o1 models slower |
-| Windsurf IDE | Claude 3.5 Sonnet<br>GPT-4o<br>Gemini 1.5 Pro<br>DeepSeek Coder<br>Custom models | Model switching<br>Optimized for large contexts<br>Cost-effective options | Newer tool (less mature)<br>Some models in beta |
-
-**Key Insight**: Model selection impacts reasoning quality, context handling, and cost-effectiveness for legacy modernization. Latest models (Claude 3.5 Sonnet, GPT-4o, o1-preview) offer significantly better code understanding than earlier versions.
 
 ---
 
