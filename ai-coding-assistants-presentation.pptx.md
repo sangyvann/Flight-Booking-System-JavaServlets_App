@@ -70,7 +70,7 @@
 
 **Key Insight**: Legacy modernization requires different approaches based on codebase size and complexity
 
-
+---
 
 
 ## Legacy Code Understanding
@@ -143,6 +143,8 @@
 
 **Key Insight**: For large legacy app modernization, Cursor and Windsurf IDE's larger context (1M tokens) and soft refresh capabilities are critical. Hard stops with 200K context tools (GitHub Copilot, Claude Code, Cline) force frequent restarts, losing architectural understanding and requiring manual context rebuilding.
 
+---
+
 **Best Practices When Hitting Token Limits:**
 - **With 200K tools**: Break large apps into modules, document context between sessions
 - **With 1M tools**: Use Max Mode (Cursor) or default 1M (Windsurf) for uninterrupted analysis
@@ -192,7 +194,6 @@
 
 ---
 
----
 
 ## Legacy Modernization Recommendations
 
@@ -220,27 +221,8 @@
   - Structured migration planning
   - Good balance of features and affordability
 
-
-
-## Real-World Legacy App Scenarios
-
-### Scenario 1: 500K LOC Java Monolith (15+ years old)
-- **Challenges**: No documentation, multiple deprecated frameworks, spaghetti code
-- **Best Tool**: **Cursor** or **Windsurf IDE**
-- **Why**: 1M context can hold ~50K LOC, allowing analysis of major modules in single session
-
-
-### Scenario 2: 200K LOC .NET Legacy App (10 years old)
-- **Challenges**: Tightly coupled components, stored procedures in database, Windows-only
-- **Best Tool**: **GitHub Copilot** (if Azure migration) or **Cursor**
-- **Why**: Copilot excels with Microsoft stack; Cursor better for complex refactoring
-
-### Scenario 3: 100K LOC Python Legacy App (5 years old)
-- **Challenges**: Minimal tests, inconsistent coding standards, monolithic structure
-- **Best Tool**: **GitHub Copilot** or **Claude Code**
-- **Why**: 200K context sufficient, Copilot fast for test generation
-
 ---
+
 
 ## Large Legacy App: Tool Performance Comparison
 
@@ -432,24 +414,20 @@ The optimal choice depends primarily on your legacy codebase size, security requ
 
 ---
 
-## When NOT to Use AI Tools for Legacy Modernization
 
-### High-Risk Scenarios Where AI May Not Help
+## Using Multiple Tools Together
 
-| Scenario | Risk Level | Recommendation |
-|----------|-----------|----------------|
-| **Zero tests, zero documentation, no SMEs available** | 🔴 Very High | Don't use AI alone. Hire consultants who understand the domain first. |
-| **Mission-critical system with zero downtime tolerance** | 🔴 Very High | Use AI for planning only. Manual execution with extensive testing required. |
-| **Proprietary/obscure language not in training data** | 🟡 High | AI will struggle. Consider rewrite instead of modernization. |
-| **Highly regulated with strict audit requirements** | 🟡 Medium | Use Cline (air-gapped) with human review of all AI suggestions. |
-| **Complex business rules in undocumented stored procedures** | 🟡 Medium | Use AI to document first, then modernize with domain expert validation. |
-| **Real-time system with microsecond latency requirements** | 🟡 Medium | AI can help with architecture, but performance tuning needs manual work. |
-| **Legacy system with known security vulnerabilities** | 🟢 Low | AI can actually help identify and fix security issues during modernization. |
-| **Well-documented legacy app with good test coverage** | 🟢 Very Low | Perfect scenario for AI-assisted modernization. High success rate. |
+### Why Combine Tools?
 
-**Key Insight**: AI tools work best when there's SOME documentation and tests. For completely undocumented systems, use AI to document first before modernizing.
+Different AI coding assistants excel in different areas. Using multiple tools strategically can:
+- **Leverage each tool's strengths** for specific phases of modernization
+- **Access different AI models** - though note that some tools like Cursor allow model switching within the tool
+- **Reduce vendor lock-in** and maintain flexibility
+- **Optimize costs** by using expensive tools only when necessary
+- **Leverage unique features** - like Windsurf's Cascade planning or Cline's air-gapped deployment
 
----
 
-// End of Selection
-```
+
+
+
+
