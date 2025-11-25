@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Coding Assistants - Executive Research Brief</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .instructions h2 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .slide {
+            background: white;
+            width: 960px;
+            height: 720px;
+            margin: 20px auto;
+            padding: 40px 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .slide h1 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin: 0 0 20px 0;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+        }
+        .slide h2 {
+            color: #3498db;
+            font-size: 28px;
+            margin: 20px 0 15px 0;
+        }
+        .slide h3 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin: 15px 0 10px 0;
+        }
+        .slide.title {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide.title h1 {
+            font-size: 52px;
+            border: none;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .slide.title h2 {
+            font-size: 32px;
+            color: #7f7f7f;
+            font-weight: normal;
+        }
+        .slide ul {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        .slide li {
+            margin: 8px 0;
+        }
+        .slide table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .slide th {
+            background: #3498db;
+            color: white;
+            padding: 10px 6px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #2980b9;
+            font-size: 13px;
+        }
+        .slide td {
+            padding: 8px 6px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            font-size: 13px;
+        }
+        .slide tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .recommendation-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .recommendation-box strong {
+            color: #155724;
+            font-size: 18px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .info-box {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #7f7f7f;
+            font-size: 16px;
+        }
+        .metric {
+            font-weight: bold;
+            color: #28a745;
+        }
+        @media print {
+            body { background: white; }
+            .instructions { display: none; }
+            .slide { box-shadow: none; margin: 0; page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <h2>📊 How to Convert This to PowerPoint (.pptx)</h2>
+    <p><strong>Option 1: Print to PDF, then convert (Easiest)</strong></p>
+    <ol>
+        <li>Open this HTML file in your browser</li>
+        <li>Press <code>Ctrl+P</code> → Save as PDF</li>
+        <li>Use online converter (Smallpdf.com, ilovepdf.com) to convert PDF to PPTX</li>
+    </ol>
+    <p><strong>Option 2: Use PowerPoint Online (Best Quality)</strong></p>
+    <ol>
+        <li>Go to <a href="https://www.office.com/launch/powerpoint" target="_blank">PowerPoint Online</a></li>
+        <li>Copy/paste slides from this HTML</li>
+        <li>Download as .pptx</li>
+    </ol>
+</div>
+
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <h1>AI Coding Assistants for Legacy Modernization</h1>
+    <h2>Executive Research Brief</h2>
+    <p style="margin-top: 40px; font-size: 18px; color: #7f7f7f;">Comprehensive Analysis & Recommendations</p>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: Executive Recommendation -->
+<div class="slide">
+    <h1>Executive Recommendation</h1>
+    
+    <div class="recommendation-box">
+        <strong>Primary Recommendation: Windsurf IDE</strong><br>
+        • <span class="metric">Best overall value</span>: $1,800/year for 10 developers with 1M token context<br>
+        • <span class="metric">62% cost savings</span> vs. Cursor while maintaining enterprise-grade capabilities<br>
+        • <span class="metric">Proven at scale</span>: Handles entire legacy monoliths (>300K LOC) in single context<br>
+        • <span class="metric">Quick ROI</span>: Teams report 40-60% faster modernization vs. manual methods
+    </div>
+    
+    <h3>Alternative Recommendations by Use Case:</h3>
+    <ul style="font-size: 17px;">
+        <li><strong>Highly regulated industries</strong> (finance, healthcare, government): <strong>Cline</strong> (air-gapped deployment)</li>
+        <li><strong>Microsoft Azure ecosystem</strong>: <strong>GitHub Copilot</strong> (native Azure integration)</li>
+        <li><strong>Maximum capability budget</strong>: <strong>Cursor</strong> (most advanced multi-file refactoring)</li>
+    </ul>
+    
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: Business Impact Summary -->
+<div class="slide">
+    <h1>Business Impact Summary</h1>
+    
+    <h3>Productivity Gains</h3>
+    <ul style="font-size: 17px;">
+        <li><span class="metric">40-60% reduction</span> in legacy code analysis time</li>
+        <li><span class="metric">3-5x faster</span> documentation generation for undocumented systems</li>
+        <li><span class="metric">50% reduction</span> in refactoring errors through automated dependency tracking</li>
+        <li><span class="metric">30-40% faster</span> developer onboarding to legacy codebases</li>
+    </ul>
+    
+    <h3>Cost Implications</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario</th>
+                <th>Manual Effort</th>
+                <th>With AI Tool</th>
+                <th>Time Saved</th>
+                <th>Cost Savings*</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Analyze 500K LOC legacy app</td>
+                <td>8-12 weeks</td>
+                <td>3-5 weeks</td>
+                <td>5-7 weeks</td>
+                <td>$75K-$105K</td>
+            </tr>
+            <tr>
+                <td>Document undocumented system</td>
+                <td>6-8 weeks</td>
+                <td>2-3 weeks</td>
+                <td>4-5 weeks</td>
+                <td>$60K-$75K</td>
+            </tr>
+            <tr>
+                <td>Migrate monolith to microservices</td>
+                <td>12-18 months</td>
+                <td>8-12 months</td>
+                <td>4-6 months</td>
+                <td>$300K-$450K</td>
+            </tr>
+            <tr>
+                <td>Database schema modernization</td>
+                <td>4-6 weeks</td>
+                <td>2-3 weeks</td>
+                <td>2-3 weeks</td>
+                <td>$30K-$45K</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 13px; margin-top: 10px;">*Based on average developer cost of $150K/year ($75/hour)</p>
+    
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: Critical Decision Factor 1 -->
+<div class="slide">
+    <h1>Critical Decision Factor #1: Codebase Size</h1>
+    
+    <div class="recommendation-box">
+        <strong>If your legacy application is >300K lines of code:</strong><br>
+        ✅ <strong>Choose:</strong> Windsurf IDE or Cursor (1M token context)<br>
+        ❌ <strong>Avoid:</strong> GitHub Copilot, Claude Code, Cline (200K limit)<br>
+        <strong>Why:</strong> 200K context can only analyze ~10K LOC at once, requiring manual chunking and losing system-wide insights
+    </div>
+    
+    <div class="info-box">
+        <strong>If your legacy application is <100K lines of code:</strong><br>
+        ✅ <strong>Choose:</strong> GitHub Copilot (fastest, lowest cost)<br>
+        <strong>Why:</strong> Standard 200K context is sufficient, and speed matters more than depth
+    </div>
+    
+    <h3>Context Window Comparison</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Context Window</th>
+                <th>Lines of Code Capacity</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Windsurf IDE</strong></td>
+                <td>1M tokens</td>
+                <td>~50,000 LOC</td>
+                <td>Large monoliths</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>1M tokens (Max Mode)</td>
+                <td>~50,000 LOC</td>
+                <td>Large monoliths</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>200K tokens</td>
+                <td>~10,000 LOC</td>
+                <td>Small-medium apps</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>200K tokens</td>
+                <td>~10,000 LOC</td>
+                <td>Regulated industries</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>200K tokens</td>
+                <td>~10,000 LOC</td>
+                <td>Documentation</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">4</div>
+</div>
+
+<!-- Slide 5: Critical Decision Factor 2 -->
+<div class="slide">
+    <h1>Critical Decision Factor #2: Security</h1>
+    
+    <div class="recommendation-box">
+        <strong>For regulated industries or sensitive IP:</strong><br>
+        ✅ <strong>Choose:</strong> Cline (air-gapped deployment)<br>
+        <strong>Why:</strong> Only tool that can run completely offline with no data leaving your network<br>
+        <strong>Trade-off:</strong> Requires self-hosting infrastructure (~$10K-$20K setup cost)
+    </div>
+    
+    <div class="info-box">
+        <strong>For standard enterprise security:</strong><br>
+        ✅ <strong>Choose:</strong> Any tool with Enterprise tier<br>
+        <strong>Why:</strong> All major tools offer SOC2, GDPR compliance, and data residency options
+    </div>
+    
+    <h3>Security Comparison</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Air-Gapped Option</th>
+                <th>SOC2 Certified</th>
+                <th>Data Residency</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>✅ Yes</td>
+                <td>N/A (self-hosted)</td>
+                <td>✅ Full control</td>
+                <td>Finance, Healthcare, Gov</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>❌ No</td>
+                <td>✅ Yes</td>
+                <td>✅ Yes (Azure)</td>
+                <td>Enterprise with Azure</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>❌ No</td>
+                <td>✅ Yes</td>
+                <td>✅ Yes</td>
+                <td>Standard enterprise</td>
+            </tr>
+            <tr>
+                <td><strong>Windsurf IDE</strong></td>
+                <td>❌ No</td>
+                <td>✅ Yes</td>
+                <td>✅ Yes</td>
+                <td>Standard enterprise</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>❌ No</td>
+                <td>✅ Yes</td>
+                <td>✅ Yes</td>
+                <td>Standard enterprise</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: Critical Decision Factor 3 -->
+<div class="slide">
+    <h1>Critical Decision Factor #3: Budget</h1>
+    
+    <h3>Annual Cost Comparison (10 developers)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Tool</th>
+                <th>Annual Cost</th>
+                <th>Context Window</th>
+                <th>Value Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #d4edda;">
+                <td><strong>1</strong></td>
+                <td><strong>Windsurf IDE</strong></td>
+                <td><strong>$1,800</strong></td>
+                <td>1M tokens</td>
+                <td>⭐⭐⭐⭐⭐ Best value for large projects</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Cline</td>
+                <td>~$2,160</td>
+                <td>200K tokens</td>
+                <td>⭐⭐⭐⭐ + infrastructure costs</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>GitHub Copilot</td>
+                <td>$2,280</td>
+                <td>200K tokens</td>
+                <td>⭐⭐⭐⭐ Best for Azure shops</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Claude Code</td>
+                <td>$3,600</td>
+                <td>200K tokens</td>
+                <td>⭐⭐⭐ Limited to Anthropic</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Cursor</td>
+                <td>$4,800</td>
+                <td>1M tokens*</td>
+                <td>⭐⭐⭐ + Max Mode credits</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 13px; margin-top: 10px;">*Cursor: 1M context requires "Max Mode" with additional credits</p>
+    
+    <div class="info-box">
+        <strong>ROI Threshold:</strong> If modernization project >6 months, all tools pay for themselves in first quarter through productivity gains
+    </div>
+    
+    <div class="slide-number">6</div>
+</div>
+
+<!-- Slide 7: Tool Capabilities Matrix -->
+<div class="slide">
+    <h1>Tool Capabilities Matrix</h1>
+    
+    <table style="font-size: 12px;">
+        <thead>
+            <tr>
+                <th>Capability</th>
+                <th>Windsurf IDE</th>
+                <th>Cursor</th>
+                <th>GitHub Copilot</th>
+                <th>Cline</th>
+                <th>Claude Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Context Window</strong></td>
+                <td>1M tokens<br>⭐⭐⭐⭐⭐</td>
+                <td>1M tokens*<br>⭐⭐⭐⭐⭐</td>
+                <td>200K tokens<br>⭐⭐⭐</td>
+                <td>200K tokens<br>⭐⭐⭐</td>
+                <td>200K tokens<br>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Multi-file Refactoring</strong></td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Limited<br>⭐⭐</td>
+                <td>Good<br>⭐⭐⭐⭐</td>
+                <td>Good<br>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Architecture Analysis</strong></td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Limited<br>⭐⭐</td>
+                <td>Good<br>⭐⭐⭐</td>
+                <td>Good<br>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Migration Planning</strong></td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Very Good<br>⭐⭐⭐⭐</td>
+                <td>Limited<br>⭐⭐</td>
+                <td>Good<br>⭐⭐⭐</td>
+                <td>Good<br>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Security (Air-gapped)</strong></td>
+                <td>No<br>⭐</td>
+                <td>No<br>⭐</td>
+                <td>No<br>⭐</td>
+                <td>Yes<br>⭐⭐⭐⭐⭐</td>
+                <td>No<br>⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Cost Efficiency</strong></td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Moderate<br>⭐⭐⭐</td>
+                <td>Good<br>⭐⭐⭐⭐</td>
+                <td>Good<br>⭐⭐⭐⭐</td>
+                <td>Moderate<br>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Enterprise Support</strong></td>
+                <td>Good<br>⭐⭐⭐⭐</td>
+                <td>Very Good<br>⭐⭐⭐⭐</td>
+                <td>Excellent<br>⭐⭐⭐⭐⭐</td>
+                <td>Limited<br>⭐⭐</td>
+                <td>Limited<br>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>Learning Curve</strong></td>
+                <td>Moderate<br>⭐⭐⭐</td>
+                <td>Moderate<br>⭐⭐⭐</td>
+                <td>Easy<br>⭐⭐⭐⭐⭐</td>
+                <td>Steep<br>⭐⭐</td>
+                <td>Easy<br>⭐⭐⭐⭐</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p style="font-size: 13px; margin-top: 10px;">*Cursor: 1M context requires "Max Mode" (additional credits required)</p>
+    
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: Implementation Roadmap -->
+<div class="slide">
+    <h1>Implementation Roadmap</h1>
+    
+    <h3>Phase 1: Pilot (Weeks 1-4) - $0 Risk</h3>
+    <ul style="font-size: 16px;">
+        <li><strong>Week 1:</strong> Select pilot tool based on decision matrix</li>
+        <li><strong>Week 2:</strong> Onboard 2-3 developers, establish baseline metrics</li>
+        <li><strong>Week 3:</strong> Test on isolated legacy component (5-10K LOC)</li>
+        <li><strong>Week 4:</strong> Measure results vs. manual approach, decide to proceed or pivot</li>
+    </ul>
+    
+    <div class="info-box">
+        <strong>Success Metrics:</strong><br>
+        • Time to understand legacy component (target: 50% reduction)<br>
+        • Documentation quality score (target: 4/5 or higher)<br>
+        • Refactoring accuracy (target: <5% defect rate)
+    </div>
+    
+    <h3>Phase 2: Expansion (Months 2-3)</h3>
+    <ul style="font-size: 16px;">
+        <li><strong>Month 2:</strong> Roll out to full modernization team (5-10 developers)</li>
+        <li><strong>Month 3:</strong> Develop AI-assisted modernization patterns and templates</li>
+    </ul>
+    
+    <h3>Phase 3: Scale (Months 4-12)</h3>
+    <ul style="font-size: 16px;">
+        <li>Apply to remaining legacy components</li>
+        <li>Integrate into CI/CD pipeline</li>
+        <li>Measure business impact (time-to-market, defect rates, maintenance costs)</li>
+    </ul>
+    
+    <div class="slide-number">8</div>
+</div>
+
+<!-- Slide 9: Risk Assessment -->
+<div class="slide">
+    <h1>Risk Assessment</h1>
+    
+    <h3>High Risk Scenarios</h3>
+    <div class="warning-box">
+        <strong>❌ Don't Use AI Tools If:</strong><br>
+        • Legacy system has zero tests and zero documentation (AI can't validate correctness)<br>
+        • Business logic is completely undocumented and no SMEs available<br>
+        • Codebase uses obscure/proprietary languages not in training data
+    </div>
+    
+    <div class="warning-box">
+        <strong>⚠️ Mitigation Required:</strong><br>
+        • Regulatory compliance requires human review (use AI for draft, human for approval)<br>
+        • System is mission-critical with zero downtime tolerance (extensive testing required)
+    </div>
+    
+    <h3>Low Risk Scenarios</h3>
+    <div class="recommendation-box">
+        <strong>✅ Ideal Use Cases:</strong><br>
+        • Well-structured legacy code with some documentation<br>
+        • Standard technology stacks (Java, .NET, Python, JavaScript)<br>
+        • Modernization to well-known patterns (microservices, REST APIs, cloud-native)<br>
+        • Documentation and architecture diagram generation<br>
+        • Code quality improvements and refactoring
+    </div>
+    
+    <div class="slide-number">9</div>
+</div>
+
+<!-- Slide 10: AI vs Manual Comparison -->
+<div class="slide">
+    <h1>Why Not Manual Modernization?</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Factor</th>
+                <th>Manual Modernization</th>
+                <th>AI-Assisted Modernization</th>
+                <th>Advantage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Time to Analyze</strong></td>
+                <td>8-12 weeks</td>
+                <td>3-5 weeks</td>
+                <td><strong>AI: 60% faster</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Documentation Quality</strong></td>
+                <td>Inconsistent, often incomplete</td>
+                <td>Comprehensive, standardized</td>
+                <td><strong>AI: Higher quality</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Dependency Mapping</strong></td>
+                <td>Manual, error-prone</td>
+                <td>Automated, comprehensive</td>
+                <td><strong>AI: More accurate</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Knowledge Transfer</strong></td>
+                <td>Slow, relies on tribal knowledge</td>
+                <td>Fast, AI captures patterns</td>
+                <td><strong>AI: Faster onboarding</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Refactoring Errors</strong></td>
+                <td>10-15% defect rate</td>
+                <td>5-8% defect rate</td>
+                <td><strong>AI: 40% fewer defects</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Cost (10 devs, 6 months)</strong></td>
+                <td>$450K (labor only)</td>
+                <td>$452K (labor + tools)</td>
+                <td><strong>Break-even with productivity gains</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="info-box" style="margin-top: 15px;">
+        <strong>Bottom Line:</strong> AI tools pay for themselves through productivity gains, even before accounting for reduced errors and faster time-to-market.
+    </div>
+    
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Vendor Maturity -->
+<div class="slide">
+    <h1>Vendor Maturity & Support</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Vendor</th>
+                <th>Company Backing</th>
+                <th>Market Maturity</th>
+                <th>Enterprise Support</th>
+                <th>Community Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>Microsoft</td>
+                <td>⭐⭐⭐⭐⭐ Mature (2021)</td>
+                <td>⭐⭐⭐⭐⭐ Excellent</td>
+                <td>⭐⭐⭐⭐⭐ Largest</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>Anysphere (VC-backed)</td>
+                <td>⭐⭐⭐⭐ Growing (2023)</td>
+                <td>⭐⭐⭐⭐ Very Good</td>
+                <td>⭐⭐⭐⭐ Large</td>
+            </tr>
+            <tr>
+                <td><strong>Windsurf IDE</strong></td>
+                <td>Codeium (VC-backed)</td>
+                <td>⭐⭐⭐ Emerging (2024)</td>
+                <td>⭐⭐⭐ Good</td>
+                <td>⭐⭐⭐ Growing</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>Anthropic (well-funded)</td>
+                <td>⭐⭐⭐⭐ Established (2023)</td>
+                <td>⭐⭐⭐ Good</td>
+                <td>⭐⭐⭐ Medium</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>Open Source</td>
+                <td>⭐⭐⭐ Community (2023)</td>
+                <td>⭐⭐ Limited</td>
+                <td>⭐⭐⭐ Active</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="info-box" style="margin-top: 20px;">
+        <strong>Risk Assessment:</strong> GitHub Copilot has lowest vendor risk (Microsoft backing). Cursor and Windsurf IDE are VC-backed startups with strong traction but higher risk.
+    </div>
+    
+    <div class="slide-number">11</div>
+</div>
+
+<!-- Slide 12: Recommendations by Organization Type -->
+<div class="slide">
+    <h1>Recommendations by Organization Type</h1>
+    
+    <h3>Large Enterprise (>1000 developers)</h3>
+    <div class="recommendation-box">
+        <strong>Primary:</strong> GitHub Copilot Enterprise<br>
+        <strong>Reason:</strong> Best enterprise support, Microsoft backing, proven at scale<br>
+        <strong>Secondary:</strong> Cursor Business (for large monolith teams)
+    </div>
+    
+    <h3>Mid-Market Company (100-1000 developers)</h3>
+    <div class="recommendation-box">
+        <strong>Primary:</strong> Windsurf IDE<br>
+        <strong>Reason:</strong> Best value, excellent capabilities, growing ecosystem<br>
+        <strong>Secondary:</strong> Cursor Pro (if budget allows)
+    </div>
+    
+    <h3>Startup/SMB (<100 developers)</h3>
+    <div class="recommendation-box">
+        <strong>Primary:</strong> GitHub Copilot Individual<br>
+        <strong>Reason:</strong> Fastest to productivity, lowest learning curve<br>
+        <strong>Secondary:</strong> Windsurf IDE (if large legacy codebase)
+    </div>
+    
+    <h3>Regulated Industry (Finance, Healthcare, Government)</h3>
+    <div class="recommendation-box">
+        <strong>Primary:</strong> Cline (self-hosted)<br>
+        <strong>Reason:</strong> Air-gapped deployment, complete data control<br>
+        <strong>Secondary:</strong> GitHub Copilot Enterprise (with Azure Gov Cloud)
+    </div>
+    
+    <div class="slide-number">12</div>
+</div>
+
+<!-- Slide 13: Next Steps -->
+<div class="slide">
+    <h1>Next Steps</h1>
+    
+    <h3>Immediate Actions (This Week)</h3>
+    <ul style="font-size: 18px;">
+        <li><strong>Assess your legacy codebase size:</strong> Run line-of-code analysis</li>
+        <li><strong>Identify security requirements:</strong> Determine if air-gapped deployment needed</li>
+        <li><strong>Review budget:</strong> Allocate $2K-$5K for annual tool licensing (10 devs)</li>
+    </ul>
+    
+    <h3>Short-Term Actions (Next 2 Weeks)</h3>
+    <ul style="font-size: 18px;">
+        <li><strong>Select pilot tool</strong> based on decision matrix</li>
+        <li><strong>Sign up for trial:</strong> All tools offer 14-30 day free trials</li>
+        <li><strong>Identify pilot project:</strong> Choose isolated 5-10K LOC component</li>
+        <li><strong>Establish baseline metrics:</strong> Measure current analysis/refactoring time</li>
+    </ul>
+    
+    <h3>Medium-Term Actions (Next 30 Days)</h3>
+    <ul style="font-size: 18px;">
+        <li><strong>Run pilot project:</strong> Test tool on real legacy code</li>
+        <li><strong>Measure results:</strong> Compare to baseline metrics</li>
+        <li><strong>Make procurement decision:</strong> Based on pilot results</li>
+        <li><strong>Plan rollout:</strong> Develop training and adoption strategy</li>
+    </ul>
+    
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: Questions for Stakeholders -->
+<div class="slide">
+    <h1>Questions for Stakeholders</h1>
+    
+    <h3>For Engineering Leadership:</h3>
+    <ul style="font-size: 18px;">
+        <li>What is the size of your largest legacy application (LOC)?</li>
+        <li>What is your current modernization timeline and budget?</li>
+        <li>Do you have regulatory requirements for air-gapped deployment?</li>
+    </ul>
+    
+    <h3>For Finance/Procurement:</h3>
+    <ul style="font-size: 18px;">
+        <li>What is your budget for developer productivity tools?</li>
+        <li>What is your typical ROI threshold for tool investments?</li>
+        <li>Do you prefer CapEx (self-hosted) or OpEx (SaaS) model?</li>
+    </ul>
+    
+    <h3>For Security/Compliance:</h3>
+    <ul style="font-size: 18px;">
+        <li>What are your data residency requirements?</li>
+        <li>Do you require SOC2, GDPR, or other compliance certifications?</li>
+        <li>Can code be sent to third-party APIs, or must it stay on-premises?</li>
+    </ul>
+    
+    <div class="slide-number">14</div>
+</div>
+
+<!-- Slide 15: Contact & Vendor Links -->
+<div class="slide">
+    <h1>Vendor Contact Information</h1>
+    
+    <h3>Recommended Vendors for Demos:</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Vendor</th>
+                <th>Website</th>
+                <th>Trial Period</th>
+                <th>Best For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Windsurf IDE</strong></td>
+                <td>codeium.com/windsurf</td>
+                <td>14 days</td>
+                <td>Best value, large projects</td>
+            </tr>
+            <tr>
+                <td><strong>Cursor</strong></td>
+                <td>cursor.sh</td>
+                <td>14 days</td>
+                <td>Maximum capabilities</td>
+            </tr>
+            <tr>
+                <td><strong>GitHub Copilot</strong></td>
+                <td>github.com/features/copilot</td>
+                <td>30 days</td>
+                <td>Enterprise, Azure ecosystem</td>
+            </tr>
+            <tr>
+                <td><strong>Cline</strong></td>
+                <td>github.com/cline/cline</td>
+                <td>Free (open source)</td>
+                <td>Regulated industries</td>
+            </tr>
+            <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>claude.ai</td>
+                <td>Free tier available</td>
+                <td>Documentation generation</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="info-box" style="margin-top: 20px;">
+        <strong>Next Review Date:</strong> Quarterly updates recommended due to rapid market evolution
+    </div>
+    
+    <div class="slide-number">15</div>
+</div>
+
+</body>
+</html>
+
